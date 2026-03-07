@@ -1,0 +1,11 @@
+.git/
+.gitignore
+.vs/
+README.md
+LICENSE
+
+**/bin/
+**/obj/
+
+src/**/*.Tests/
+src/**/*Tests*/

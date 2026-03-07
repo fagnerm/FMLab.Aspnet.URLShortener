@@ -1,0 +1,30 @@
+@FMLab.Aspnet.URLShortener.Api_HostAddress = http://localhost:9000
+@ApiKey = e6ae77d8-95b0-4627-b6b9-aa2a56b78474
+
+POST {{FMLab.Aspnet.URLShortener.Api_HostAddress}}/Url
+Content-Type: application/json
+X-Api-Key: {{ApiKey}}
+
+{
+  "target": "https://google.com",
+  "temporaryRedirection": true
+}
+
+###
+
+GET {{FMLab.Aspnet.URLShortener.Api_HostAddress}}/RZWj
+X-Api-Key: {{ApiKey}}
+
+###
+
+PATCH {{FMLab.Aspnet.URLShortener.Api_HostAddress}}/Users/1
+Content-Type: application/json
+X-Api-Key: {{ApiKey}}
+{
+  "name": "John Doe"
+}
+
+###
+
+DELETE {{FMLab.Aspnet.URLShortener.Api_HostAddress}}/RZWj
+X-Api-Key: {{ApiKey}}

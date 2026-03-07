@@ -22,6 +22,8 @@ bld/
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
+.vs/
+[Aa]pp_Data/
 
 # .NET Core
 project.lock.json
@@ -52,3 +54,12 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Environment secrets
+.env
+!.env.example
+
+# Jmeter
+*.jtl
+/test/jmeter/report/
+/test/jmeter/*.log

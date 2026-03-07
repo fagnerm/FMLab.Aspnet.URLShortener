@@ -1,0 +1,1047 @@
+2026-03-06 20:30:57,882 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2026-03-06 20:30:57,891 INFO o.a.j.JMeter: Loading user properties from: D:\Dados\Programas\apache-jmeter-5.6.3\bin\user.properties
+2026-03-06 20:30:57,892 INFO o.a.j.JMeter: Loading system properties from: D:\Dados\Programas\apache-jmeter-5.6.3\bin\system.properties
+2026-03-06 20:30:57,897 INFO o.a.j.JMeter: Copyright (c) 1998-2024 The Apache Software Foundation
+2026-03-06 20:30:57,897 INFO o.a.j.JMeter: Version 5.6.3
+2026-03-06 20:30:57,897 INFO o.a.j.JMeter: java.version=1.8.0_481
+2026-03-06 20:30:57,897 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2026-03-06 20:30:57,897 INFO o.a.j.JMeter: os.name=Windows 11
+2026-03-06 20:30:57,897 INFO o.a.j.JMeter: os.arch=amd64
+2026-03-06 20:30:57,897 INFO o.a.j.JMeter: os.version=10.0
+2026-03-06 20:30:57,897 INFO o.a.j.JMeter: file.encoding=Cp1252
+2026-03-06 20:30:57,897 INFO o.a.j.JMeter: java.awt.headless=true
+2026-03-06 20:30:57,897 INFO o.a.j.JMeter: Max memory     =1073741824
+2026-03-06 20:30:57,898 INFO o.a.j.JMeter: Available Processors =12
+2026-03-06 20:30:57,902 INFO o.a.j.JMeter: Default Locale=English (EN)
+2026-03-06 20:30:57,902 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2026-03-06 20:30:57,902 INFO o.a.j.JMeter: JMeterHome=D:\Dados\Programas\apache-jmeter-5.6.3
+2026-03-06 20:30:57,902 INFO o.a.j.JMeter: user.dir  =D:\Dados\Projetos\FMLab.Projects\FMLab.Aspnet.URLShortener\test
+2026-03-06 20:30:57,902 INFO o.a.j.JMeter: PWD       =D:\Dados\Projetos\FMLab.Projects\FMLab.Aspnet.URLShortener\test
+2026-03-06 20:30:57,904 INFO o.a.j.JMeter: IP: 192.168.1.9 Name: G5 FullName: host.docker.internal
+2026-03-06 20:30:57,917 INFO o.a.j.JMeter: Setting property 'jmeter.reportgenerator.outputdir' to:'D:\Dados\Projetos\FMLab.Projects\FMLab.Aspnet.URLShortener\test\.\test_output\test_202603060830 PM\report'
+2026-03-06 20:30:57,919 INFO o.a.j.s.FileServer: Default base='D:\Dados\Projetos\FMLab.Projects\FMLab.Aspnet.URLShortener\test'
+2026-03-06 20:30:57,920 INFO o.a.j.s.FileServer: Set new base='D:\Dados\Projetos\FMLab.Projects\FMLab.Aspnet.URLShortener\test\.\tests'
+2026-03-06 20:30:58,048 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2026-03-06 20:30:58,069 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2026-03-06 20:30:58,072 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2026-03-06 20:30:58,078 INFO o.a.j.s.SaveService: Loading file: .\tests\load-test.jmx
+2026-03-06 20:30:58,134 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-03-06 20:30:58,134 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-03-06 20:30:58,134 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-03-06 20:30:58,134 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2026-03-06 20:30:58,134 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2026-03-06 20:30:58,134 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2026-03-06 20:30:58,337 INFO o.a.j.JMeter: Creating summariser <summary>
+2026-03-06 20:30:58,341 INFO o.a.j.r.d.ReportGenerator: ReportGenerator will use for Parsing the separator: ','
+2026-03-06 20:30:58,341 INFO o.a.j.r.d.ReportGenerator: Will generate report at end of test from  results file: ./test_output/test_202603060830 PM/results.jtl
+2026-03-06 20:30:58,341 INFO o.a.j.r.d.ReportGenerator: Reading report generator properties from: D:\Dados\Programas\apache-jmeter-5.6.3\bin\reportgenerator.properties
+2026-03-06 20:30:58,451 INFO o.a.j.r.d.ReportGenerator: Merging with JMeter properties
+2026-03-06 20:30:58,471 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.temp_dir' not found, using default value 'temp' instead.
+2026-03-06 20:30:58,473 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.apdex_per_transaction' not found, using default value 'null' instead.
+2026-03-06 20:30:58,473 INFO o.a.j.r.c.ReportGeneratorConfiguration: apdex_per_transaction is empty, not APDEX per transaction customization
+2026-03-06 20:30:58,473 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.sample_filter' not found, using default value 'null' instead.
+2026-03-06 20:30:58,474 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.report_title' not found, using default value 'null' instead.
+2026-03-06 20:30:58,474 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.start_date' not found, using default value 'null' instead.
+2026-03-06 20:30:58,474 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.end_date' not found, using default value 'null' instead.
+2026-03-06 20:30:58,474 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.date_format' not found, using default value 'null' instead.
+2026-03-06 20:30:58,474 INFO o.a.j.r.c.ReportGeneratorConfiguration: Will use date range start date: null, end date: null
+2026-03-06 20:30:58,478 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.totalTPS.exclude_controllers' not found, using default value 'false' instead.
+2026-03-06 20:30:58,479 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.activeThreadsOverTime.exclude_controllers' not found, using default value 'false' instead.
+2026-03-06 20:30:58,479 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.timeVsThreads.exclude_controllers' not found, using default value 'false' instead.
+2026-03-06 20:30:58,479 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.responseTimeDistribution.exclude_controllers' not found, using default value 'false' instead.
+2026-03-06 20:30:58,479 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.transactionsPerSecond.exclude_controllers' not found, using default value 'false' instead.
+2026-03-06 20:30:58,479 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.responseTimePercentiles.exclude_controllers' not found, using default value 'false' instead.
+2026-03-06 20:30:58,479 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.responseTimePercentilesOverTime.exclude_controllers' not found, using default value 'false' instead.
+2026-03-06 20:30:58,479 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.responseTimesOverTime.exclude_controllers' not found, using default value 'false' instead.
+2026-03-06 20:30:58,479 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.connectTimeOverTime.exclude_controllers' not found, using default value 'false' instead.
+2026-03-06 20:30:58,479 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.graph.latenciesOverTime.exclude_controllers' not found, using default value 'false' instead.
+2026-03-06 20:30:58,480 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.json.filters_only_sample_series' not found, using default value 'true' instead.
+2026-03-06 20:30:58,480 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.json.series_filter' not found, using default value '' instead.
+2026-03-06 20:30:58,480 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.json.show_controllers_only' not found, using default value 'false' instead.
+2026-03-06 20:30:58,481 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.html.filters_only_sample_series' not found, using default value 'true' instead.
+2026-03-06 20:30:58,481 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.html.series_filter' not found, using default value '' instead.
+2026-03-06 20:30:58,481 INFO o.a.j.r.c.ReportGeneratorConfiguration: Property 'jmeter.reportgenerator.exporter.html.show_controllers_only' not found, using default value 'false' instead.
+2026-03-06 20:30:58,491 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2026-03-06 20:30:58,492 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-03-06 20:30:58,492 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2026-03-06 20:30:58,496 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2026-03-06 20:30:58,496 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2026-03-06 20:30:58,724 INFO o.a.j.JMeter: Running test (1772839858724)
+2026-03-06 20:30:58,766 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : Throughput Discovery — ramp to 300 threads
+2026-03-06 20:30:58,766 INFO o.a.j.e.StandardJMeterEngine: Starting 300 threads for group Throughput Discovery — ramp to 300 threads.
+2026-03-06 20:30:58,766 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2026-03-06 20:30:58,766 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=300 ramp-up=150 delayedStart=false
+2026-03-06 20:30:58,772 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-1
+2026-03-06 20:30:58,793 INFO o.a.j.p.h.s.HTTPHCAbstractImpl: Local host = G5
+2026-03-06 20:30:58,801 INFO o.a.j.p.h.s.HTTPHC4Impl: HTTP request retry count = 0
+2026-03-06 20:30:58,803 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2026-03-06 20:30:58,803 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to UTF-8
+2026-03-06 20:30:58,803 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2026-03-06 20:30:58,803 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2026-03-06 20:30:58,834 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2026-03-06 20:30:58,834 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2026-03-06 20:30:58,928 INFO o.a.j.u.JsseSSLManager: Using default SSL protocol: TLS
+2026-03-06 20:30:58,928 INFO o.a.j.u.JsseSSLManager: SSL session context: per-thread
+2026-03-06 20:30:59,269 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-2
+2026-03-06 20:30:59,768 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-3
+2026-03-06 20:31:00,003 INFO o.a.j.r.Summariser: summary +    255 in 00:00:01 =  199.7/s Avg:     7 Min:     4 Max:    56 Err:     4 (1.57%) Active: 3 Started: 3 Finished: 0
+2026-03-06 20:31:00,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-4
+2026-03-06 20:31:00,769 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-5
+2026-03-06 20:31:01,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-6
+2026-03-06 20:31:01,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-7
+2026-03-06 20:31:02,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-8
+2026-03-06 20:31:02,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-9
+2026-03-06 20:31:03,277 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-10
+2026-03-06 20:31:03,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-11
+2026-03-06 20:31:04,268 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-12
+2026-03-06 20:31:04,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-13
+2026-03-06 20:31:05,270 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-14
+2026-03-06 20:31:05,768 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-15
+2026-03-06 20:31:06,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-16
+2026-03-06 20:31:06,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-17
+2026-03-06 20:31:07,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-18
+2026-03-06 20:31:07,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-19
+2026-03-06 20:31:08,268 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-20
+2026-03-06 20:31:08,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-21
+2026-03-06 20:31:09,268 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-22
+2026-03-06 20:31:09,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-23
+2026-03-06 20:31:10,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-24
+2026-03-06 20:31:10,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-25
+2026-03-06 20:31:11,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-26
+2026-03-06 20:31:11,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-27
+2026-03-06 20:31:12,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-28
+2026-03-06 20:31:12,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-29
+2026-03-06 20:31:13,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-30
+2026-03-06 20:31:13,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-31
+2026-03-06 20:31:14,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-32
+2026-03-06 20:31:14,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-33
+2026-03-06 20:31:15,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-34
+2026-03-06 20:31:15,775 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-35
+2026-03-06 20:31:16,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-36
+2026-03-06 20:31:16,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-37
+2026-03-06 20:31:17,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-38
+2026-03-06 20:31:17,768 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-39
+2026-03-06 20:31:18,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-40
+2026-03-06 20:31:18,769 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-41
+2026-03-06 20:31:19,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-42
+2026-03-06 20:31:19,769 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-43
+2026-03-06 20:31:20,268 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-44
+2026-03-06 20:31:20,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-45
+2026-03-06 20:31:21,269 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-46
+2026-03-06 20:31:21,769 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-47
+2026-03-06 20:31:22,268 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-48
+2026-03-06 20:31:22,768 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-49
+2026-03-06 20:31:23,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-50
+2026-03-06 20:31:23,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-51
+2026-03-06 20:31:24,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-52
+2026-03-06 20:31:24,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-53
+2026-03-06 20:31:25,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-54
+2026-03-06 20:31:25,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-55
+2026-03-06 20:31:26,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-56
+2026-03-06 20:31:26,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-57
+2026-03-06 20:31:27,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-58
+2026-03-06 20:31:27,770 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-59
+2026-03-06 20:31:28,304 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-60
+2026-03-06 20:31:28,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-61
+2026-03-06 20:31:29,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-62
+2026-03-06 20:31:29,769 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-63
+2026-03-06 20:31:30,000 INFO o.a.j.r.Summariser: summary +  22516 in 00:00:30 =  750.6/s Avg:    41 Min:     3 Max:   197 Err:   729 (3.24%) Active: 63 Started: 63 Finished: 0
+2026-03-06 20:31:30,001 INFO o.a.j.r.Summariser: summary =  22771 in 00:00:31 =  728.1/s Avg:    41 Min:     3 Max:   197 Err:   733 (3.22%)
+2026-03-06 20:31:30,279 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-64
+2026-03-06 20:31:30,781 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-65
+2026-03-06 20:31:31,278 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-66
+2026-03-06 20:31:31,775 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-67
+2026-03-06 20:31:32,280 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-68
+2026-03-06 20:31:32,771 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-69
+2026-03-06 20:31:33,307 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-70
+2026-03-06 20:31:33,779 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-71
+2026-03-06 20:31:34,320 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-72
+2026-03-06 20:31:34,776 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-73
+2026-03-06 20:31:35,275 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-74
+2026-03-06 20:31:35,780 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-75
+2026-03-06 20:31:36,349 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-76
+2026-03-06 20:31:36,776 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-77
+2026-03-06 20:31:37,292 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-78
+2026-03-06 20:31:37,777 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-79
+2026-03-06 20:31:38,283 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-80
+2026-03-06 20:31:38,776 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-81
+2026-03-06 20:31:39,295 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-82
+2026-03-06 20:31:39,775 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-83
+2026-03-06 20:31:40,364 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-84
+2026-03-06 20:31:40,774 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-85
+2026-03-06 20:31:41,355 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-86
+2026-03-06 20:31:41,773 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-87
+2026-03-06 20:31:42,354 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-88
+2026-03-06 20:31:42,774 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-89
+2026-03-06 20:31:43,306 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-90
+2026-03-06 20:31:43,768 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-91
+2026-03-06 20:31:44,318 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-92
+2026-03-06 20:31:44,769 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-93
+2026-03-06 20:31:45,285 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-94
+2026-03-06 20:31:45,769 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-95
+2026-03-06 20:31:46,296 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-96
+2026-03-06 20:31:46,771 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-97
+2026-03-06 20:31:47,289 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-98
+2026-03-06 20:31:47,772 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-99
+2026-03-06 20:31:48,290 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-100
+2026-03-06 20:31:48,777 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-101
+2026-03-06 20:31:49,306 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-102
+2026-03-06 20:31:49,775 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-103
+2026-03-06 20:31:50,299 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-104
+2026-03-06 20:31:50,778 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-105
+2026-03-06 20:31:51,301 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-106
+2026-03-06 20:31:51,771 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-107
+2026-03-06 20:31:52,287 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-108
+2026-03-06 20:31:52,772 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-109
+2026-03-06 20:31:53,282 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-110
+2026-03-06 20:31:53,777 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-111
+2026-03-06 20:31:54,307 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-112
+2026-03-06 20:31:54,776 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-113
+2026-03-06 20:31:55,305 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-114
+2026-03-06 20:31:55,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-115
+2026-03-06 20:31:56,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-116
+2026-03-06 20:31:56,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-117
+2026-03-06 20:31:57,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-118
+2026-03-06 20:31:57,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-119
+2026-03-06 20:31:58,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-120
+2026-03-06 20:31:58,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-121
+2026-03-06 20:31:59,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-122
+2026-03-06 20:31:59,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-123
+2026-03-06 20:32:00,006 INFO o.a.j.r.Summariser: summary +  11779 in 00:00:30 =  392.6/s Avg:   234 Min:    19 Max:  1297 Err:  6500 (55.18%) Active: 123 Started: 123 Finished: 0
+2026-03-06 20:32:00,008 INFO o.a.j.r.Summariser: summary =  34550 in 00:01:01 =  563.8/s Avg:   107 Min:     3 Max:  1297 Err:  7233 (20.93%)
+2026-03-06 20:32:00,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-124
+2026-03-06 20:32:00,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-125
+2026-03-06 20:32:01,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-126
+2026-03-06 20:32:01,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-127
+2026-03-06 20:32:02,281 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-128
+2026-03-06 20:32:02,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-129
+2026-03-06 20:32:03,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-130
+2026-03-06 20:32:03,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-131
+2026-03-06 20:32:04,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-132
+2026-03-06 20:32:04,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-133
+2026-03-06 20:32:05,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-134
+2026-03-06 20:32:05,769 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-135
+2026-03-06 20:32:06,269 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-136
+2026-03-06 20:32:06,768 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-137
+2026-03-06 20:32:07,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-138
+2026-03-06 20:32:07,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-139
+2026-03-06 20:32:08,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-140
+2026-03-06 20:32:08,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-141
+2026-03-06 20:32:09,268 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-142
+2026-03-06 20:32:09,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-143
+2026-03-06 20:32:10,269 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-144
+2026-03-06 20:32:10,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-145
+2026-03-06 20:32:11,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-146
+2026-03-06 20:32:11,772 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-147
+2026-03-06 20:32:12,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-148
+2026-03-06 20:32:12,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-149
+2026-03-06 20:32:13,270 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-150
+2026-03-06 20:32:13,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-151
+2026-03-06 20:32:14,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-152
+2026-03-06 20:32:14,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-153
+2026-03-06 20:32:15,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-154
+2026-03-06 20:32:15,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-155
+2026-03-06 20:32:16,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-156
+2026-03-06 20:32:16,769 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-157
+2026-03-06 20:32:17,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-158
+2026-03-06 20:32:17,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-159
+2026-03-06 20:32:18,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-160
+2026-03-06 20:32:18,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-161
+2026-03-06 20:32:19,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-162
+2026-03-06 20:32:19,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-163
+2026-03-06 20:32:20,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-164
+2026-03-06 20:32:20,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-165
+2026-03-06 20:32:21,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-166
+2026-03-06 20:32:21,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-167
+2026-03-06 20:32:22,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-168
+2026-03-06 20:32:22,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-169
+2026-03-06 20:32:23,271 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-170
+2026-03-06 20:32:23,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-171
+2026-03-06 20:32:24,278 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-172
+2026-03-06 20:32:24,771 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-173
+2026-03-06 20:32:25,276 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-174
+2026-03-06 20:32:25,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-175
+2026-03-06 20:32:26,272 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-176
+2026-03-06 20:32:26,778 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-177
+2026-03-06 20:32:27,273 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-178
+2026-03-06 20:32:27,781 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-179
+2026-03-06 20:32:28,274 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-180
+2026-03-06 20:32:28,781 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-181
+2026-03-06 20:32:29,273 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-182
+2026-03-06 20:32:29,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-183
+2026-03-06 20:32:30,015 INFO o.a.j.r.Summariser: summary +  22377 in 00:00:30 =  745.7/s Avg:   199 Min:    15 Max:  1134 Err:  2619 (11.70%) Active: 183 Started: 183 Finished: 0
+2026-03-06 20:32:30,016 INFO o.a.j.r.Summariser: summary =  56927 in 00:01:31 =  623.6/s Avg:   143 Min:     3 Max:  1297 Err:  9852 (17.31%)
+2026-03-06 20:32:30,275 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-184
+2026-03-06 20:32:30,780 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-185
+2026-03-06 20:32:31,274 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-186
+2026-03-06 20:32:31,781 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-187
+2026-03-06 20:32:32,274 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-188
+2026-03-06 20:32:32,785 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-189
+2026-03-06 20:32:33,275 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-190
+2026-03-06 20:32:33,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-191
+2026-03-06 20:32:34,277 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-192
+2026-03-06 20:32:34,769 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-193
+2026-03-06 20:32:35,275 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-194
+2026-03-06 20:32:35,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-195
+2026-03-06 20:32:36,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-196
+2026-03-06 20:32:36,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-197
+2026-03-06 20:32:37,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-198
+2026-03-06 20:32:37,781 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-199
+2026-03-06 20:32:38,280 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-200
+2026-03-06 20:32:38,770 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-201
+2026-03-06 20:32:39,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-202
+2026-03-06 20:32:39,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-203
+2026-03-06 20:32:40,275 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-204
+2026-03-06 20:32:40,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-205
+2026-03-06 20:32:41,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-206
+2026-03-06 20:32:41,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-207
+2026-03-06 20:32:42,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-208
+2026-03-06 20:32:42,768 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-209
+2026-03-06 20:32:43,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-210
+2026-03-06 20:32:43,768 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-211
+2026-03-06 20:32:44,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-212
+2026-03-06 20:32:44,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-213
+2026-03-06 20:32:45,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-214
+2026-03-06 20:32:45,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-215
+2026-03-06 20:32:46,268 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-216
+2026-03-06 20:32:46,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-217
+2026-03-06 20:32:47,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-218
+2026-03-06 20:32:47,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-219
+2026-03-06 20:32:48,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-220
+2026-03-06 20:32:48,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-221
+2026-03-06 20:32:49,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-222
+2026-03-06 20:32:49,769 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-223
+2026-03-06 20:32:50,276 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-224
+2026-03-06 20:32:50,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-225
+2026-03-06 20:32:51,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-226
+2026-03-06 20:32:51,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-227
+2026-03-06 20:32:52,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-228
+2026-03-06 20:32:52,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-229
+2026-03-06 20:32:53,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-230
+2026-03-06 20:32:53,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-231
+2026-03-06 20:32:54,268 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-232
+2026-03-06 20:32:54,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-233
+2026-03-06 20:32:55,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-234
+2026-03-06 20:32:55,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-235
+2026-03-06 20:32:56,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-236
+2026-03-06 20:32:56,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-237
+2026-03-06 20:32:57,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-238
+2026-03-06 20:32:57,768 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-239
+2026-03-06 20:32:58,268 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-240
+2026-03-06 20:32:58,769 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-241
+2026-03-06 20:32:59,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-242
+2026-03-06 20:32:59,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-243
+2026-03-06 20:33:00,096 INFO o.a.j.r.Summariser: summary +  13458 in 00:00:30 =  447.4/s Avg:   450 Min:    24 Max:  2192 Err:  6050 (44.95%) Active: 243 Started: 243 Finished: 0
+2026-03-06 20:33:00,098 INFO o.a.j.r.Summariser: summary =  70385 in 00:02:01 =  579.9/s Avg:   202 Min:     3 Max:  2192 Err: 15902 (22.59%)
+2026-03-06 20:33:00,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-244
+2026-03-06 20:33:00,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-245
+2026-03-06 20:33:01,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-246
+2026-03-06 20:33:01,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-247
+2026-03-06 20:33:02,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-248
+2026-03-06 20:33:02,768 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-249
+2026-03-06 20:33:03,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-250
+2026-03-06 20:33:03,768 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-251
+2026-03-06 20:33:04,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-252
+2026-03-06 20:33:04,769 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-253
+2026-03-06 20:33:05,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-254
+2026-03-06 20:33:05,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-255
+2026-03-06 20:33:06,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-256
+2026-03-06 20:33:06,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-257
+2026-03-06 20:33:07,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-258
+2026-03-06 20:33:07,781 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-259
+2026-03-06 20:33:08,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-260
+2026-03-06 20:33:08,768 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-261
+2026-03-06 20:33:09,269 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-262
+2026-03-06 20:33:09,768 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-263
+2026-03-06 20:33:10,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-264
+2026-03-06 20:33:10,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-265
+2026-03-06 20:33:11,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-266
+2026-03-06 20:33:11,768 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-267
+2026-03-06 20:33:12,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-268
+2026-03-06 20:33:12,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-269
+2026-03-06 20:33:13,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-270
+2026-03-06 20:33:13,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-271
+2026-03-06 20:33:14,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-272
+2026-03-06 20:33:14,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-273
+2026-03-06 20:33:15,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-274
+2026-03-06 20:33:15,768 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-275
+2026-03-06 20:33:16,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-276
+2026-03-06 20:33:16,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-277
+2026-03-06 20:33:17,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-278
+2026-03-06 20:33:17,771 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-279
+2026-03-06 20:33:18,268 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-280
+2026-03-06 20:33:18,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-281
+2026-03-06 20:33:19,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-282
+2026-03-06 20:33:19,777 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-283
+2026-03-06 20:33:20,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-284
+2026-03-06 20:33:20,769 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-285
+2026-03-06 20:33:21,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-286
+2026-03-06 20:33:21,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-287
+2026-03-06 20:33:22,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-288
+2026-03-06 20:33:22,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-289
+2026-03-06 20:33:23,268 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-290
+2026-03-06 20:33:23,768 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-291
+2026-03-06 20:33:24,278 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-292
+2026-03-06 20:33:24,766 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-293
+2026-03-06 20:33:25,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-294
+2026-03-06 20:33:25,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-295
+2026-03-06 20:33:26,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-296
+2026-03-06 20:33:26,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-297
+2026-03-06 20:33:27,266 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-298
+2026-03-06 20:33:27,767 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-299
+2026-03-06 20:33:28,267 INFO o.a.j.t.JMeterThread: Thread started: Throughput Discovery — ramp to 300 threads 1-300
+2026-03-06 20:33:30,020 INFO o.a.j.r.Summariser: summary +  24149 in 00:00:30 =  807.0/s Avg:   339 Min:    21 Max:  1647 Err:  7273 (30.12%) Active: 300 Started: 300 Finished: 0
+2026-03-06 20:33:30,022 INFO o.a.j.r.Summariser: summary =  94534 in 00:02:31 =  624.8/s Avg:   237 Min:     3 Max:  2192 Err: 23175 (24.51%)
+2026-03-06 20:34:00,001 INFO o.a.j.r.Summariser: summary +  14251 in 00:00:30 =  475.3/s Avg:   614 Min:    35 Max:  3042 Err:  6270 (44.00%) Active: 300 Started: 300 Finished: 0
+2026-03-06 20:34:00,003 INFO o.a.j.r.Summariser: summary = 108785 in 00:03:01 =  600.1/s Avg:   286 Min:     3 Max:  3042 Err: 29445 (27.07%)
+2026-03-06 20:34:30,003 INFO o.a.j.r.Summariser: summary +  23850 in 00:00:30 =  794.9/s Avg:   381 Min:    13 Max:  1927 Err:  8380 (35.14%) Active: 300 Started: 300 Finished: 0
+2026-03-06 20:34:30,004 INFO o.a.j.r.Summariser: summary = 132635 in 00:03:31 =  627.8/s Avg:   303 Min:     3 Max:  3042 Err: 37825 (28.52%)
+2026-03-06 20:35:00,029 INFO o.a.j.r.Summariser: summary +  14910 in 00:00:30 =  496.6/s Avg:   583 Min:    36 Max:  2995 Err:  5964 (40.00%) Active: 300 Started: 300 Finished: 0
+2026-03-06 20:35:00,031 INFO o.a.j.r.Summariser: summary = 147545 in 00:04:01 =  611.4/s Avg:   331 Min:     3 Max:  3042 Err: 43789 (29.68%)
+2026-03-06 20:35:30,118 INFO o.a.j.r.Summariser: summary +  22587 in 00:00:30 =  750.7/s Avg:   393 Min:    17 Max:  2624 Err:  7045 (31.19%) Active: 300 Started: 300 Finished: 0
+2026-03-06 20:35:30,118 INFO o.a.j.r.Summariser: summary = 170132 in 00:04:31 =  626.9/s Avg:   340 Min:     3 Max:  3042 Err: 50834 (29.88%)
+2026-03-06 20:35:58,812 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-69
+2026-03-06 20:35:58,812 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-69
+2026-03-06 20:35:58,812 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-102
+2026-03-06 20:35:58,813 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-102
+2026-03-06 20:35:58,813 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-136
+2026-03-06 20:35:58,813 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-7
+2026-03-06 20:35:58,813 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-7
+2026-03-06 20:35:58,813 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-2
+2026-03-06 20:35:58,813 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-2
+2026-03-06 20:35:58,814 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-135
+2026-03-06 20:35:58,814 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-135
+2026-03-06 20:35:58,814 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-136
+2026-03-06 20:35:58,814 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-40
+2026-03-06 20:35:58,815 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-40
+2026-03-06 20:35:58,815 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-33
+2026-03-06 20:35:58,815 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-33
+2026-03-06 20:35:58,815 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-112
+2026-03-06 20:35:58,815 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-112
+2026-03-06 20:35:58,815 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-46
+2026-03-06 20:35:58,816 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-46
+2026-03-06 20:35:58,816 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-170
+2026-03-06 20:35:58,816 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-170
+2026-03-06 20:35:58,816 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-38
+2026-03-06 20:35:58,816 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-38
+2026-03-06 20:35:58,816 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-139
+2026-03-06 20:35:58,816 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-139
+2026-03-06 20:35:58,816 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-37
+2026-03-06 20:35:58,816 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-37
+2026-03-06 20:35:58,817 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-130
+2026-03-06 20:35:58,817 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-130
+2026-03-06 20:35:58,819 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-56
+2026-03-06 20:35:58,819 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-131
+2026-03-06 20:35:58,819 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-56
+2026-03-06 20:35:58,819 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-131
+2026-03-06 20:35:58,819 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-73
+2026-03-06 20:35:58,819 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-73
+2026-03-06 20:35:58,819 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-85
+2026-03-06 20:35:58,819 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-85
+2026-03-06 20:35:58,821 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-47
+2026-03-06 20:35:58,821 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-47
+2026-03-06 20:35:58,824 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-68
+2026-03-06 20:35:58,824 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-68
+2026-03-06 20:35:58,824 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-216
+2026-03-06 20:35:58,824 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-216
+2026-03-06 20:35:58,824 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-94
+2026-03-06 20:35:58,824 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-94
+2026-03-06 20:35:58,824 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-111
+2026-03-06 20:35:58,824 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-111
+2026-03-06 20:35:58,825 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-48
+2026-03-06 20:35:58,825 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-193
+2026-03-06 20:35:58,825 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-48
+2026-03-06 20:35:58,825 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-193
+2026-03-06 20:35:58,825 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-24
+2026-03-06 20:35:58,825 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-24
+2026-03-06 20:35:58,827 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-252
+2026-03-06 20:35:58,827 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-252
+2026-03-06 20:35:58,827 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-225
+2026-03-06 20:35:58,827 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-225
+2026-03-06 20:35:58,828 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-39
+2026-03-06 20:35:58,828 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-8
+2026-03-06 20:35:58,828 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-8
+2026-03-06 20:35:58,828 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-121
+2026-03-06 20:35:58,828 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-121
+2026-03-06 20:35:58,828 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-174
+2026-03-06 20:35:58,828 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-174
+2026-03-06 20:35:58,828 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-124
+2026-03-06 20:35:58,828 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-124
+2026-03-06 20:35:58,829 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-176
+2026-03-06 20:35:58,829 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-176
+2026-03-06 20:35:58,829 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-36
+2026-03-06 20:35:58,829 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-36
+2026-03-06 20:35:58,829 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-148
+2026-03-06 20:35:58,829 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-148
+2026-03-06 20:35:58,829 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-6
+2026-03-06 20:35:58,829 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-6
+2026-03-06 20:35:58,830 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-141
+2026-03-06 20:35:58,830 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-141
+2026-03-06 20:35:58,830 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-140
+2026-03-06 20:35:58,830 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-140
+2026-03-06 20:35:58,830 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-97
+2026-03-06 20:35:58,830 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-97
+2026-03-06 20:35:58,830 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-171
+2026-03-06 20:35:58,830 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-171
+2026-03-06 20:35:58,830 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-22
+2026-03-06 20:35:58,830 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-22
+2026-03-06 20:35:58,831 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-275
+2026-03-06 20:35:58,831 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-267
+2026-03-06 20:35:58,831 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-275
+2026-03-06 20:35:58,831 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-267
+2026-03-06 20:35:58,828 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-39
+2026-03-06 20:35:58,831 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-256
+2026-03-06 20:35:58,831 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-199
+2026-03-06 20:35:58,831 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-151
+2026-03-06 20:35:58,830 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-276
+2026-03-06 20:35:58,831 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-256
+2026-03-06 20:35:58,831 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-199
+2026-03-06 20:35:58,831 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-276
+2026-03-06 20:35:58,831 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-151
+2026-03-06 20:35:58,831 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-27
+2026-03-06 20:35:58,831 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-27
+2026-03-06 20:35:58,831 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-207
+2026-03-06 20:35:58,831 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-207
+2026-03-06 20:35:58,832 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-152
+2026-03-06 20:35:58,832 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-152
+2026-03-06 20:35:58,832 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-77
+2026-03-06 20:35:58,833 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-77
+2026-03-06 20:35:58,833 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-155
+2026-03-06 20:35:58,833 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-155
+2026-03-06 20:35:58,833 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-299
+2026-03-06 20:35:58,821 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-200
+2026-03-06 20:35:58,835 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-299
+2026-03-06 20:35:58,835 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-11
+2026-03-06 20:35:58,835 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-108
+2026-03-06 20:35:58,835 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-200
+2026-03-06 20:35:58,835 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-274
+2026-03-06 20:35:58,835 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-274
+2026-03-06 20:35:58,835 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-11
+2026-03-06 20:35:58,835 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-108
+2026-03-06 20:35:58,923 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-215
+2026-03-06 20:35:58,923 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-215
+2026-03-06 20:35:58,924 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-18
+2026-03-06 20:35:58,924 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-18
+2026-03-06 20:35:58,924 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-278
+2026-03-06 20:35:58,924 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-278
+2026-03-06 20:35:58,924 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-61
+2026-03-06 20:35:58,924 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-61
+2026-03-06 20:35:58,924 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-153
+2026-03-06 20:35:58,925 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-164
+2026-03-06 20:35:58,925 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-164
+2026-03-06 20:35:58,925 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-60
+2026-03-06 20:35:58,925 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-60
+2026-03-06 20:35:58,925 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-192
+2026-03-06 20:35:58,925 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-192
+2026-03-06 20:35:58,925 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-63
+2026-03-06 20:35:58,925 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-63
+2026-03-06 20:35:58,926 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-229
+2026-03-06 20:35:58,926 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-229
+2026-03-06 20:35:58,926 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-218
+2026-03-06 20:35:58,926 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-177
+2026-03-06 20:35:58,926 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-218
+2026-03-06 20:35:58,926 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-177
+2026-03-06 20:35:58,923 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-25
+2026-03-06 20:35:58,926 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-248
+2026-03-06 20:35:58,926 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-25
+2026-03-06 20:35:58,926 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-248
+2026-03-06 20:35:58,926 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-16
+2026-03-06 20:35:58,926 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-16
+2026-03-06 20:35:58,926 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-1
+2026-03-06 20:35:58,926 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-42
+2026-03-06 20:35:58,926 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-1
+2026-03-06 20:35:58,926 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-42
+2026-03-06 20:35:58,927 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-26
+2026-03-06 20:35:58,927 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-26
+2026-03-06 20:35:58,927 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-253
+2026-03-06 20:35:58,927 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-253
+2026-03-06 20:35:58,927 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-149
+2026-03-06 20:35:58,927 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-149
+2026-03-06 20:35:58,924 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-13
+2026-03-06 20:35:58,927 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-281
+2026-03-06 20:35:58,927 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-281
+2026-03-06 20:35:58,927 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-153
+2026-03-06 20:35:58,925 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-161
+2026-03-06 20:35:58,925 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-105
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-286
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-105
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-286
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-86
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-86
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-114
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-114
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-67
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-67
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-239
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-239
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-217
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-217
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-265
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-265
+2026-03-06 20:35:58,927 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-13
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-227
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-161
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-44
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-227
+2026-03-06 20:35:58,928 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-44
+2026-03-06 20:35:58,929 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-268
+2026-03-06 20:35:58,929 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-268
+2026-03-06 20:35:58,929 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-58
+2026-03-06 20:35:58,929 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-58
+2026-03-06 20:35:58,929 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-3
+2026-03-06 20:35:58,930 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-3
+2026-03-06 20:35:58,930 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-292
+2026-03-06 20:35:58,930 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-292
+2026-03-06 20:35:58,964 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-30
+2026-03-06 20:35:58,964 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-30
+2026-03-06 20:35:58,964 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-166
+2026-03-06 20:35:58,964 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-166
+2026-03-06 20:35:58,965 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-213
+2026-03-06 20:35:58,965 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-213
+2026-03-06 20:35:58,965 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-4
+2026-03-06 20:35:58,965 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-4
+2026-03-06 20:35:58,965 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-133
+2026-03-06 20:35:58,965 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-133
+2026-03-06 20:35:58,965 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-89
+2026-03-06 20:35:58,965 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-89
+2026-03-06 20:35:58,966 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-160
+2026-03-06 20:35:58,966 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-160
+2026-03-06 20:35:58,966 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-190
+2026-03-06 20:35:58,966 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-190
+2026-03-06 20:35:58,966 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-32
+2026-03-06 20:35:58,966 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-32
+2026-03-06 20:35:58,966 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-64
+2026-03-06 20:35:58,966 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-64
+2026-03-06 20:35:58,967 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-71
+2026-03-06 20:35:58,967 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-71
+2026-03-06 20:35:58,967 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-134
+2026-03-06 20:35:58,967 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-134
+2026-03-06 20:35:58,967 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-82
+2026-03-06 20:35:58,967 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-82
+2026-03-06 20:35:58,967 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-43
+2026-03-06 20:35:58,967 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-43
+2026-03-06 20:35:58,967 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-81
+2026-03-06 20:35:58,967 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-81
+2026-03-06 20:35:58,968 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-142
+2026-03-06 20:35:58,968 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-142
+2026-03-06 20:35:58,968 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-280
+2026-03-06 20:35:58,968 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-280
+2026-03-06 20:35:58,968 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-75
+2026-03-06 20:35:58,968 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-75
+2026-03-06 20:35:58,968 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-128
+2026-03-06 20:35:58,968 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-231
+2026-03-06 20:35:58,968 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-128
+2026-03-06 20:35:58,968 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-66
+2026-03-06 20:35:58,969 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-66
+2026-03-06 20:35:58,969 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-240
+2026-03-06 20:35:58,969 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-240
+2026-03-06 20:35:58,969 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-238
+2026-03-06 20:35:58,969 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-238
+2026-03-06 20:35:58,969 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-80
+2026-03-06 20:35:58,969 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-80
+2026-03-06 20:35:58,969 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-175
+2026-03-06 20:35:58,969 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-14
+2026-03-06 20:35:58,969 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-14
+2026-03-06 20:35:58,969 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-214
+2026-03-06 20:35:58,969 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-214
+2026-03-06 20:35:58,970 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-183
+2026-03-06 20:35:58,970 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-183
+2026-03-06 20:35:58,970 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-117
+2026-03-06 20:35:58,970 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-117
+2026-03-06 20:35:58,970 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-255
+2026-03-06 20:35:58,970 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-255
+2026-03-06 20:35:58,971 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-233
+2026-03-06 20:35:58,971 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-233
+2026-03-06 20:35:58,971 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-74
+2026-03-06 20:35:58,971 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-74
+2026-03-06 20:35:58,971 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-62
+2026-03-06 20:35:58,971 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-62
+2026-03-06 20:35:58,971 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-96
+2026-03-06 20:35:58,971 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-96
+2026-03-06 20:35:58,971 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-283
+2026-03-06 20:35:58,971 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-283
+2026-03-06 20:35:58,965 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-104
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-91
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-104
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-91
+2026-03-06 20:35:58,966 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-103
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-175
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-156
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-231
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-103
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-156
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-132
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-132
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-92
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-92
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-157
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-157
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-181
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-181
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-236
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-258
+2026-03-06 20:35:58,972 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-236
+2026-03-06 20:35:58,973 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-295
+2026-03-06 20:35:58,973 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-295
+2026-03-06 20:35:58,973 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-49
+2026-03-06 20:35:58,973 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-49
+2026-03-06 20:35:58,974 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-41
+2026-03-06 20:35:58,974 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-41
+2026-03-06 20:35:58,974 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-178
+2026-03-06 20:35:58,974 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-178
+2026-03-06 20:35:58,974 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-228
+2026-03-06 20:35:58,974 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-228
+2026-03-06 20:35:58,974 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-115
+2026-03-06 20:35:58,974 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-115
+2026-03-06 20:35:58,974 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-285
+2026-03-06 20:35:58,974 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-285
+2026-03-06 20:35:58,974 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-243
+2026-03-06 20:35:58,974 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-243
+2026-03-06 20:35:58,974 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-241
+2026-03-06 20:35:58,974 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-241
+2026-03-06 20:35:58,975 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-300
+2026-03-06 20:35:58,975 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-300
+2026-03-06 20:35:58,975 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-12
+2026-03-06 20:35:58,975 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-12
+2026-03-06 20:35:58,975 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-116
+2026-03-06 20:35:58,975 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-116
+2026-03-06 20:35:58,975 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-296
+2026-03-06 20:35:58,975 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-296
+2026-03-06 20:35:58,975 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-51
+2026-03-06 20:35:58,975 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-51
+2026-03-06 20:35:58,976 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-163
+2026-03-06 20:35:58,976 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-163
+2026-03-06 20:35:58,976 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-202
+2026-03-06 20:35:58,976 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-127
+2026-03-06 20:35:58,976 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-202
+2026-03-06 20:35:58,976 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-127
+2026-03-06 20:35:58,976 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-245
+2026-03-06 20:35:58,977 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-245
+2026-03-06 20:35:58,977 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-258
+2026-03-06 20:35:58,977 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-289
+2026-03-06 20:35:58,977 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-289
+2026-03-06 20:35:58,977 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-204
+2026-03-06 20:35:58,977 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-204
+2026-03-06 20:35:58,977 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-55
+2026-03-06 20:35:58,977 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-55
+2026-03-06 20:35:58,977 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-15
+2026-03-06 20:35:58,977 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-15
+2026-03-06 20:35:58,977 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-158
+2026-03-06 20:35:58,977 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-158
+2026-03-06 20:35:58,977 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-234
+2026-03-06 20:35:58,977 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-234
+2026-03-06 20:35:58,977 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-293
+2026-03-06 20:35:58,977 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-293
+2026-03-06 20:35:58,978 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-263
+2026-03-06 20:35:58,978 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-263
+2026-03-06 20:35:58,978 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-31
+2026-03-06 20:35:58,978 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-31
+2026-03-06 20:35:58,978 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-169
+2026-03-06 20:35:58,978 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-169
+2026-03-06 20:35:58,978 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-123
+2026-03-06 20:35:58,978 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-123
+2026-03-06 20:35:58,978 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-21
+2026-03-06 20:35:58,978 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-21
+2026-03-06 20:35:58,979 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-262
+2026-03-06 20:35:58,979 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-262
+2026-03-06 20:35:58,974 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-201
+2026-03-06 20:35:58,979 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-298
+2026-03-06 20:35:58,979 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-298
+2026-03-06 20:35:58,979 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-70
+2026-03-06 20:35:58,979 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-70
+2026-03-06 20:35:58,979 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-154
+2026-03-06 20:35:58,980 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-154
+2026-03-06 20:35:58,980 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-224
+2026-03-06 20:35:58,980 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-224
+2026-03-06 20:35:58,980 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-76
+2026-03-06 20:35:58,980 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-76
+2026-03-06 20:35:58,980 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-273
+2026-03-06 20:35:58,980 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-273
+2026-03-06 20:35:58,980 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-189
+2026-03-06 20:35:58,979 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-201
+2026-03-06 20:35:58,980 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-189
+2026-03-06 20:35:58,981 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-147
+2026-03-06 20:35:58,981 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-84
+2026-03-06 20:35:58,981 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-147
+2026-03-06 20:35:58,981 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-84
+2026-03-06 20:35:58,989 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-122
+2026-03-06 20:35:58,990 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-122
+2026-03-06 20:35:58,994 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-198
+2026-03-06 20:35:58,994 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-198
+2026-03-06 20:35:58,994 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-23
+2026-03-06 20:35:58,995 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-23
+2026-03-06 20:35:58,995 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-197
+2026-03-06 20:35:58,995 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-197
+2026-03-06 20:35:59,005 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-125
+2026-03-06 20:35:59,005 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-251
+2026-03-06 20:35:59,006 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-125
+2026-03-06 20:35:59,006 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-251
+2026-03-06 20:35:59,006 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-182
+2026-03-06 20:35:59,006 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-182
+2026-03-06 20:35:59,006 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-203
+2026-03-06 20:35:59,006 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-203
+2026-03-06 20:35:59,006 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-226
+2026-03-06 20:35:59,006 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-226
+2026-03-06 20:35:59,010 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-221
+2026-03-06 20:35:59,010 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-221
+2026-03-06 20:35:59,010 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-79
+2026-03-06 20:35:59,010 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-79
+2026-03-06 20:35:59,014 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-180
+2026-03-06 20:35:59,014 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-180
+2026-03-06 20:35:59,015 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-5
+2026-03-06 20:35:59,015 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-5
+2026-03-06 20:35:59,018 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-83
+2026-03-06 20:35:59,018 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-282
+2026-03-06 20:35:59,018 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-83
+2026-03-06 20:35:59,018 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-282
+2026-03-06 20:35:59,024 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-235
+2026-03-06 20:35:59,024 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-235
+2026-03-06 20:35:59,024 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-222
+2026-03-06 20:35:59,024 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-222
+2026-03-06 20:35:59,024 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-230
+2026-03-06 20:35:59,024 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-230
+2026-03-06 20:35:59,027 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-144
+2026-03-06 20:35:59,028 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-144
+2026-03-06 20:35:59,030 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-186
+2026-03-06 20:35:59,030 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-186
+2026-03-06 20:35:59,031 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-254
+2026-03-06 20:35:59,031 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-254
+2026-03-06 20:35:59,104 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-194
+2026-03-06 20:35:59,104 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-194
+2026-03-06 20:35:59,104 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-146
+2026-03-06 20:35:59,104 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-146
+2026-03-06 20:35:59,104 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-113
+2026-03-06 20:35:59,104 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-113
+2026-03-06 20:35:59,104 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-59
+2026-03-06 20:35:59,104 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-59
+2026-03-06 20:35:59,104 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-196
+2026-03-06 20:35:59,104 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-196
+2026-03-06 20:35:59,104 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-172
+2026-03-06 20:35:59,104 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-172
+2026-03-06 20:35:59,104 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-145
+2026-03-06 20:35:59,105 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-145
+2026-03-06 20:35:59,105 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-288
+2026-03-06 20:35:59,105 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-288
+2026-03-06 20:35:59,105 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-284
+2026-03-06 20:35:59,105 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-284
+2026-03-06 20:35:59,105 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-297
+2026-03-06 20:35:59,105 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-297
+2026-03-06 20:35:59,105 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-143
+2026-03-06 20:35:59,105 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-143
+2026-03-06 20:35:59,105 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-257
+2026-03-06 20:35:59,105 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-257
+2026-03-06 20:35:59,106 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-78
+2026-03-06 20:35:59,106 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-78
+2026-03-06 20:35:59,106 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-53
+2026-03-06 20:35:59,106 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-53
+2026-03-06 20:35:59,106 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-205
+2026-03-06 20:35:59,106 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-205
+2026-03-06 20:35:59,106 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-187
+2026-03-06 20:35:59,106 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-187
+2026-03-06 20:35:59,106 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-19
+2026-03-06 20:35:59,106 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-19
+2026-03-06 20:35:59,107 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-191
+2026-03-06 20:35:59,107 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-191
+2026-03-06 20:35:59,107 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-179
+2026-03-06 20:35:59,107 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-179
+2026-03-06 20:35:59,107 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-279
+2026-03-06 20:35:59,107 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-279
+2026-03-06 20:35:59,107 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-98
+2026-03-06 20:35:59,107 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-98
+2026-03-06 20:35:59,107 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-277
+2026-03-06 20:35:59,107 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-277
+2026-03-06 20:35:59,141 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-137
+2026-03-06 20:35:59,141 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-137
+2026-03-06 20:35:59,142 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-101
+2026-03-06 20:35:59,142 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-101
+2026-03-06 20:35:59,142 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-247
+2026-03-06 20:35:59,142 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-247
+2026-03-06 20:35:59,142 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-109
+2026-03-06 20:35:59,142 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-109
+2026-03-06 20:35:59,164 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-120
+2026-03-06 20:35:59,164 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-120
+2026-03-06 20:35:59,164 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-168
+2026-03-06 20:35:59,164 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-168
+2026-03-06 20:35:59,165 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-54
+2026-03-06 20:35:59,165 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-54
+2026-03-06 20:35:59,171 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-119
+2026-03-06 20:35:59,171 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-119
+2026-03-06 20:35:59,171 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-159
+2026-03-06 20:35:59,172 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-185
+2026-03-06 20:35:59,172 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-159
+2026-03-06 20:35:59,172 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-185
+2026-03-06 20:35:59,172 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-106
+2026-03-06 20:35:59,172 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-106
+2026-03-06 20:35:59,172 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-290
+2026-03-06 20:35:59,172 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-290
+2026-03-06 20:35:59,172 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-223
+2026-03-06 20:35:59,172 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-223
+2026-03-06 20:35:59,172 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-17
+2026-03-06 20:35:59,172 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-17
+2026-03-06 20:35:59,172 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-209
+2026-03-06 20:35:59,172 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-209
+2026-03-06 20:35:59,180 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-259
+2026-03-06 20:35:59,180 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-259
+2026-03-06 20:35:59,180 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-72
+2026-03-06 20:35:59,180 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-72
+2026-03-06 20:35:59,180 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-208
+2026-03-06 20:35:59,180 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-208
+2026-03-06 20:35:59,180 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-173
+2026-03-06 20:35:59,180 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-173
+2026-03-06 20:35:59,181 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-184
+2026-03-06 20:35:59,181 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-184
+2026-03-06 20:35:59,181 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-272
+2026-03-06 20:35:59,181 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-272
+2026-03-06 20:35:59,200 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-271
+2026-03-06 20:35:59,200 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-271
+2026-03-06 20:35:59,200 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-188
+2026-03-06 20:35:59,200 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-188
+2026-03-06 20:35:59,200 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-266
+2026-03-06 20:35:59,200 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-266
+2026-03-06 20:35:59,201 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-167
+2026-03-06 20:35:59,201 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-167
+2026-03-06 20:35:59,201 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-126
+2026-03-06 20:35:59,201 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-206
+2026-03-06 20:35:59,201 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-126
+2026-03-06 20:35:59,201 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-206
+2026-03-06 20:35:59,201 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-264
+2026-03-06 20:35:59,201 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-264
+2026-03-06 20:35:59,209 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-269
+2026-03-06 20:35:59,209 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-269
+2026-03-06 20:35:59,209 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-10
+2026-03-06 20:35:59,209 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-10
+2026-03-06 20:35:59,210 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-107
+2026-03-06 20:35:59,210 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-107
+2026-03-06 20:35:59,210 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-232
+2026-03-06 20:35:59,210 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-232
+2026-03-06 20:35:59,210 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-20
+2026-03-06 20:35:59,210 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-20
+2026-03-06 20:35:59,210 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-150
+2026-03-06 20:35:59,210 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-150
+2026-03-06 20:35:59,210 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-195
+2026-03-06 20:35:59,210 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-195
+2026-03-06 20:35:59,211 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-261
+2026-03-06 20:35:59,211 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-220
+2026-03-06 20:35:59,211 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-220
+2026-03-06 20:35:59,211 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-45
+2026-03-06 20:35:59,211 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-45
+2026-03-06 20:35:59,211 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-260
+2026-03-06 20:35:59,211 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-260
+2026-03-06 20:35:59,211 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-261
+2026-03-06 20:35:59,211 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-237
+2026-03-06 20:35:59,211 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-219
+2026-03-06 20:35:59,211 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-237
+2026-03-06 20:35:59,211 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-219
+2026-03-06 20:35:59,212 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-118
+2026-03-06 20:35:59,212 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-118
+2026-03-06 20:35:59,212 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-138
+2026-03-06 20:35:59,212 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-138
+2026-03-06 20:35:59,212 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-294
+2026-03-06 20:35:59,212 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-294
+2026-03-06 20:35:59,212 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-110
+2026-03-06 20:35:59,212 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-110
+2026-03-06 20:35:59,212 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-246
+2026-03-06 20:35:59,212 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-246
+2026-03-06 20:35:59,213 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-52
+2026-03-06 20:35:59,213 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-52
+2026-03-06 20:35:59,213 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-90
+2026-03-06 20:35:59,213 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-90
+2026-03-06 20:35:59,213 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-249
+2026-03-06 20:35:59,213 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-249
+2026-03-06 20:35:59,213 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-250
+2026-03-06 20:35:59,213 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-250
+2026-03-06 20:35:59,213 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-50
+2026-03-06 20:35:59,213 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-50
+2026-03-06 20:35:59,214 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-88
+2026-03-06 20:35:59,214 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-88
+2026-03-06 20:35:59,214 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-165
+2026-03-06 20:35:59,214 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-165
+2026-03-06 20:35:59,220 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-99
+2026-03-06 20:35:59,220 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-99
+2026-03-06 20:35:59,220 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-57
+2026-03-06 20:35:59,220 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-57
+2026-03-06 20:35:59,220 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-162
+2026-03-06 20:35:59,220 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-162
+2026-03-06 20:35:59,220 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-291
+2026-03-06 20:35:59,221 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-291
+2026-03-06 20:35:59,221 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-87
+2026-03-06 20:35:59,221 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-87
+2026-03-06 20:35:59,221 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-95
+2026-03-06 20:35:59,221 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-95
+2026-03-06 20:35:59,221 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-35
+2026-03-06 20:35:59,221 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-35
+2026-03-06 20:35:59,221 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-93
+2026-03-06 20:35:59,221 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-93
+2026-03-06 20:35:59,222 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-242
+2026-03-06 20:35:59,222 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-242
+2026-03-06 20:35:59,225 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-287
+2026-03-06 20:35:59,225 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-287
+2026-03-06 20:35:59,227 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-100
+2026-03-06 20:35:59,227 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-100
+2026-03-06 20:35:59,227 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-212
+2026-03-06 20:35:59,227 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-212
+2026-03-06 20:35:59,227 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-211
+2026-03-06 20:35:59,227 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-211
+2026-03-06 20:35:59,232 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-270
+2026-03-06 20:35:59,232 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-270
+2026-03-06 20:35:59,234 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-29
+2026-03-06 20:35:59,234 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-29
+2026-03-06 20:35:59,234 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-65
+2026-03-06 20:35:59,234 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-65
+2026-03-06 20:35:59,237 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-129
+2026-03-06 20:35:59,237 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-129
+2026-03-06 20:35:59,238 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-244
+2026-03-06 20:35:59,238 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-244
+2026-03-06 20:35:59,238 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-9
+2026-03-06 20:35:59,238 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-9
+2026-03-06 20:35:59,238 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-28
+2026-03-06 20:35:59,238 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-28
+2026-03-06 20:35:59,260 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-34
+2026-03-06 20:35:59,260 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-34
+2026-03-06 20:35:59,260 INFO o.a.j.t.JMeterThread: Stopping because end time detected by thread: Throughput Discovery — ramp to 300 threads 1-210
+2026-03-06 20:35:59,260 INFO o.a.j.t.JMeterThread: Thread finished: Throughput Discovery — ramp to 300 threads 1-210
+2026-03-06 20:35:59,260 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2026-03-06 20:35:59,261 INFO o.a.j.r.Summariser: summary +  15346 in 00:00:29 =  526.6/s Avg:   554 Min:    35 Max:  3257 Err:  5558 (36.22%) Active: 0 Started: 300 Finished: 300
+2026-03-06 20:35:59,261 INFO o.a.j.r.Summariser: summary = 185478 in 00:05:01 =  617.2/s Avg:   357 Min:     3 Max:  3257 Err: 56392 (30.40%)
+2026-03-06 20:35:59,262 INFO o.a.j.JMeter: Generating Dashboard
+2026-03-06 20:35:59,262 INFO o.a.j.r.d.ReportGenerator: Flushing result collector before report Generation
+2026-03-06 20:35:59,297 INFO o.a.j.r.p.NormalizerSampleConsumer: Using format, 'ms', to parse timeStamp field
+2026-03-06 20:36:03,905 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.AggregateConsumer#stopProducing(): beginDate produced 0 samples
+2026-03-06 20:36:03,905 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.AggregateConsumer#stopProducing(): endDate produced 0 samples
+2026-03-06 20:36:03,907 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.ApdexSummaryConsumer#stopProducing(): apdexSummary produced 0 samples
+2026-03-06 20:36:03,907 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.RequestsSummaryConsumer#stopProducing(): requestsSummary produced 0 samples
+2026-03-06 20:36:03,920 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.StatisticsSummaryConsumer#stopProducing(): statisticsSummary produced 0 samples
+2026-03-06 20:36:03,936 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.Top5ErrorsBySamplerConsumer#stopProducing(): top5ErrorsBySampler produced 0 samples
+2026-03-06 20:36:03,937 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.ErrorsSummaryConsumer#stopProducing(): errorsSummary produced 0 samples
+2026-03-06 20:36:03,937 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.HitsPerSecondGraphConsumer#stopProducing(): hitsPerSecond produced 0 samples
+2026-03-06 20:36:04,737 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.LatencyVSRequestGraphConsumer#stopProducing(): latencyVsRequest produced 0 samples
+2026-03-06 20:36:04,743 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.SyntheticResponseTimeDistributionGraphConsumer#stopProducing(): syntheticResponseTimeDistribution produced 0 samples
+2026-03-06 20:36:04,743 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.BytesThroughputGraphConsumer#stopProducing(): bytesThroughputOverTime produced 0 samples
+2026-03-06 20:36:04,743 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.CodesPerSecondGraphConsumer#stopProducing(): codesPerSecond produced 0 samples
+2026-03-06 20:36:05,386 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeVSRequestGraphConsumer#stopProducing(): responseTimeVsRequest produced 0 samples
+2026-03-06 20:36:05,390 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): startIntervalControlerFilter produced 1298346 samples
+2026-03-06 20:36:05,390 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TotalTPSGraphConsumer#stopProducing(): totalTPS produced 0 samples
+2026-03-06 20:36:05,390 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ActiveThreadsGraphConsumer#stopProducing(): activeThreadsOverTime produced 0 samples
+2026-03-06 20:36:05,390 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TimeVSThreadGraphConsumer#stopProducing(): timeVsThreads produced 0 samples
+2026-03-06 20:36:05,390 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeDistributionGraphConsumer#stopProducing(): responseTimeDistribution produced 0 samples
+2026-03-06 20:36:05,390 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.TransactionsPerSecondGraphConsumer#stopProducing(): transactionsPerSecond produced 0 samples
+2026-03-06 20:36:05,390 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimePercentilesGraphConsumer#stopProducing(): responseTimePercentiles produced 0 samples
+2026-03-06 20:36:05,392 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimePercentilesOverTimeGraphConsumer#stopProducing(): responseTimePercentilesOverTime produced 0 samples
+2026-03-06 20:36:05,394 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ResponseTimeOverTimeGraphConsumer#stopProducing(): responseTimesOverTime produced 0 samples
+2026-03-06 20:36:05,394 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.ConnectTimeOverTimeGraphConsumer#stopProducing(): connectTimeOverTime produced 0 samples
+2026-03-06 20:36:05,394 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.graph.impl.LatencyOverTimeGraphConsumer#stopProducing(): latenciesOverTime produced 0 samples
+2026-03-06 20:36:05,394 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): nameFilter produced 2782170 samples
+2026-03-06 20:36:05,394 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.FilterConsumer#stopProducing(): dateRangeFilter produced 556434 samples
+2026-03-06 20:36:05,394 INFO o.a.j.r.p.AbstractSampleConsumer: class org.apache.jmeter.report.processor.NormalizerSampleConsumer#stopProducing(): normalizer produced 185478 samples
+2026-03-06 20:36:05,395 INFO o.a.j.r.p.CsvFileSampleSource: produce(): 185478 samples produced in 6s 71 ms on channel 0
+2026-03-06 20:36:05,395 INFO o.a.j.r.d.ReportGenerator: Exporting data using exporter:'json' of className:'org.apache.jmeter.report.dashboard.JsonExporter'
+2026-03-06 20:36:05,481 INFO o.a.j.r.d.JsonExporter: Found data for consumer statisticsSummary in context
+2026-03-06 20:36:05,481 INFO o.a.j.r.d.JsonExporter: Creating statistics for overall
+2026-03-06 20:36:05,481 INFO o.a.j.r.d.JsonExporter: Creating statistics for other transactions
+2026-03-06 20:36:05,482 INFO o.a.j.r.d.JsonExporter: Checking output folder
+2026-03-06 20:36:05,482 INFO o.a.j.r.d.JsonExporter: Writing statistics JSON to D:\Dados\Projetos\FMLab.Projects\FMLab.Aspnet.URLShortener\test\.\test_output\test_202603060830 PM\report\statistics.json
+2026-03-06 20:36:05,548 INFO o.a.j.r.d.ReportGenerator: Exporting data using exporter:'html' of className:'org.apache.jmeter.report.dashboard.HtmlTemplateExporter'
+2026-03-06 20:36:05,554 INFO o.a.j.r.d.HtmlTemplateExporter: Will generate dashboard in folder: D:\Dados\Projetos\FMLab.Projects\FMLab.Aspnet.URLShortener\test\.\test_output\test_202603060830 PM\report
+2026-03-06 20:36:05,723 INFO o.a.j.r.d.HtmlTemplateExporter: Report will be generated in: D:\Dados\Projetos\FMLab.Projects\FMLab.Aspnet.URLShortener\test\.\test_output\test_202603060830 PM\report, creating folder structure
+2026-03-06 20:36:05,727 INFO o.a.j.r.d.TemplateVisitor: Copying folder from 'D:\Dados\Programas\apache-jmeter-5.6.3\bin\report-template' to 'D:\Dados\Projetos\FMLab.Projects\FMLab.Aspnet.URLShortener\test\.\test_output\test_202603060830 PM\report', got message: D:\Dados\Projetos\FMLab.Projects\FMLab.Aspnet.URLShortener\test\.\test_output\test_202603060830 PM\report, found non empty folder with following content [D:\Dados\Projetos\FMLab.Projects\FMLab.Aspnet.URLShortener\test\.\test_output\test_202603060830 PM\report\statistics.json], will be ignored
+2026-03-06 20:36:07,835 INFO o.a.j.JMeter: Dashboard generated
