@@ -5,7 +5,7 @@
 
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Context;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Repositories;
-using FMLab.Aspnet.URLShortener.Business.ExternalServices.Persistence;
+using FMLab.Aspnet.URLShortener.Business.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

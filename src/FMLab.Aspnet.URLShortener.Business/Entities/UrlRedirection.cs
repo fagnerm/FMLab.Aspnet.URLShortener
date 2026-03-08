@@ -3,7 +3,7 @@
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
 using FMLab.Aspnet.URLShortener.Business.ValueObjects;
-using FMLab.Aspnet.URLShortener.Business.Services.Encoder;
+using FMLab.Aspnet.URLShortener.Business.Shared.Encoders;
 
 namespace FMLab.Aspnet.URLShortener.Business.Entities;
 

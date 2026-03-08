@@ -59,7 +59,8 @@ nunit-*.xml
 .env
 !.env.example
 
-# Jmeter
+# JMeter
 *.jtl
-/test/jmeter/report/
-/test/jmeter/*.log
+jmeter.log
+tests/load/test_output/
+tests/load/report/

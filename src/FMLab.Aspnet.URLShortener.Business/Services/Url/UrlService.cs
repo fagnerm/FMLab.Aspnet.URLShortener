@@ -48,17 +48,17 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository)
     }
 
 
-    public async Task<Result<URLRedirectionOutputDTO>> LoadUrlRedirection(UrlRedirectionInputDTO input, CancellationToken cancellationToken)
+    public async Task<Result<UrlRedirectionOutputDTO>> LoadUrlRedirection(UrlRedirectionInputDTO input, CancellationToken cancellationToken)
     {
         var url = await _repository.GetByHashAsync(input.Hash, cancellationToken);
 
         if (url == null)
         {
-            return Result<URLRedirectionOutputDTO>.NotFound("Url not found");
+            return Result<UrlRedirectionOutputDTO>.NotFound("Url not found");
         }
 
-        var result = new URLRedirectionOutputDTO(url.Target.Value, url.TemporaryRedirection);
-        return Result<URLRedirectionOutputDTO>.Success(result);
+        var result = new UrlRedirectionOutputDTO(url.Target.Value, url.TemporaryRedirection);
+        return Result<UrlRedirectionOutputDTO>.Success(result);
     }
 
     public async Task<Result<UpdateUrlOutputDTO>> UpdateUrlAsync(UpdateUrlInputDTO input, CancellationToken cancellationToken)

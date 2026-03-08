@@ -5,7 +5,7 @@
 using FMLab.Aspnet.URLShortener.Business.DependencyInjection;
 using FMLab.Aspnet.URLShortener.Infrastructure.DependencyInjection;
 using FMLab.Aspnet.URLShortener.Configuration;
-using FMLab.Aspnet.URLShortener.Middlewares;
+using FMLab.Aspnet.URLShortener.Authentication;
 using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
