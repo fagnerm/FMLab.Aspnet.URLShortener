@@ -1,10 +1,10 @@
-// API - Layered architecture boilerplate
-// Copyright (c) 2026 Fagner Marinho
+// API - URL Shortener
+// Copyright (c) 2026 Fagner Marinho 
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
-using FMLab.Aspnet.URLShortener.Extensions;
 using FMLab.Aspnet.URLShortener.Business.DTOs;
 using FMLab.Aspnet.URLShortener.Business.Services.URL;
+using FMLab.Aspnet.URLShortener.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FMLab.Aspnet.URLShortener.Api.Endpoints.URL;

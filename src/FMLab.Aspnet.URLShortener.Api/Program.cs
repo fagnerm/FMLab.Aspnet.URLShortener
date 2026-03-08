@@ -1,11 +1,11 @@
-// API - Layered architecture boilerplate
+// API - URL Shortener
 // Copyright (c) 2026 Fagner Marinho 
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
-using FMLab.Aspnet.URLShortener.Business.DependencyInjection;
-using FMLab.Aspnet.URLShortener.Infrastructure.DependencyInjection;
-using FMLab.Aspnet.URLShortener.Configuration;
 using FMLab.Aspnet.URLShortener.Authentication;
+using FMLab.Aspnet.URLShortener.Business.DependencyInjection;
+using FMLab.Aspnet.URLShortener.Configuration;
+using FMLab.Aspnet.URLShortener.Infrastructure.DependencyInjection;
 using Microsoft.AspNetCore.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);

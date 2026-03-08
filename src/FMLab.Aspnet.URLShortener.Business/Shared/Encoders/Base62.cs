@@ -1,5 +1,5 @@
-// API - Layered architecture boilerplate
-// Copyright (c) 2026 Fagner Marinho
+// API - URL Shortener
+// Copyright (c) 2026 Fagner Marinho 
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
 using System.Text;
@@ -26,8 +26,8 @@ public static class Base62
 
     private static string Pivot(string text, int value)
     {
-       var chars = text.AsSpan();
+        var chars = text.AsSpan();
 
-       return $"{new string(chars[(value + 1)..])}{new string(chars[..value])}";
+        return $"{new string(chars[(value + 1)..])}{new string(chars[..value])}";
     }
 }

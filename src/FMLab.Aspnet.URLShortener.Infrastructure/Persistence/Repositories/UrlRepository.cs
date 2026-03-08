@@ -1,13 +1,13 @@
-﻿// API - Layered architecture boilerplate
+﻿// API - URL Shortener
 // Copyright (c) 2026 Fagner Marinho 
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
-using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Context;
-using FMLab.Aspnet.URLShortener.Business.Repositories;
-using Microsoft.EntityFrameworkCore;
-using Npgsql;
 using FMLab.Aspnet.URLShortener.Business.Entities;
 using FMLab.Aspnet.URLShortener.Business.Exceptions;
+using FMLab.Aspnet.URLShortener.Business.Repositories;
+using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Context;
+using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Repositories;
 public class UrlRepository : IUrlRepository

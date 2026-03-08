@@ -3,7 +3,7 @@ root = true
 
 # C# files
 [*.cs]
-file_header_template = API - Layered architecture boilerplate\nCopyright (c) 2026 Fagner Marinho \nLicensed under the MIT License. See LICENSE file in the project root for details.
+file_header_template = API - URL Shortener\nCopyright (c) 2026 Fagner Marinho \nLicensed under the MIT License. See LICENSE file in the project root for details.
 dotnet_diagnostic.IDE0073.severity = error
 
 #### Core EditorConfig Options ####

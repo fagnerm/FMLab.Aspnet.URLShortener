@@ -1,4 +1,4 @@
-﻿// API - Layered architecture boilerplate
+﻿// API - URL Shortener
 // Copyright (c) 2026 Fagner Marinho 
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
@@ -13,7 +13,7 @@ public record Url : IComparable<Url>
     public Url(string url)
     {
         url.ThrowIfNullOrEmpty("Must inform a Url");
-        
+
         if (!IsValid(url))
         {
             DomainGuard.Throw("Must inform a valid Url");
