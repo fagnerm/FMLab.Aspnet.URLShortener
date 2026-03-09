@@ -25,14 +25,18 @@ public static class InfrastructureModule
             var connection = new NpgsqlConnectionStringBuilder()
             {
                 Host = config["Database:Server"],
-                Port = int.Parse(config["Database:Port"]),
+                Port = int.Parse(config["Database:Port"]!),
                 Database = config["Database:Name"],
                 Username = config["Database:User"],
                 Password = config["Database:Password"],
                 NoResetOnClose = true
             };
 
-            options.UseNpgsql(connection.ConnectionString)
+            options.UseNpgsql(connection.ConnectionString, npgsql =>
+                       npgsql.EnableRetryOnFailure(
+                           maxRetryCount: 3,
+                           maxRetryDelay: TimeSpan.FromSeconds(5),
+                           errorCodesToAdd: null))
                    .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
 
             if (environment.IsDevelopment())
