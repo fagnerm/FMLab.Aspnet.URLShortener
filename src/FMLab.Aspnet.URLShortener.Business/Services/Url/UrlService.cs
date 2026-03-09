@@ -25,7 +25,7 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository)
 
         try
         {
-            _repository.AddAsync(url, cancellationToken);
+            await _repository.AddAsync(url, cancellationToken);
         }
         catch (DomainException ex) when (ex.Message == "Url already exists")
         {
