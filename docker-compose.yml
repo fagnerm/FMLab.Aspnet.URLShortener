@@ -1,6 +1,6 @@
 x-api: &api-base
     build:
-      context: ./src
+      context: .
       dockerfile: Dockerfile
     environment:
       ASPNETCORE_ENVIRONMENT: Production
