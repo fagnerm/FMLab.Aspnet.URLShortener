@@ -13,7 +13,10 @@ public static class UrlEndpoints
 {
     internal static void Map(WebApplication app)
     {
-        app.MapGet("/{hash}", RedirecToUrlEndpoint);
+        app.MapGet("/{hash}", RedirecToUrlEndpoint)
+            .WithTags("Url")
+            .Produces(StatusCodes.Status307TemporaryRedirect)
+            .WithOpenApi();
 
         app.MapPost("/url", RegisterUrlEndpoint)
             .WithTags("Url")

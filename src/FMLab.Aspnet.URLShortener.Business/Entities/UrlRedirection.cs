@@ -9,7 +9,11 @@ namespace FMLab.Aspnet.URLShortener.Business.Entities;
 
 public class UrlRedirection
 {
-    private UrlRedirection() { }
+    private UrlRedirection() 
+    {
+        Target = Url.Empty;
+        Hash = string.Empty;
+    }
 
     public UrlRedirection(long id, Url url, bool temporaryRedirection)
     {

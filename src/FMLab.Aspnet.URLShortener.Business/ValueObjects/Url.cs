@@ -9,6 +9,7 @@ namespace FMLab.Aspnet.URLShortener.Business.ValueObjects;
 public record Url : IComparable<Url>
 {
     public string Value { get; init; }
+    public static Url Empty = new("http://about:blank");
 
     public Url(string url)
     {
