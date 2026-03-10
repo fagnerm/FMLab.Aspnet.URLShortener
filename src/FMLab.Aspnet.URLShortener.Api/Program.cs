@@ -2,6 +2,7 @@
 // Copyright (c) 2026 Fagner Marinho 
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
+using FMLab.Aspnet.URLShortener.Api.Configuration;
 using FMLab.Aspnet.URLShortener.Api.Endpoints.URL;
 using FMLab.Aspnet.URLShortener.Authentication;
 using FMLab.Aspnet.URLShortener.Business.DependencyInjection;
@@ -19,6 +20,9 @@ builder.Services.AddAppSwagger();
 builder.Services.AddAuthentication("ApiKey")
                 .AddScheme<AuthenticationSchemeOptions, ApiKeyAuthHandler>("ApiKey", null);
 builder.Services.AddAuthorization();
+builder.Services.AddRateLimiting();
+builder.Services.AddAppApiVersioning();
+builder.AddCorsPolicy();
 
 var app = builder.Build();
 
@@ -26,6 +30,8 @@ app.UseAppSwagger();
 app.UseAppProblemDetails();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseRateLimiting();
+app.UseCorsPolicy();
 
 var versionedApi = app.UseAppVersioning(); ;
 versionedApi.MapUrlEdnpoints();

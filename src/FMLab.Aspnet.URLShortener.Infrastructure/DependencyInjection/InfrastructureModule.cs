@@ -26,19 +26,6 @@ public static class InfrastructureModule
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config, IHostEnvironment environment)
     {
-        services.AddApiVersioning(options =>
-        {
-            options.DefaultApiVersion = new ApiVersion(1, 0);
-            options.AssumeDefaultVersionWhenUnspecified = true;
-            options.ReportApiVersions = true;
-            options.ApiVersionReader = new UrlSegmentApiVersionReader();
-        })
-        .AddApiExplorer(options =>
-        {
-            options.GroupNameFormat = "'v'VVV";
-            options.SubstituteApiVersionInUrl = true;
-        });
-
         services.AddDbContext<ApplicationDbContext>(options =>
         {
             var connection = new NpgsqlConnectionStringBuilder()
@@ -65,42 +52,6 @@ public static class InfrastructureModule
             }
         });
 
-        services.AddRateLimiter(options =>
-        {
-            options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
-
-            options.OnRejected = async (context, cancellationToken) =>
-            {
-                var retryAfter = context.Lease.TryGetMetadata(MetadataName.RetryAfter, out var retryAfterValue)
-                    ? retryAfterValue
-                    : TimeSpan.FromMinutes(1);
-
-                context.HttpContext.Response.Headers.RetryAfter = ((int)retryAfter.TotalSeconds).ToString();
-                context.HttpContext.Response.ContentType = "application/problem+json";
-
-                var problemDetails = new ProblemDetails
-                {
-                    Status = StatusCodes.Status429TooManyRequests,
-                    Title = "Too Many Requests",
-                    Detail = "Request limit exceeded. Please try again later.",
-                    Instance = context.HttpContext.Request.Path
-                };
-
-                await context.HttpContext.Response.WriteAsJsonAsync(problemDetails, cancellationToken);
-            };
-
-            options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
-                RateLimitPartition.GetFixedWindowLimiter(
-                    partitionKey: httpContext.Connection.RemoteIpAddress?.ToString() ?? "unknown",
-                    factory: _ => new FixedWindowRateLimiterOptions
-                    {
-                        PermitLimit = 100,
-                        Window = TimeSpan.FromMinutes(1),
-                        QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
-                        QueueLimit = 0
-                    }));
-        });
-
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IUrlRepository, UrlRepository>();
 
@@ -108,19 +59,6 @@ public static class InfrastructureModule
         services.AddSingleton<IIdentifierService, RedisIdentifierService>();
 
         return services;
-    }
-
-    public static RouteGroupBuilder UseAppVersioning(this WebApplication app)
-    {
-        var versionSet = app.NewApiVersionSet()
-                            .HasApiVersion(new ApiVersion(1, 0))
-                            .ReportApiVersions()
-                            .Build();
-
-        var versionedApi = app.MapGroup("api/v{version:apiVersion}")
-            .WithApiVersionSet(versionSet);
-
-        return versionedApi;
     }
 }
 
