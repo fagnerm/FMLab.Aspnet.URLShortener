@@ -32,6 +32,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseRateLimiting();
 app.UseCorsPolicy();
+app.MapUrlRedirectionEndpoint();
 
 var versionedApi = app.UseAppVersioning(); ;
 versionedApi.MapUrlEdnpoints();

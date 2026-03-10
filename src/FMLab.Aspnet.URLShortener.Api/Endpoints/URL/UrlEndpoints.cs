@@ -11,13 +11,16 @@ namespace FMLab.Aspnet.URLShortener.Api.Endpoints.URL;
 
 public static class UrlEndpoints
 {
-    public static RouteGroupBuilder MapUrlEdnpoints(this RouteGroupBuilder group)
+    public static void MapUrlRedirectionEndpoint(this WebApplication app)
     {
-        group.MapGet("/{hash}", RedirecToUrlEndpoint)
+        app.MapGet("/{hash}", RedirecToUrlEndpoint)
             .WithTags("Url")
             .Produces(StatusCodes.Status307TemporaryRedirect)
-            .MapToApiVersion(1, 0);
+            .ProducesValidationProblem(StatusCodes.Status404NotFound);
+    }
 
+    public static RouteGroupBuilder MapUrlEdnpoints(this RouteGroupBuilder group)
+    {
         group.MapPost("/url", RegisterUrlEndpoint)
             .WithTags("Url")
             .Produces(StatusCodes.Status201Created)
