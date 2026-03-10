@@ -11,34 +11,36 @@ namespace FMLab.Aspnet.URLShortener.Api.Endpoints.URL;
 
 public static class UrlEndpoints
 {
-    internal static void Map(WebApplication app)
+    public static RouteGroupBuilder MapUrlEdnpoints(this RouteGroupBuilder group)
     {
-        app.MapGet("/{hash}", RedirecToUrlEndpoint)
+        group.MapGet("/{hash}", RedirecToUrlEndpoint)
             .WithTags("Url")
             .Produces(StatusCodes.Status307TemporaryRedirect)
-            .WithOpenApi();
+            .MapToApiVersion(1, 0);
 
-        app.MapPost("/url", RegisterUrlEndpoint)
+        group.MapPost("/url", RegisterUrlEndpoint)
             .WithTags("Url")
             .Produces(StatusCodes.Status201Created)
             .ProducesValidationProblem(StatusCodes.Status409Conflict)
             .RequireAuthorization()
-            .WithOpenApi();
+            .MapToApiVersion(1, 0);
 
-        app.MapPatch("/{hash}", UpdateUrl)
+        group.MapPatch("/{hash}", UpdateUrl)
             .WithTags("Url")
             .Produces(StatusCodes.Status200OK)
             .ProducesValidationProblem(StatusCodes.Status404NotFound)
             .ProducesValidationProblem(StatusCodes.Status422UnprocessableEntity)
             .RequireAuthorization()
-            .WithOpenApi();
+            .MapToApiVersion(1, 0);
 
-        app.MapDelete("/{hash}", DeleteUrlEndpoint)
+        group.MapDelete("/{hash}", DeleteUrlEndpoint)
             .WithTags("Url")
             .Produces(StatusCodes.Status200OK)
             .ProducesValidationProblem(StatusCodes.Status404NotFound)
             .RequireAuthorization()
-            .WithOpenApi();
+            .MapToApiVersion(1, 0);
+
+        return group;
     }
 
     private static async Task<IResult> RedirecToUrlEndpoint([FromServices] IUrlService service, [FromRoute] string hash, CancellationToken cancellationToken)

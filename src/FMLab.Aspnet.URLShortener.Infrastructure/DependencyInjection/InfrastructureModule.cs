@@ -3,11 +3,14 @@
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
 
+using Asp.Versioning;
 using FMLab.Aspnet.URLShortener.Business.Repositories;
 using FMLab.Aspnet.URLShortener.Business.Services.Identifier;
 using FMLab.Aspnet.URLShortener.Infrastructure.ExternalServices.Redis;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Context;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Repositories;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +23,19 @@ public static class InfrastructureModule
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config, IHostEnvironment environment)
     {
+        services.AddApiVersioning(options =>
+        {
+            options.DefaultApiVersion = new ApiVersion(1, 0);
+            options.AssumeDefaultVersionWhenUnspecified = true;
+            options.ReportApiVersions = true;
+            options.ApiVersionReader = new UrlSegmentApiVersionReader();
+        })
+        .AddApiExplorer(options =>
+        {
+            options.GroupNameFormat = "'v'VVV";
+            options.SubstituteApiVersionInUrl = true;
+        });
+
         services.AddDbContext<ApplicationDbContext>(options =>
         {
             var connection = new NpgsqlConnectionStringBuilder()
@@ -53,6 +69,19 @@ public static class InfrastructureModule
         services.AddSingleton<IIdentifierService, RedisIdentifierService>();
 
         return services;
+    }
+
+    public static RouteGroupBuilder UseAppVersioning(this WebApplication app)
+    {
+        var versionSet = app.NewApiVersionSet()
+                            .HasApiVersion(new ApiVersion(1, 0))
+                            .ReportApiVersions()
+                            .Build();
+
+        var versionedApi = app.MapGroup("api/v{version:apiVersion}")
+            .WithApiVersionSet(versionSet);
+
+        return versionedApi;
     }
 }
 
