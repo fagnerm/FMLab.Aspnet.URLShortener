@@ -6,8 +6,8 @@
 using Asp.Versioning;
 using FMLab.Aspnet.URLShortener.Business.Repositories;
 using FMLab.Aspnet.URLShortener.Business.Services.Identifier;
-using FMLab.Aspnet.URLShortener.Infrastructure.ExternalServices.Redis;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Context;
+using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Redis;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
