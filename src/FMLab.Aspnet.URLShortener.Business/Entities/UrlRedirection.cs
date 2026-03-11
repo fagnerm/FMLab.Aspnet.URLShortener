@@ -22,10 +22,16 @@ public class UrlRedirection
         TemporaryRedirection = temporaryRedirection;
     }
 
+    public UrlRedirection(string hash, Url url, bool? temporaryRedirection)
+    {
+        Hash = hash;
+        Target = url;
+        TemporaryRedirection = temporaryRedirection ?? true;
+    }
+
     public Url Target { get; private set; }
     public bool TemporaryRedirection { get; private set; }
     public string Hash { get; init; }
-
 
     public void Update(Url url, bool temporaryRedirection)
     {

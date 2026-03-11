@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jmeterTestPlan version="1.2" properties="5.0" jmeter="5.6.3">
   <hashTree>
-    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Layered Architecture API - Throughput Discovery">
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="URL Shortener API - Throughput Discovery">
       <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments">
         <collectionProp name="Arguments.arguments">
@@ -22,6 +22,8 @@
           </elementProp>
         </collectionProp>
       </elementProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
     </TestPlan>
     <hashTree>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Throughput Discovery — ramp to 300 threads">
@@ -38,7 +40,7 @@
         </elementProp>
       </ThreadGroup>
       <hashTree>
-        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Headers">
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Headers" enabled="true">
           <collectionProp name="HeaderManager.headers">
             <elementProp name="" elementType="Header">
               <stringProp name="Header.name">Content-Type</stringProp>
@@ -51,11 +53,11 @@
           </collectionProp>
         </HeaderManager>
         <hashTree/>
-        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST /url">
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="POST /url" enabled="true">
           <stringProp name="HTTPSampler.domain">${BASE_URL}</stringProp>
           <stringProp name="HTTPSampler.port">${PORT}</stringProp>
           <stringProp name="HTTPSampler.protocol">http</stringProp>
-          <stringProp name="HTTPSampler.path">/url</stringProp>
+          <stringProp name="HTTPSampler.path">/api/v1/url</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -71,11 +73,11 @@
           </elementProp>
         </HTTPSamplerProxy>
         <hashTree>
-          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Response Time &lt; 1000 ms">
+          <DurationAssertion guiclass="DurationAssertionGui" testclass="DurationAssertion" testname="Response Time &lt; 1000 ms" enabled="true">
             <stringProp name="DurationAssertion.duration">1000</stringProp>
           </DurationAssertion>
           <hashTree/>
-          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree">
+          <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
             <boolProp name="ResultCollector.error_logging">false</boolProp>
             <objProp>
               <name>saveConfig</name>

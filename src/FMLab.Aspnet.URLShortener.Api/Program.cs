@@ -20,9 +20,9 @@ builder.Services.AddAppSwagger();
 builder.Services.AddAuthentication("ApiKey")
                 .AddScheme<AuthenticationSchemeOptions, ApiKeyAuthHandler>("ApiKey", null);
 builder.Services.AddAuthorization();
-builder.Services.AddRateLimiting();
+//builder.Services.AddRateLimiting();
 builder.Services.AddAppApiVersioning();
-builder.AddCorsPolicy();
+//builder.AddCorsPolicy();
 
 var app = builder.Build();
 
@@ -30,8 +30,8 @@ app.UseAppSwagger();
 app.UseAppProblemDetails();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseRateLimiting();
-app.UseCorsPolicy();
+//app.UseRateLimiting();
+//app.UseCorsPolicy();
 app.MapUrlRedirectionEndpoint();
 
 var versionedApi = app.UseAppVersioning(); ;

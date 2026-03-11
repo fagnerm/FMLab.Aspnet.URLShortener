@@ -2,60 +2,89 @@
 // Copyright (c) 2026 Fagner Marinho 
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
+using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.Model;
 using FMLab.Aspnet.URLShortener.Business.Entities;
-using FMLab.Aspnet.URLShortener.Business.Exceptions;
 using FMLab.Aspnet.URLShortener.Business.Repositories;
-using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Context;
-using Microsoft.EntityFrameworkCore;
-using Npgsql;
+using FMLab.Aspnet.URLShortener.Business.ValueObjects;
 
 namespace FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Repositories;
 public class UrlRepository : IUrlRepository
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IAmazonDynamoDB _db;
+    private const string TABLE_NAME = "url_redirections";
 
-    public UrlRepository(ApplicationDbContext context)
+    public UrlRepository(IAmazonDynamoDB db)
     {
-        _context = context;
+        _db = db;
     }
 
     public async Task AddAsync(UrlRedirection url, CancellationToken cancellationToken)
     {
-        try
+        await _db.PutItemAsync(new PutItemRequest
         {
-            await _context.AddAsync(url, cancellationToken);
-            await _context.SaveChangesAsync(cancellationToken);
-        }
-        catch (DbUpdateException ex)
-            when (ex.InnerException is PostgresException { SqlState: "23505" })
-        {
-            _context.Entry(url).State = EntityState.Detached;
-            throw new DomainException("Url already exists", ex);
-        }
+            TableName = TABLE_NAME,
+            Item = new Dictionary<string, AttributeValue>
+            {
+                { "hash", new AttributeValue { S = url.Hash } },
+                { "target", new AttributeValue { S = url.Target.ToString() } },
+                { "temporary", new AttributeValue { BOOL = url.TemporaryRedirection } }
+            }
+        }, cancellationToken);
     }
 
     public async Task Delete(UrlRedirection user)
     {
-        _context.Remove(user);
-        await _context.SaveChangesAsync();
+        await _db.DeleteItemAsync(new DeleteItemRequest
+        {
+            TableName = TABLE_NAME,
+            Key = new Dictionary<string, AttributeValue>
+            {
+                { "hash", new AttributeValue { S = user.Hash } }
+            }
+        });
     }
 
     public async Task<UrlRedirection?> GetByHashAsync(string hash, CancellationToken cancellationToken)
     {
-        var user = await _context
-                            .Urls
-                            .AsTracking()
-                            .SingleOrDefaultAsync(_ => _.Hash == hash, cancellationToken);
+        var itemResponse = await _db.GetItemAsync(new GetItemRequest
+        {
+            TableName = TABLE_NAME,
+            Key = new Dictionary<string, AttributeValue>
+            {
+                { "hash", new AttributeValue { S = hash } }
+            }
+        }, cancellationToken);
 
-        return user;
+        if (!itemResponse.IsItemSet) return null;
+
+        return new UrlRedirection(itemResponse.Item["hash"].S, new Url(itemResponse.Item["target"].S), itemResponse.Item["temporary"].BOOL);
     }
 
     public async Task<UrlRedirection> Update(UrlRedirection user)
     {
-        var entry = _context.Update(user);
-        await _context.SaveChangesAsync();
+        var updateItem = await _db.UpdateItemAsync(new UpdateItemRequest
+        {
+            TableName = TABLE_NAME,
+            Key = new Dictionary<string, AttributeValue>
+            {
+                { "hash", new AttributeValue { S = user.Hash } }
+            },
+            ExpressionAttributeNames = new Dictionary<string, string>
+            {
+                { "#T", "target" },
+                { "#R", "temporary" }
+            },
+            ExpressionAttributeValues = new Dictionary<string, AttributeValue>
+            {
+                { ":t", new AttributeValue { S = user.Target.ToString() } },
+                { ":r", new AttributeValue { BOOL = user.TemporaryRedirection } }
+            },
+            UpdateExpression = "SET #T = :t, #R = :r",
+            ReturnValues = "ALL_NEW"
+        });
 
-        return entry.Entity;
+        return new UrlRedirection(updateItem.Attributes["hash"].S, new Url(updateItem.Attributes["target"].S), updateItem.Attributes["temporary"].BOOL);
     }
 
 }
