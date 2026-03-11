@@ -6,7 +6,7 @@ using FMLab.Aspnet.URLShortener.Business.Entities;
 using FMLab.Aspnet.URLShortener.Business.Repositories;
 using FMLab.Aspnet.URLShortener.Business.ValueObjects;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Configuration;
-using FMLab.Aspnet.URLShortener.Infrastructure.Shared;
+using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Shared;
 using StackExchange.Redis;
 using System.Text.Json;
 

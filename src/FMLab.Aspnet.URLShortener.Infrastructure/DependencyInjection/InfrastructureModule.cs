@@ -3,7 +3,6 @@
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
 
-using Asp.Versioning;
 using FMLab.Aspnet.URLShortener.Business.Repositories;
 using FMLab.Aspnet.URLShortener.Business.Services.Identifier;
 using FMLab.Aspnet.URLShortener.Infrastructure.ExternalServices.Redis;

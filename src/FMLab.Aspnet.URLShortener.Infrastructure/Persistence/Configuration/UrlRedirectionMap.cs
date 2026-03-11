@@ -9,5 +9,5 @@ internal class UrlRedirectionMap
     public string Target { get; set; }
     public bool TemporaryRedirection { get; set; }
 
-    public UrlRedirectionMap(){}
+    public UrlRedirectionMap() { }
 }
