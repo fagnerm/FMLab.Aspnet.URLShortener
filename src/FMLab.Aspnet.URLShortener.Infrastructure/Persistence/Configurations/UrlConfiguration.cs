@@ -12,7 +12,7 @@ public class UrlConfiguration : IEntityTypeConfiguration<UrlRedirection>
 {
     public void Configure(EntityTypeBuilder<UrlRedirection> builder)
     {
-        builder.ToTable("url_mappings");
+        builder.ToTable("url_redirections");
         builder.HasKey(_ => _.Hash);
         builder.Property(c => c.Hash)
                 .HasColumnType("VARCHAR(15)")
