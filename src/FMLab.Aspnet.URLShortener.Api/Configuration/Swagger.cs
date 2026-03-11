@@ -37,7 +37,7 @@ public static class Swagger
 
             options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
             {
-                Title = "Layered Architecture API",
+                Title = "URL Shortener API",
                 Version = "v1"
             });
         });
@@ -51,8 +51,8 @@ public static class Swagger
         app.UseSwagger();
         app.UseSwaggerUI(options =>
         {
-            options.SwaggerEndpoint("/swagger/v1/swagger.json", "Layered Architecture V1");
-            options.DocumentTitle = "Layered Architecture API";
+            options.SwaggerEndpoint("/swagger/v1/swagger.json", "V1");
+            options.DocumentTitle = "URL Shortener API";
         });
 
         return app;
