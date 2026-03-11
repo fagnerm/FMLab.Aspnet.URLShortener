@@ -3,59 +3,67 @@
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
 using FMLab.Aspnet.URLShortener.Business.Entities;
-using FMLab.Aspnet.URLShortener.Business.Exceptions;
 using FMLab.Aspnet.URLShortener.Business.Repositories;
-using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Context;
-using Microsoft.EntityFrameworkCore;
-using Npgsql;
+using FMLab.Aspnet.URLShortener.Business.ValueObjects;
+using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Configuration;
+using FMLab.Aspnet.URLShortener.Infrastructure.Shared;
+using StackExchange.Redis;
+using System.Text.Json;
 
 namespace FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Repositories;
 public class UrlRepository : IUrlRepository
 {
-    private readonly ApplicationDbContext _context;
+    private readonly IDatabaseAsync _db;
 
-    public UrlRepository(ApplicationDbContext context)
+    public UrlRepository(IConnectionMultiplexer connectionMultiplexer)
     {
-        _context = context;
+        _db = connectionMultiplexer.GetDatabase(RedisDatabases.URL_REDIRECTIONS);
     }
 
     public async Task AddAsync(UrlRedirection url, CancellationToken cancellationToken)
     {
-        try
+        var mapper = new UrlRedirectionMap
         {
-            await _context.AddAsync(url, cancellationToken);
-            await _context.SaveChangesAsync(cancellationToken);
-        }
-        catch (DbUpdateException ex)
-            when (ex.InnerException is PostgresException { SqlState: "23505" })
-        {
-            _context.Entry(url).State = EntityState.Detached;
-            throw new DomainException("Url already exists", ex);
-        }
+            Hash = url.Hash,
+            Target = url.Target.Value,
+            TemporaryRedirection = url.TemporaryRedirection
+        };
+
+        await _db.StringSetAsync(url.Hash, JsonSerializer.Serialize(mapper));
     }
 
-    public async Task Delete(UrlRedirection user)
+    public async Task Delete(UrlRedirection url)
     {
-        _context.Remove(user);
-        await _context.SaveChangesAsync();
+        await _db.StringDeleteAsync(url.Hash, ValueCondition.Exists);
     }
 
     public async Task<UrlRedirection?> GetByHashAsync(string hash, CancellationToken cancellationToken)
     {
-        var user = await _context
-                            .Urls
-                            .AsTracking()
-                            .SingleOrDefaultAsync(_ => _.Hash == hash, cancellationToken);
+        var value = await _db.StringGetAsync(hash);
 
-        return user;
+        if (value.IsNull)
+            return default;
+
+        var mapper = JsonSerializer.Deserialize<UrlRedirectionMap>(value!);
+
+        if (mapper is null)
+            return default;
+
+        return new UrlRedirection(mapper.Hash, new Url(mapper.Target), mapper.TemporaryRedirection);
     }
 
-    public async Task<UrlRedirection> Update(UrlRedirection user)
+    public async Task<UrlRedirection> Update(UrlRedirection url)
     {
-        var entry = _context.Update(user);
-        await _context.SaveChangesAsync();
+        var mapper = new UrlRedirectionMap
+        {
+            Hash = url.Hash,
+            Target = url.Target.Value,
+            TemporaryRedirection = url.TemporaryRedirection
+        };
 
-        return entry.Entity;
+        await _db.StringSetAsync(url.Hash, JsonSerializer.Serialize(mapper));
+
+        return url;
     }
 
 }
