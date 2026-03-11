@@ -65,7 +65,7 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository)
     {
         var url = await _repository.GetByHashAsync(input.Hash, cancellationToken);
 
-        if (url is null) return Result<UpdateUrlOutputDTO>.NotFound("User not found");
+        if (url is null) return Result<UpdateUrlOutputDTO>.NotFound("Url not found");
 
         var target = string.IsNullOrEmpty(input.Target) ? url.Target : new Url(input.Target!);
         var redirection = input.TemporaryRedirection ? input.TemporaryRedirection : url.TemporaryRedirection;
