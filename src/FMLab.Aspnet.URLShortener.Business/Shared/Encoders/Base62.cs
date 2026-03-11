@@ -17,7 +17,7 @@ public static class Base62
         do
         {
             var index = (int)value % 62;
-            result.Insert(0, pivotedChars[index]);
+            result.Append(pivotedChars[index]);
             value /= 62;
 
         } while (value > 0);
@@ -28,6 +28,6 @@ public static class Base62
     {
         var chars = text.AsSpan();
 
-        return $"{new string(chars[(value + 1)..])}{new string(chars[..value])}";
+        return $"{new string(chars[(value)..])}{new string(chars[..value])}";
     }
 }
