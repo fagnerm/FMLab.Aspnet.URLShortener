@@ -5,7 +5,7 @@
 using FMLab.Aspnet.URLShortener.Business.Services.Identifier;
 using StackExchange.Redis;
 
-namespace FMLab.Aspnet.URLShortener.Infrastructure.ExternalServices.Redis;
+namespace FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Redis;
 public class RedisIdentifierService : IIdentifierService
 {
     private readonly IConnectionMultiplexer _connectionMultiplexer;
@@ -18,7 +18,7 @@ public class RedisIdentifierService : IIdentifierService
     public async Task<long> GetIdAsync()
     {
         var db = _connectionMultiplexer.GetDatabase();
-        await db.StringSetAsync("url:id_seq", 1_000_000, when: When.NotExists);
+        await db.StringSetAsync("url:id_seq", 100_000_000, when: When.NotExists);
 
         var id = await db.StringIncrementAsync("url:id_seq");
         return id;

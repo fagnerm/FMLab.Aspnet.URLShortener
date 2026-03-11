@@ -7,7 +7,7 @@ using Amazon.DynamoDBv2;
 using Amazon.Runtime;
 using FMLab.Aspnet.URLShortener.Business.Repositories;
 using FMLab.Aspnet.URLShortener.Business.Services.Identifier;
-using FMLab.Aspnet.URLShortener.Infrastructure.ExternalServices.Redis;
+using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Redis;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
