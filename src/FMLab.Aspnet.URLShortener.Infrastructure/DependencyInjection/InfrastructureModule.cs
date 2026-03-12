@@ -3,23 +3,17 @@
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
 
-using Asp.Versioning;
 using FMLab.Aspnet.URLShortener.Business.Repositories;
 using FMLab.Aspnet.URLShortener.Business.Services.Identifier;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Context;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Redis;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Repositories;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Npgsql;
 using StackExchange.Redis;
-using System.Threading.RateLimiting;
 
 namespace FMLab.Aspnet.URLShortener.Infrastructure.DependencyInjection;
 public static class InfrastructureModule
@@ -56,7 +50,7 @@ public static class InfrastructureModule
         services.AddScoped<IUrlRepository, UrlRepository>();
 
         services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect($"{config["Redis:Host"]}:{config["Redis:Port"]}"));
-        services.AddSingleton<IIdentifierService, RedisIdentifierService>();
+        services.AddSingleton<IIdentifierService, RedisIdentifier>();
 
         return services;
     }

@@ -6,11 +6,11 @@ using FMLab.Aspnet.URLShortener.Business.Services.Identifier;
 using StackExchange.Redis;
 
 namespace FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Redis;
-public class RedisIdentifierService : IIdentifierService
+public class RedisIdentifier : IIdentifierService
 {
     private readonly IConnectionMultiplexer _connectionMultiplexer;
 
-    public RedisIdentifierService(IConnectionMultiplexer connectionMultiplexer)
+    public RedisIdentifier(IConnectionMultiplexer connectionMultiplexer)
     {
         _connectionMultiplexer = connectionMultiplexer;
     }

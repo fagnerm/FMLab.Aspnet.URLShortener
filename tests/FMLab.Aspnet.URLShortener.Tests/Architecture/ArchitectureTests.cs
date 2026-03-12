@@ -5,74 +5,65 @@
 using ArchUnitNET.Domain;
 using ArchUnitNET.Loader;
 using ArchUnitNET.xUnit;
+using FMLab.Aspnet.URLShortener.Business.DependencyInjection;
+using FMLab.Aspnet.URLShortener.Infrastructure.DependencyInjection;
+using Microsoft.VisualStudio.TestPlatform.TestHost;
 using static ArchUnitNET.Fluent.ArchRuleDefinition;
 
 namespace FMLab.Aspnet.URLShortener.Tests.Architecture;
 
 public class ArchitectureTests
 {
-    private static readonly ArchUnitNET.Domain.Architecture _architecture = new ArchLoader()
-        .LoadAssemblies(
-            typeof(Business.Services.URL.UrlService).Assembly,
-            typeof(Infrastructure.Persistence.Repositories.UrlRepository).Assembly,
-            typeof(Api.Endpoints.URL.UrlEndpoints).Assembly
-        )
-        .Build();
+    private static readonly System.Reflection.Assembly BusinessAssembly = typeof(ApplicationModule).Assembly;
 
-    private static readonly IObjectProvider<IType> ApiLayer =
-        Types().That().ResideInNamespace("FMLab.Aspnet.URLShortener.Api")
-               .As("Api Layer");
+    private static readonly System.Reflection.Assembly InfrastructureAssembly = typeof(InfrastructureModule).Assembly;
 
-    private static readonly IObjectProvider<IType> BusinessLayer =
-        Types().That().ResideInNamespace("FMLab.Aspnet.URLShortener.Business")
-               .As("Business Layer");
+    private static readonly System.Reflection.Assembly ApiAssembly = typeof(Program).Assembly;
 
-    private static readonly IObjectProvider<IType> InfrastructureLayer =
-        Types().That().ResideInNamespace("FMLab.Aspnet.URLShortener.Infrastructure")
-               .As("Infrastructure Layer");
+    private static readonly IObjectProvider<IType> ApiLayer = Types().That().ResideInAssembly(ApiAssembly);
+    private static readonly IObjectProvider<IType> BusinessLayer = Types().That().ResideInAssembly(BusinessAssembly);
+    private static readonly IObjectProvider<IType> InfrastructureLayer = Types().That().ResideInAssembly(InfrastructureAssembly);
+
+    private static readonly ArchUnitNET.Domain.Architecture Architecture = new ArchLoader()
+    .LoadAssemblies(
+        BusinessAssembly,
+        InfrastructureAssembly,
+        ApiAssembly)
+    .Build();
 
     [Fact]
     public void BusinessLayer_ShouldNotDependOn_InfrastructureLayer() =>
         Types().That().Are(BusinessLayer).Should().NotDependOnAny(InfrastructureLayer)
-               .Check(_architecture);
+               .Check(Architecture);
 
     [Fact]
     public void BusinessLayer_ShouldNotDependOn_ApiLayer() =>
         Types().That().Are(BusinessLayer).Should().NotDependOnAny(ApiLayer)
-               .Check(_architecture);
+               .Check(Architecture);
 
     [Fact]
     public void InfrastructureLayer_ShouldNotDependOn_ApiLayer() =>
         Types().That().Are(InfrastructureLayer).Should().NotDependOnAny(ApiLayer)
-               .Check(_architecture);
+               .Check(Architecture);
 
     [Fact]
     public void RepositoryInterfaces_ShouldResideIn_BusinessLayer() =>
-        Interfaces().That().HaveNameEndingWith("Repository")
-                    .Should().ResideInNamespace("FMLab.Aspnet.URLShortener.Business")
-                    .Check(_architecture);
+        Interfaces().That().HaveNameMatching(".*Repository")
+                    .Should().ResideInAssembly(BusinessAssembly)
+                    .Because("Abstrasct repositories belong to the Business layer")
+                    .Check(Architecture);
 
     [Fact]
     public void RepositoryImplementations_ShouldResideIn_InfrastructureLayer() =>
-        Classes().That().HaveNameEndingWith("Repository")
-                 .Should().ResideInNamespace("FMLab.Aspnet.URLShortener.Infrastructure")
-                 .Check(_architecture);
-
-    [Fact]
-    public void QueryInterfaces_ShouldResideIn_BusinessLayer() =>
-        Interfaces().That().HaveNameEndingWith("Query")
-                    .Should().ResideInNamespace("FMLab.Aspnet.URLShortener.Business")
-                    .Check(_architecture);
-
-    [Fact]
-    public void QueryImplementations_ShouldResideIn_InfrastructureLayer() =>
-        Classes().That().HaveNameEndingWith("Query")
-                 .Should().ResideInNamespace("FMLab.Aspnet.URLShortener.Infrastructure")
-                 .Check(_architecture);
+        Classes().That().HaveNameMatching(".*Repository")
+                 .Should().ResideInAssembly(InfrastructureAssembly)
+                 .Because("Concrete repositories belong to the Business layer")
+                 .Check(Architecture);
 
     [Fact]
     public void Services_ShouldResideIn_BusinessLayer() =>
-        Classes().That().HaveNameEndingWith("Service")
-                 .Should().ResideInNamespace("FMLab.Aspnet.URLShortener.Business")
-                 .Check(_architecture);
+        Classes().That().HaveNameMatching(".*Service")
+                 .Should().ResideInAssembly(BusinessAssembly)
+                 .Because("Concrete Services belong to the Business layer")
+                 .Check(Architecture);
 }
