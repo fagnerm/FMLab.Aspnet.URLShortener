@@ -33,6 +33,7 @@ jobs:
     needs: test
     outputs:
       image: ${{ steps.build-image.outputs.image }}
+      ecr_registry: ${{ steps.login-ecr.outputs.registry }}
     environment: production
     steps:
       - uses: actions/checkout@v4
@@ -80,7 +81,7 @@ jobs:
       - name: Deploy on EC2
         uses: appleboy/ssh-action@v1.0.3
         env:
-          ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
+          ECR_REGISTRY: ${{ needs.build-and-push.outputs.ecr_registry }}
           ECR_REPOSITORY: ${{ env.ECR_REPOSITORY }}
           IMAGE_TAG: ${{ env.IMAGE_TAG }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
