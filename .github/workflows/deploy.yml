@@ -75,7 +75,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: docker-compose.prod.yml,infra/nginx/nginx.conf
+          source: docker-compose.prod.yml,infra/nginx/nginx.prod.conf
           target: /home/ec2-user/urlshortener
 
       - name: Deploy on EC2
