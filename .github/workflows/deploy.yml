@@ -106,23 +106,13 @@ jobs:
               docker login --username AWS --password-stdin $ECR_REGISTRY
 
             # Write .env file
-            cat > .env << EOF
-            API_KEY=$API_KEY
-            DB_SERVER=$DB_SERVER
-            DB_PORT=$DB_PORT
-            DB_NAME=$DB_NAME
-            DB_USER=$DB_USER
-            DB_PASSWORD=$DB_PASSWORD
-            REDIS_HOST=$REDIS_HOST
-            REDIS_PORT=$REDIS_PORT
-            ECR_REGISTRY=$ECR_REGISTRY
-            ECR_REPOSITORY=$ECR_REPOSITORY
-            IMAGE_TAG=$IMAGE_TAG
-            EOF
+            printf "API_KEY=%s\nDB_SERVER=%s\nDB_PORT=%s\nDB_NAME=%s\nDB_USER=%s\nDB_PASSWORD=%s\nREDIS_HOST=%s\nREDIS_PORT=%s\nECR_REGISTRY=%s\nECR_REPOSITORY=%s\nIMAGE_TAG=%s\n" \
+              "$API_KEY" "$DB_SERVER" "$DB_PORT" "$DB_NAME" "$DB_USER" "$DB_PASSWORD" \
+              "$REDIS_HOST" "$REDIS_PORT" "$ECR_REGISTRY" "$ECR_REPOSITORY" "$IMAGE_TAG" > .env
 
             # Pull and restart
-            docker-compose -f docker-compose.prod.yml pull
-            docker-compose -f docker-compose.prod.yml up -d --remove-orphans
+            docker compose -f docker-compose.prod.yml pull
+            docker compose -f docker-compose.prod.yml up -d --remove-orphans
 
             # Cleanup old images
             docker image prune -f
