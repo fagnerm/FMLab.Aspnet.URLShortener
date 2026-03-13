@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  ECR_REPOSITORY: urlshortener-api
+  ECR_REPOSITORY: fmlab/url_shortener
   IMAGE_TAG: ${{ github.sha }}
 
 jobs:
@@ -33,7 +33,7 @@ jobs:
     needs: test
     outputs:
       image: ${{ steps.build-image.outputs.image }}
-
+    environment: production
     steps:
       - uses: actions/checkout@v4
 
@@ -63,6 +63,7 @@ jobs:
     name: Deploy to EC2
     runs-on: ubuntu-latest
     needs: build-and-push
+    environment: production
 
     steps:
       - uses: actions/checkout@v4
