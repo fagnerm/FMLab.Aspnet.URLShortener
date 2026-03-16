@@ -64,7 +64,7 @@ public static class UrlEndpoints
         if (!output.IsSuccess) return output.ToProblemResult();
 
         var result = output.Data;
-        return Results.Created($"/{result!.Hash}", result);
+        return Results.Created(result!.UrlShortened, result);
     }
 
     private static async Task<IResult> UpdateUrl([FromServices] IUrlService service, [FromRoute] string hash, [FromBody] UpdateShortenURLRequest body, CancellationToken cancellationToken)

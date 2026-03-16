@@ -5,17 +5,20 @@
 using FMLab.Aspnet.URLShortener.Business.DTOs;
 using FMLab.Aspnet.URLShortener.Business.Entities;
 using FMLab.Aspnet.URLShortener.Business.Exceptions;
+using FMLab.Aspnet.URLShortener.Business.Options;
 using FMLab.Aspnet.URLShortener.Business.Repositories;
 using FMLab.Aspnet.URLShortener.Business.Services.Identifier;
 using FMLab.Aspnet.URLShortener.Business.Shared.Result;
 using FMLab.Aspnet.URLShortener.Business.ValueObjects;
+using Microsoft.Extensions.Options;
 
 namespace FMLab.Aspnet.URLShortener.Business.Services.URL;
 
-public class UrlService(IIdentifierService idService, IUrlRepository repository) : IUrlService
+public class UrlService(IIdentifierService idService, IUrlRepository repository, IOptions<AppOptions> options) : IUrlService
 {
     private readonly IUrlRepository _repository = repository;
     private readonly IIdentifierService _idService = idService;
+    private readonly IOptions<AppOptions> _options = options;
 
     public async Task<Result<CreateUrlOutputDTO>> RegisterUrlAsync(CreateUrlInputDTO input, CancellationToken cancellationToken)
     {
@@ -32,7 +35,7 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository)
             return Result<CreateUrlOutputDTO>.Conflict(ex.Message);
         }
 
-        var result = new CreateUrlOutputDTO(url.Hash);
+        var result = new CreateUrlOutputDTO($"{_options.Value.Domain}/{url.Hash}");
         return Result<CreateUrlOutputDTO>.Success(result);
     }
 
@@ -46,7 +49,6 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository)
 
         return Result<NoOutput>.NoContent();
     }
-
 
     public async Task<Result<UrlRedirectionOutputDTO>> LoadUrlRedirection(UrlRedirectionInputDTO input, CancellationToken cancellationToken)
     {

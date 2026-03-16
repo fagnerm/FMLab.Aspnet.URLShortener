@@ -1,0 +1,319 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Shortener</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f5f2eb;
+            font-family: 'Syne', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: #c8f56a;
+            top: -100px;
+            right: -80px;
+        }
+
+        .blob-2 {
+            width: 300px;
+            height: 300px;
+            background: #f0a8ff;
+            bottom: -80px;
+            left: -60px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 520px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #1a1a1a;
+            color: #c8f56a;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 1.5rem;
+        }
+
+        .badge-dot {
+            width: 6px;
+            height: 6px;
+            background: #c8f56a;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%,100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0.3
+            }
+        }
+
+        h1 {
+            font-size: clamp(42px, 8vw, 64px);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: #1a1a1a;
+            margin-bottom: 0.4rem;
+        }
+
+            h1 span {
+                color: transparent;
+                -webkit-text-stroke: 2px #1a1a1a;
+            }
+
+        .tagline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 180px;
+                height: 180px;
+                background: #c8f56a;
+                border-radius: 50%;
+                opacity: 0.06;
+                transform: translate(40%, -40%);
+            }
+
+        .field {
+            margin-bottom: 1.25rem;
+        }
+
+        .field-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .input-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 14px;
+            color: #555;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        input[type="url"],
+        input[type="text"] {
+            width: 100%;
+            background: #252525;
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 13px 14px 13px 36px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: #f0f0ee;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+            input[type="url"]:focus,
+            input[type="text"]:focus {
+                border-color: #c8f56a;
+                box-shadow: 0 0 0 3px rgba(200,245,106,0.12);
+            }
+
+        input::placeholder {
+            color: #444;
+        }
+
+        .hint {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 1.5rem 0;
+        }
+
+        .divider-line {
+            flex: 1;
+            height: 1px;
+            background: #2e2e2e;
+        }
+
+        .divider-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: #444;
+            letter-spacing: 0.1em;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            background: #c8f56a;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            font-family: 'Syne', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            transition: transform 0.1s, background 0.15s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+            button[type="submit"]:hover {
+                background: #d4f77e;
+            }
+
+            button[type="submit"]:active {
+                transform: scale(0.98);
+            }
+
+        .arrow {
+            font-size: 18px;
+            transition: transform 0.2s;
+        }
+
+        button[type="submit"]:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        .footer-note {
+            margin-top: 1.25rem;
+            text-align: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            color: #555;
+            letter-spacing: 0.05em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid-bg"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="wrapper">
+        <div class="badge">
+            <span class="badge-dot"></span>
+            online — pronto para encurtar
+        </div>
+
+        <h1>Encurte.<br><span>Compartilhe.</span></h1>
+        <p class="tagline">// links curtos. sem ruído.</p>
+
+        <div class="card">
+            <form method="post" action="/">
+                <input type="hidden" name="{ANTIFORGERY_FIELD_NAME}" value="{ANTIFORGERY_TOKEN}" />
+
+                <div class="field">
+                    <label class="field-label" for="url">URL de destino</label>
+                    <div class="input-wrap">
+                        <span class="input-icon">&rarr;</span>
+                        <input type="url" id="url" name="url" placeholder="https://url-longa.com/com/varios/segmentos" required />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="field-label" for="alias">Alias <span style="color:#444">(opcional)</span></label>
+                    <div class="input-wrap">
+                        <span class="input-icon" style="font-size:11px;color:#555">~/</span>
+                        <input type="text" id="alias" name="alias" placeholder="meu-link" pattern="[a-zA-Z0-9\-]+" />
+                    </div>
+                    <p class="hint">letras, números e hífens</p>
+                </div>
+
+                <div class="divider">
+                    <span class="divider-line"></span>
+                    <span class="divider-text">pronto</span>
+                    <span class="divider-line"></span>
+                </div>
+
+                <button type="submit">
+                    Gerar link curto
+                    <span class="arrow">→</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

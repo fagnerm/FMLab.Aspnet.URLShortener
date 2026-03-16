@@ -4,8 +4,10 @@
 
 using FMLab.Aspnet.URLShortener.Api.Configuration;
 using FMLab.Aspnet.URLShortener.Api.Endpoints.URL;
+using FMLab.Aspnet.URLShortener.Api.Pages;
 using FMLab.Aspnet.URLShortener.Authentication;
 using FMLab.Aspnet.URLShortener.Business.DependencyInjection;
+using FMLab.Aspnet.URLShortener.Business.Options;
 using FMLab.Aspnet.URLShortener.Configuration;
 using FMLab.Aspnet.URLShortener.Infrastructure.DependencyInjection;
 using Microsoft.AspNetCore.Authentication;
@@ -22,6 +24,8 @@ builder.Services.AddAuthentication("ApiKey")
 builder.Services.AddAuthorization();
 builder.Services.AddRateLimiting();
 builder.Services.AddAppApiVersioning();
+builder.Services.AddAntiforgery();
+builder.Services.Configure<AppOptions>(builder.Configuration.GetSection("UrlShortener"));
 builder.AddCorsPolicy();
 
 var app = builder.Build();
@@ -32,6 +36,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseRateLimiting();
 app.UseCorsPolicy();
+app.MapPageEndpoints();
 app.MapUrlRedirectionEndpoint();
 
 var versionedApi = app.UseAppVersioning(); ;

@@ -1,0 +1,329 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Link gerado — URL Shortener</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            min-height: 100vh;
+            background: #f5f2eb;
+            font-family: 'Syne', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            background: #c8f56a;
+            top: -100px;
+            right: -80px;
+        }
+
+        .blob-2 {
+            width: 300px;
+            height: 300px;
+            background: #f0a8ff;
+            bottom: -80px;
+            left: -60px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 520px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .success-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #c8f56a;
+            color: #1a1a1a;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 1.5rem;
+        }
+
+        .check {
+            width: 16px;
+            height: 16px;
+            background: #1a1a1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            color: #c8f56a;
+        }
+
+        h1 {
+            font-size: clamp(36px, 7vw, 56px);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: #1a1a1a;
+            margin-bottom: 0.4rem;
+        }
+
+            h1 span {
+                color: transparent;
+                -webkit-text-stroke: 2px #1a1a1a;
+            }
+
+        .tagline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 180px;
+                height: 180px;
+                background: #c8f56a;
+                border-radius: 50%;
+                opacity: 0.06;
+                transform: translate(40%, -40%);
+            }
+
+        .section-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .short-url-box {
+            background: #252525;
+            border: 1px solid #c8f56a33;
+            border-radius: 10px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .short-url-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 15px;
+            font-weight: 500;
+            color: #c8f56a;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            flex-shrink: 0;
+            background: #c8f56a;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            cursor: pointer;
+            transition: background 0.15s, transform 0.1s;
+            white-space: nowrap;
+        }
+
+            .copy-btn:hover {
+                background: #d4f77e;
+            }
+
+            .copy-btn:active {
+                transform: scale(0.97);
+            }
+
+            .copy-btn.copied {
+                background: #3a3a3a;
+                color: #c8f56a;
+            }
+
+        .divider {
+            height: 1px;
+            background: #2e2e2e;
+            margin: 1.25rem 0;
+        }
+
+        .original-url-box {
+            background: #252525;
+            border: 1px solid #2e2e2e;
+            border-radius: 10px;
+            padding: 12px 16px;
+            margin-bottom: 1.5rem;
+        }
+
+        .original-url-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #666;
+            word-break: break-all;
+            line-height: 1.6;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            flex: 1;
+            background: #c8f56a;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 10px;
+            padding: 13px;
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.15s, transform 0.1s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+            .btn-primary:hover {
+                background: #d4f77e;
+            }
+
+            .btn-primary:active {
+                transform: scale(0.98);
+            }
+
+        .btn-ghost {
+            flex: 1;
+            background: transparent;
+            color: #888;
+            border: 1px solid #2e2e2e;
+            border-radius: 10px;
+            padding: 13px;
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: border-color 0.15s, color 0.15s, transform 0.1s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            text-decoration: none;
+        }
+
+            .btn-ghost:hover {
+                border-color: #555;
+                color: #ccc;
+            }
+
+            .btn-ghost:active {
+                transform: scale(0.98);
+            }
+    </style>
+</head>
+<body>
+
+    <div class="grid-bg"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="wrapper">
+        <div class="success-badge">
+            <span class="check">✓</span>
+            link gerado com sucesso
+        </div>
+
+        <h1>Pronto.<br><span>É seu.</span></h1>
+        <p class="tagline">// copie e compartilhe</p>
+
+        <div class="card">
+            <p class="section-label">seu link curto</p>
+            <div class="short-url-box">
+                <span class="short-url-text" id="short-url">{SHORT_URL}</span>
+                <button class="copy-btn" id="copy-btn" onclick="copyUrl()">copiar</button>
+            </div>
+
+            <div class="divider"></div>
+
+            <p class="section-label">url original</p>
+            <div class="original-url-box">
+                <span class="original-url-text">{ORIGINAL_URL}</span>
+            </div>
+
+            <div class="actions">
+                <a class="btn-primary" href="/">+ novo link</a>
+                <a class="btn-ghost" href="{SHORT_URL}" target="_blank">abrir ↗</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+function copyUrl() {
+  const url = document.getElementById('short-url').textContent;
+  navigator.clipboard.writeText(url).then(() => {
+  const btn = document.getElementById('copy-btn');
+  btn.textContent = 'copiado!';
+  btn.classList.add('copied');
+  setTimeout(() => {
+      btn.textContent = 'copiar';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+    </script>
+
+</body>
+</html>
