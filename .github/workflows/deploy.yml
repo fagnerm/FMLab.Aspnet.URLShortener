@@ -92,6 +92,9 @@ jobs:
             # Authenticate to ECR
             aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ needs.build-and-push.outputs.ecr_registry }}
 
+            # Write API KEY
+            echo "API_KEY=123-123-123" > .en
+
             # Write .env file
             echo "API_KEY=${{ secrets.API_KEY }}" > .env
             echo "DB_SERVER=${{ secrets.DB_SERVER }}" >> .env
