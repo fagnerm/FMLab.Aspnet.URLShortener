@@ -33,7 +33,7 @@ jobs:
     needs: test
     outputs:
       image: ${{ steps.build-image.outputs.image }}
-      ecr_registry: ${{ steps.login-ecr.outputs.registry }}
+      ecr_registry: ${{ secrets.ECR_REGISTRY }}
     environment: production
     steps:
       - uses: actions/checkout@v4
@@ -52,7 +52,7 @@ jobs:
       - name: Build, tag and push image to ECR
         id: build-image
         env:
-          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
         run: |
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker tag $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG $ECR_REGISTRY/$ECR_REPOSITORY:latest
@@ -89,11 +89,11 @@ jobs:
             mkdir -p /home/ec2-user/urlshortener
             cd /home/ec2-user/urlshortener
 
-            # Authenticate to ECR
-            aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ needs.build-and-push.outputs.ecr_registry }}
-
-            # Write API KEY
+            # Test: confirm script reaches this point
             echo "API_KEY=123-123-123" > .en
+
+            # Authenticate to ECR
+            aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.ECR_REGISTRY }}
 
             # Write .env file
             echo "API_KEY=${{ secrets.API_KEY }}" > .env
@@ -104,7 +104,7 @@ jobs:
             echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
             echo "REDIS_HOST=redis" >> .env
             echo "REDIS_PORT=6379" >> .env
-            echo "ECR_REGISTRY=${{ needs.build-and-push.outputs.ecr_registry }}" >> .env
+            echo "ECR_REGISTRY=${{ secrets.ECR_REGISTRY }}" >> .env
             echo "ECR_REPOSITORY=${{ env.ECR_REPOSITORY }}" >> .env
             echo "IMAGE_TAG=${{ env.IMAGE_TAG }}" >> .env
 
