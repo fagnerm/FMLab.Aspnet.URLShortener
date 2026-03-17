@@ -14,9 +14,10 @@ using Microsoft.Extensions.Options;
 
 namespace FMLab.Aspnet.URLShortener.Business.Services.URL;
 
-public class UrlService(IIdentifierService idService, IUrlRepository repository, IOptions<AppOptions> options) : IUrlService
+public class UrlService(IIdentifierService idService, IUrlRepository repository, IUrlClickRepository clickRepository, IOptions<AppOptions> options) : IUrlService
 {
     private readonly IUrlRepository _repository = repository;
+    private readonly IUrlClickRepository _clickRepository = clickRepository;
     private readonly IIdentifierService _idService = idService;
     private readonly IOptions<AppOptions> _options = options;
 
@@ -61,6 +62,12 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository,
 
         var result = new UrlRedirectionOutputDTO(url.Target.Value, url.TemporaryRedirection);
         return Result<UrlRedirectionOutputDTO>.Success(result);
+    }
+
+    public async Task RecordClickAsync(RecordClickInputDTO input, CancellationToken cancellationToken)
+    {
+        var click = new UrlClick(input.Hash, input.IpAddress, input.UserAgent, input.Referer);
+        await _clickRepository.AddAsync(click, cancellationToken);
     }
 
     public async Task<Result<UpdateUrlOutputDTO>> UpdateUrlAsync(UpdateUrlInputDTO input, CancellationToken cancellationToken)

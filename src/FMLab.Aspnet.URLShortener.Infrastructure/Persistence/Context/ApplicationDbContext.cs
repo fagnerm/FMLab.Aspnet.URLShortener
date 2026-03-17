@@ -3,6 +3,7 @@
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
 using FMLab.Aspnet.URLShortener.Business.Entities;
+
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Configurations;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,4 +21,5 @@ public class ApplicationDbContext : DbContext
     }
 
     public DbSet<UrlRedirection> Urls { get; set; }
+    public DbSet<UrlClick> Clicks { get; set; }
 }

@@ -46,12 +46,20 @@ public static class UrlEndpoints
         return group;
     }
 
-    private static async Task<IResult> Redirect([FromServices] IUrlService service, [FromRoute] string hash, CancellationToken cancellationToken)
+    private static async Task<IResult> Redirect([FromServices] IUrlService service, [FromRoute] string hash, HttpContext httpContext, CancellationToken cancellationToken)
     {
         var input = new UrlRedirectionInputDTO(hash);
         var output = await service.LoadUrlRedirection(input, cancellationToken);
 
         if (!output.IsSuccess) return output.ToProblemResult();
+
+        var click = new RecordClickInputDTO(
+            hash,
+            httpContext.Connection.RemoteIpAddress?.ToString(),
+            httpContext.Request.Headers.UserAgent.ToString(),
+            httpContext.Request.Headers.Referer.ToString()
+        );
+        _ = service.RecordClickAsync(click, cancellationToken);
 
         return Results.Redirect(output.Data!.Target, output.Data.TemporaryRedirection);
     }
