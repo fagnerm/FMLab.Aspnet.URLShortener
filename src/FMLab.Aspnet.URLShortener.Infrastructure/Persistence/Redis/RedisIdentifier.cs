@@ -2,6 +2,7 @@
 // Copyright (c) 2026 Fagner Marinho 
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
+using FMLab.Aspnet.URLShortener.Business.Options;
 using FMLab.Aspnet.URLShortener.Business.Services.Identifier;
 using StackExchange.Redis;
 
@@ -18,7 +19,7 @@ public class RedisIdentifier : IIdentifierService
     public async Task<long> GetIdAsync()
     {
         var db = _connectionMultiplexer.GetDatabase();
-        await db.StringSetAsync("url:id_seq", 100_000_000, when: When.NotExists);
+        await db.StringSetAsync("url:id_seq", AppOptions.IDENTIFIER_SEED, when: When.NotExists);
 
         var id = await db.StringIncrementAsync("url:id_seq");
         return id;

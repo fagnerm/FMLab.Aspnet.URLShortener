@@ -46,7 +46,6 @@ public static class InfrastructureModule
             }
         });
 
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddScoped<IUrlRepository, UrlRepository>();
 
         services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect($"{config["Redis:Host"]}:{config["Redis:Port"]}"));

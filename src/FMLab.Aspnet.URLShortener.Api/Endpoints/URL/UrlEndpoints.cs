@@ -19,7 +19,7 @@ public static class UrlEndpoints
             .ProducesValidationProblem(StatusCodes.Status404NotFound);
     }
 
-    public static RouteGroupBuilder MapUrlEdnpoints(this RouteGroupBuilder group)
+    public static RouteGroupBuilder MapUrlEndpoints(this RouteGroupBuilder group)
     {
         group.MapPost("/url", Post)
             .WithTags("Url")

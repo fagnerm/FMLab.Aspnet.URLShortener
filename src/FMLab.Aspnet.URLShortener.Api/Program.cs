@@ -39,7 +39,7 @@ app.UseCorsPolicy();
 app.MapPageEndpoints();
 app.MapUrlRedirectionEndpoint();
 
-var versionedApi = app.UseAppVersioning(); ;
-versionedApi.MapUrlEdnpoints();
+var versionedApi = app.UseAppVersioning();
+versionedApi.MapUrlEndpoints();
 
 app.Run();

@@ -6,6 +6,6 @@
 namespace FMLab.Aspnet.URLShortener.Business.Options;
 public class AppOptions
 {
+    public const long IDENTIFIER_SEED = 100_000_000;
     public string? Domain { get; set; }
-    public string? ApiKey { get; set; }
 }

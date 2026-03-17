@@ -50,9 +50,9 @@ public class UrlRepository : IUrlRepository
         return user;
     }
 
-    public async Task<UrlRedirection> Update(UrlRedirection user)
+    public async Task<UrlRedirection> Update(UrlRedirection url)
     {
-        var entry = _context.Update(user);
+        var entry = _context.Update(url);
         await _context.SaveChangesAsync();
 
         return entry.Entity;
