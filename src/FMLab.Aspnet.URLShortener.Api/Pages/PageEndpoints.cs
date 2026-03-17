@@ -2,6 +2,8 @@
 // Copyright (c) 2026 Fagner Marinho 
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using FMLab.Aspnet.URLShortener.Business.DTOs;
 using FMLab.Aspnet.URLShortener.Business.Services.URL;
 using Microsoft.AspNetCore.Antiforgery;
@@ -10,11 +12,19 @@ namespace FMLab.Aspnet.URLShortener.Api.Pages;
 
 public static class PageEndpoints
 {
+    private static readonly JsonSerializerOptions _jsonOptions = new()
+    {
+        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull
+    };
+
     public static WebApplication MapPageEndpoints(this WebApplication app)
     {
         app.MapGet("/", GetIndexPage)
             .ExcludeFromDescription();
         app.MapPost("/", PostIndexPage)
+            .ExcludeFromDescription();
+        app.MapGet("/analytics/{hash}", GetAnalyticsPage)
             .ExcludeFromDescription();
 
         return app;
@@ -28,6 +38,20 @@ public static class PageEndpoints
             .Replace("{ANTIFORGERY_TOKEN}", token.RequestToken);
 
         return await Task.FromResult(Results.Content(html, "text/html"));
+    }
+
+    private static async Task<IResult> GetAnalyticsPage(string hash, IUrlService urlService, CancellationToken cancellationToken)
+    {
+        var input = new UrlAnalyticsInputDTO(hash);
+        var result = await urlService.GetAnalyticsAsync(input, cancellationToken);
+
+        if (!result.IsSuccess) return Results.NotFound();
+
+        var json = JsonSerializer.Serialize(result.Data, _jsonOptions);
+        var html = File.ReadAllText("wwwroot/analytics.html")
+            .Replace("{ANALYTICS_JSON}", json);
+
+        return Results.Content(html, "text/html");
     }
 
     private static async Task<IResult> PostIndexPage(HttpContext ctx,

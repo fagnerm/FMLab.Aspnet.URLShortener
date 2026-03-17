@@ -70,6 +70,28 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository,
         await _clickRepository.AddAsync(click, cancellationToken);
     }
 
+    public async Task<Result<UrlAnalyticsOutputDTO>> GetAnalyticsAsync(UrlAnalyticsInputDTO input, CancellationToken cancellationToken)
+    {
+        var url = await _repository.GetByHashAsync(input.Hash, cancellationToken);
+
+        if (url is null) return Result<UrlAnalyticsOutputDTO>.NotFound("Url not found");
+
+        var totalClicks    = await _clickRepository.CountByHashAsync(input.Hash, cancellationToken);
+        var clicksByDay    = await _clickRepository.GetDailyClicksAsync(input.Hash, AppOptions.ANALYTICS_PERIOD, cancellationToken);
+        var topReferrers   = await _clickRepository.GetTopReferrersAsync(input.Hash, AppOptions.TOP_REFERRERS, cancellationToken);
+
+        var result = new UrlAnalyticsOutputDTO(
+            url.Hash,
+            url.Target.Value,
+            url.CreatedAt,
+            totalClicks,
+            clicksByDay,
+            topReferrers
+        );
+
+        return Result<UrlAnalyticsOutputDTO>.Success(result);
+    }
+
     public async Task<Result<UpdateUrlOutputDTO>> UpdateUrlAsync(UpdateUrlInputDTO input, CancellationToken cancellationToken)
     {
         var url = await _repository.GetByHashAsync(input.Hash, cancellationToken);

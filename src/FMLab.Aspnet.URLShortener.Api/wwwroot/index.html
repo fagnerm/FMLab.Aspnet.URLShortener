@@ -263,6 +263,27 @@
             color: #555;
             letter-spacing: 0.05em;
         }
+
+        .btn-analytics {
+            width: 100%;
+            background: transparent;
+            color: #888;
+            border: 1px solid #2e2e2e;
+            border-radius: 10px;
+            padding: 13px;
+            font-family: 'Syne', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: border-color 0.15s, color 0.15s, transform 0.1s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-analytics:hover { border-color: #555; color: #ccc; }
+        .btn-analytics:active { transform: scale(0.98); }
     </style>
 </head>
 <body>
@@ -278,7 +299,7 @@
         </div>
 
         <h1>Encurte.<br><span>Compartilhe.</span></h1>
-        <p class="tagline">// links curtos. sem ruído.</p>
+        <p class="tagline">// links curtos.</p>
 
         <div class="card">
             <form method="post" action="/">
@@ -312,8 +333,36 @@
                     <span class="arrow">→</span>
                 </button>
             </form>
+
+            <div class="divider">
+                <span class="divider-line"></span>
+                <span class="divider-text">analytics</span>
+                <span class="divider-line"></span>
+            </div>
+
+            <div class="field">
+                <label class="field-label" for="analytics-hash">Ver estatísticas de um link</label>
+                <div class="input-wrap">
+                    <span class="input-icon" style="font-size:11px;color:#555">~/</span>
+                    <input type="text" id="analytics-hash" placeholder="hash do link" />
+                </div>
+            </div>
+            <button type="button" onclick="goToAnalytics()" class="btn-analytics">
+                Ver estatísticas
+                <span class="arrow">↗</span>
+            </button>
         </div>
     </div>
 
+    <script>
+        function goToAnalytics() {
+            const hash = document.getElementById('analytics-hash').value.trim();
+            if (hash) window.location.href = '/analytics/' + hash;
+        }
+
+        document.getElementById('analytics-hash').addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') goToAnalytics();
+        });
+    </script>
 </body>
 </html>

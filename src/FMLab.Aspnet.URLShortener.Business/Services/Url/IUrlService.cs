@@ -14,4 +14,5 @@ public interface IUrlService
     Task<Result<UpdateUrlOutputDTO>> UpdateUrlAsync(UpdateUrlInputDTO input, CancellationToken cancellationToken);
     Task<Result<NoOutput>> DeleteUrlAsync(DeleteUrlInputDTO input, CancellationToken cancellationToken);
     Task RecordClickAsync(RecordClickInputDTO input, CancellationToken cancellationToken);
+    Task<Result<UrlAnalyticsOutputDTO>> GetAnalyticsAsync(UrlAnalyticsInputDTO input, CancellationToken cancellationToken);
 }

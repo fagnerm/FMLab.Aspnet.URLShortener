@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics — URL Shortener</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0 }
+
+        body {
+            min-height: 100vh;
+            background: #f5f2eb;
+            font-family: 'Syne', sans-serif;
+            display: flex;
+            justify-content: center;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .grid-bg {
+            position: fixed;
+            inset: 0;
+            background-image: linear-gradient(rgba(0,0,0,0.06) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(0,0,0,0.06) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+        }
+
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.35;
+            pointer-events: none;
+        }
+        .blob-1 { width: 400px; height: 400px; background: #c8f56a; top: -100px; right: -80px; }
+        .blob-2 { width: 300px; height: 300px; background: #f0a8ff; bottom: -80px; left: -60px; }
+
+        .wrapper {
+            width: 100%;
+            max-width: 720px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #888;
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.15s;
+        }
+        .back-link:hover { color: #1a1a1a; }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #1a1a1a;
+            color: #c8f56a;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: clamp(36px, 6vw, 52px);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: #1a1a1a;
+            margin-bottom: 0.4rem;
+        }
+        h1 span { color: transparent; -webkit-text-stroke: 2px #1a1a1a; }
+
+        .tagline {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 2.5rem;
+            word-break: break-all;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .stat-card {
+            background: #1a1a1a;
+            border-radius: 16px;
+            padding: 1.25rem 1.5rem;
+        }
+
+        .stat-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: #c8f56a;
+            line-height: 1;
+        }
+
+        .stat-sub {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #555;
+            margin-top: 6px;
+        }
+
+        .card {
+            background: #1a1a1a;
+            border-radius: 20px;
+            padding: 1.75rem;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 180px; height: 180px;
+            background: #c8f56a;
+            border-radius: 50%;
+            opacity: 0.04;
+            transform: translate(40%, -40%);
+        }
+
+        .card-title {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #555;
+            margin-bottom: 1.25rem;
+        }
+
+        /* Bar chart */
+        .chart {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 120px;
+        }
+
+        .bar-col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            height: 100%;
+            gap: 4px;
+        }
+
+        .bar {
+            width: 100%;
+            background: #c8f56a;
+            border-radius: 4px 4px 0 0;
+            min-height: 2px;
+            transition: opacity 0.15s;
+            position: relative;
+        }
+        .bar:hover { opacity: 0.8; }
+        .bar:hover .bar-tooltip {
+            display: block;
+        }
+
+        .bar-tooltip {
+            display: none;
+            position: absolute;
+            bottom: calc(100% + 6px);
+            left: 50%;
+            transform: translateX(-50%);
+            background: #f5f2eb;
+            color: #1a1a1a;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 10px;
+            padding: 4px 8px;
+            border-radius: 6px;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        .bar-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 8px;
+            color: #444;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            white-space: nowrap;
+        }
+
+        .empty-chart {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #444;
+            text-align: center;
+            width: 100%;
+            padding: 2rem 0;
+        }
+
+        /* Referrers */
+        .referrer-list { display: flex; flex-direction: column; gap: 10px; }
+
+        .referrer-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .referrer-bar-wrap {
+            flex: 1;
+            background: #252525;
+            border-radius: 4px;
+            height: 6px;
+            overflow: hidden;
+        }
+
+        .referrer-bar {
+            height: 100%;
+            background: #c8f56a;
+            border-radius: 4px;
+            transition: width 0.4s ease;
+        }
+
+        .referrer-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #888;
+            width: 180px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .referrer-count {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            color: #c8f56a;
+            width: 40px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .target-box {
+            background: #252525;
+            border: 1px solid #2e2e2e;
+            border-radius: 10px;
+            padding: 12px 16px;
+        }
+
+        .target-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: #c8f56a;
+            word-break: break-all;
+            line-height: 1.6;
+            text-decoration: none;
+        }
+        .target-text:hover { text-decoration: underline; }
+
+        @media (max-width: 560px) {
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .referrer-label { width: 100px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="wrapper">
+        <a class="back-link" href="/">← voltar</a>
+
+        <div class="badge">&#x7e; analytics</div>
+
+        <h1 id="page-title">...</h1>
+        <p class="tagline" id="page-tagline">// carregando dados</p>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <p class="stat-label">Total de cliques</p>
+                <p class="stat-value" id="stat-total">—</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-label">Criado em</p>
+                <p class="stat-value" style="font-size:20px;padding-top:6px" id="stat-created">—</p>
+            </div>
+            <div class="stat-card">
+                <p class="stat-label">Últimos 30 dias</p>
+                <p class="stat-value" id="stat-recent">—</p>
+                <p class="stat-sub">cliques</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <p class="card-title">URL de destino</p>
+            <div class="target-box">
+                <a class="target-text" id="target-url" href="#" target="_blank">—</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <p class="card-title">Cliques por dia — últimos 30 dias</p>
+            <div class="chart" id="chart"></div>
+        </div>
+
+        <div class="card">
+            <p class="card-title">Top referrers</p>
+            <div class="referrer-list" id="referrers"></div>
+        </div>
+    </div>
+
+    <script>
+        const data = {ANALYTICS_JSON};
+
+        // Header
+        document.getElementById('page-title').innerHTML = data.hash + '.<br><span>Stats.</span>';
+        document.getElementById('page-tagline').textContent = '// ' + data.target;
+
+        // Stats
+        document.getElementById('stat-total').textContent = data.totalClicks.toLocaleString();
+
+        const created = new Date(data.createdAt);
+        document.getElementById('stat-created').textContent =
+            created.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+
+        const recentClicks = data.clicksByDay.reduce((s, d) => s + d.count, 0);
+        document.getElementById('stat-recent').textContent = recentClicks.toLocaleString();
+
+        // Target
+        const targetEl = document.getElementById('target-url');
+        targetEl.textContent = data.target;
+        targetEl.href = data.target;
+
+        // Bar chart
+        const chart = document.getElementById('chart');
+        const days = data.clicksByDay;
+        if (days.length === 0) {
+            chart.innerHTML = '<p class="empty-chart">nenhum clique registrado nos últimos 30 dias</p>';
+        } else {
+            const max = Math.max(...days.map(d => d.count), 1);
+            days.forEach(d => {
+                const heightPct = Math.max((d.count / max) * 100, 2);
+                const dateLabel = d.date.slice(5);
+                const col = document.createElement('div');
+                col.className = 'bar-col';
+                col.innerHTML = `
+                    <div class="bar" style="height:${heightPct}%">
+                        <span class="bar-tooltip">${d.count} — ${d.date}</span>
+                    </div>
+                    <span class="bar-date">${dateLabel}</span>`;
+                chart.appendChild(col);
+            });
+        }
+
+        // Referrers
+        const referrers = document.getElementById('referrers');
+        if (data.topReferrers.length === 0) {
+            referrers.innerHTML = '<p style="font-family:\'JetBrains Mono\',monospace;font-size:12px;color:#444">nenhum referrer registrado</p>';
+        } else {
+            const maxRef = Math.max(...data.topReferrers.map(r => r.count), 1);
+            data.topReferrers.forEach(r => {
+                const pct = (r.count / maxRef) * 100;
+                const label = r.referer || '(direto)';
+                const row = document.createElement('div');
+                row.className = 'referrer-row';
+                row.innerHTML = `
+                    <span class="referrer-label" title="${label}">${label}</span>
+                    <div class="referrer-bar-wrap">
+                        <div class="referrer-bar" style="width:${pct}%"></div>
+                    </div>
+                    <span class="referrer-count">${r.count}</span>`;
+                referrers.appendChild(row);
+            });
+        }
+    </script>
+</body>
+</html>

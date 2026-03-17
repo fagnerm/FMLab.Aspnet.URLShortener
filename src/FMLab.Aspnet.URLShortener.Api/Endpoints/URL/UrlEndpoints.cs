@@ -43,6 +43,13 @@ public static class UrlEndpoints
             .RequireAuthorization()
             .MapToApiVersion(1, 0);
 
+        group.MapGet("/{hash}/analytics", Analytics)
+            .WithTags("Url")
+            .Produces(StatusCodes.Status200OK)
+            .ProducesValidationProblem(StatusCodes.Status404NotFound)
+            .RequireAuthorization()
+            .MapToApiVersion(1, 0);
+
         return group;
     }
 
@@ -59,7 +66,7 @@ public static class UrlEndpoints
             httpContext.Request.Headers.UserAgent.ToString(),
             httpContext.Request.Headers.Referer.ToString()
         );
-        _ = service.RecordClickAsync(click, cancellationToken);
+        await service.RecordClickAsync(click, cancellationToken);
 
         return Results.Redirect(output.Data!.Target, output.Data.TemporaryRedirection);
     }
@@ -89,5 +96,15 @@ public static class UrlEndpoints
         var output = await service.DeleteUrlAsync(input, cancellationToken);
 
         return output.ToProblemResult();
+    }
+
+    private static async Task<IResult> Analytics([FromServices] IUrlService service, [FromRoute] string hash, CancellationToken cancellationToken)
+    {
+        var input = new UrlAnalyticsInputDTO(hash);
+        var output = await service.GetAnalyticsAsync(input, cancellationToken);
+
+        if (!output.IsSuccess) return output.ToProblemResult();
+
+        return Results.Ok(output.Data);
     }
 }
