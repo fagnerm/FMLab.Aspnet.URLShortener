@@ -15,21 +15,36 @@ public class UrlRedirection
         Hash = string.Empty;
     }
 
-    public UrlRedirection(long id, Url url, bool temporaryRedirection)
+    public UrlRedirection(long id, Url url, bool temporaryRedirection, DateTime? expiresAt = null, int? maxClicks = null)
     {
         Hash = Base62.Encode(id);
         Target = url;
         TemporaryRedirection = temporaryRedirection;
+        CreatedAt = DateTime.UtcNow;
+        ExpiresAt = expiresAt;
+        MaxClicks = maxClicks;
+        IsActive = true;
     }
 
+    public string Hash { get; init; }
     public Url Target { get; private set; }
     public bool TemporaryRedirection { get; private set; }
-    public string Hash { get; init; }
-
+    public bool IsActive { get; private set; }
+    public DateTime CreatedAt { get; private set; }
+    public DateTime? UpdatedAt { get; private set; }
+    public DateTime? ExpiresAt { get; private set; }
+    public int? MaxClicks { get; private set; }
 
     public void Update(Url url, bool temporaryRedirection)
     {
         Target = url;
         TemporaryRedirection = temporaryRedirection;
+        UpdatedAt = DateTime.UtcNow;
+    }
+
+    public void Deactivate()
+    {
+        IsActive = false;
+        UpdatedAt = DateTime.UtcNow;
     }
 }
