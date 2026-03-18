@@ -345,8 +345,9 @@
                 <label class="field-label" for="analytics-hash">Ver estatísticas de um link</label>
                 <div class="input-wrap">
                     <span class="input-icon" style="font-size:11px;color:#555">~/</span>
-                    <input type="text" id="analytics-hash" placeholder="hash do link" />
+                    <input type="text" id="analytics-hash" placeholder="hash ou link encurtado" />
                 </div>
+                <p class="hint" id="analytics-hint"></p>
             </div>
             <button type="button" onclick="goToAnalytics()" class="btn-analytics">
                 Ver estatísticas
@@ -356,13 +357,44 @@
     </div>
 
     <script>
+        function extractHash(input) {
+            try {
+                const url = new URL(input);
+                const segments = url.pathname.split('/').filter(Boolean);
+                return segments[segments.length - 1] || null;
+            } catch {
+                return input || null;
+            }
+        }
+
         function goToAnalytics() {
-            const hash = document.getElementById('analytics-hash').value.trim();
-            if (hash) window.location.href = '/analytics/' + hash;
+            const input = document.getElementById('analytics-hash').value.trim();
+            const hint  = document.getElementById('analytics-hint');
+
+            if (!input) {
+                hint.style.color = '#e05555';
+                hint.textContent = 'informe um hash ou link encurtado';
+                return;
+            }
+
+            const hash = extractHash(input);
+
+            if (!hash) {
+                hint.style.color = '#e05555';
+                hint.textContent = 'link inválido';
+                return;
+            }
+
+            hint.textContent = '';
+            window.location.href = '/analytics/' + hash;
         }
 
         document.getElementById('analytics-hash').addEventListener('keydown', function (e) {
             if (e.key === 'Enter') goToAnalytics();
+        });
+
+        document.getElementById('analytics-hash').addEventListener('input', function () {
+            document.getElementById('analytics-hint').textContent = '';
         });
     </script>
 </body>
