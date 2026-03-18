@@ -63,8 +63,9 @@ public static class PageEndpoints
 
         var form = await ctx.Request.ReadFormAsync(cancellationToken);
         var originalUrl = form["url"].ToString();
+        var alias = form["alias"].ToString();
 
-        var input = new CreateUrlInputDTO(originalUrl, false);
+        var input = new CreateUrlInputDTO(originalUrl, false, string.IsNullOrWhiteSpace(alias) ? null : alias);
         var result = await urlService.RegisterUrlAsync(input, cancellationToken);
 
 

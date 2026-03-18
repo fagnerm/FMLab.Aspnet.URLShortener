@@ -4,4 +4,4 @@
 
 namespace FMLab.Aspnet.URLShortener.Api.Endpoints.URL;
 
-public record CreateShortenURLRequest(string Target, bool TemporaryRedirection);
+public record CreateShortenURLRequest(string Target, bool TemporaryRedirection, string? Alias = null);

@@ -15,9 +15,9 @@ public class UrlRedirection
         Hash = string.Empty;
     }
 
-    public UrlRedirection(long id, Url url, bool temporaryRedirection, DateTime? expiresAt = null, int? maxClicks = null)
+    public UrlRedirection(long id, Url url, bool temporaryRedirection, string? alias = null, DateTime? expiresAt = null, int? maxClicks = null)
     {
-        Hash = Base62.Encode(id);
+        Hash = string.IsNullOrWhiteSpace(alias) ? Base62.Encode(id) : alias;
         Target = url;
         TemporaryRedirection = temporaryRedirection;
         CreatedAt = DateTime.UtcNow;

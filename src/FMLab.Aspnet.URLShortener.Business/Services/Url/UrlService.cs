@@ -14,8 +14,7 @@ using FMLab.Aspnet.URLShortener.Business.ValueObjects;
 using Microsoft.Extensions.Options;
 
 namespace FMLab.Aspnet.URLShortener.Business.Services.URL;
-
-public class UrlService(IIdentifierService idService, IUrlRepository repository, IUrlClickRepository clickRepository, IUrlCacheService cache, IOptions<AppOptions> options) : IUrlService
+public partial class UrlService(IIdentifierService idService, IUrlRepository repository, IUrlClickRepository clickRepository, IUrlCacheService cache, IOptions<AppOptions> options) : IUrlService
 {
     private readonly IUrlRepository _repository = repository;
     private readonly IUrlClickRepository _clickRepository = clickRepository;
@@ -25,9 +24,12 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository,
 
     public async Task<Result<CreateUrlOutputDTO>> RegisterUrlAsync(CreateUrlInputDTO input, CancellationToken cancellationToken)
     {
+        if (!string.IsNullOrWhiteSpace(input.Alias) && !AliasRegex().IsMatch(input.Alias))
+            return Result<CreateUrlOutputDTO>.Validation("Alias must contain only letters, numbers and hyphens, up to 15 characters.");
+
         var target = new Url(input.Target);
         var id = await _idService.GetIdAsync();
-        var url = new UrlRedirection(id, target, input.TemporaryRedirection);
+        var url = new UrlRedirection(id, target, input.TemporaryRedirection, input.Alias);
 
         try
         {
@@ -41,6 +43,9 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository,
         var result = new CreateUrlOutputDTO($"{_options.Value.Domain}/{url.Hash}");
         return Result<CreateUrlOutputDTO>.Success(result);
     }
+
+    [System.Text.RegularExpressions.GeneratedRegex(@"^[a-zA-Z0-9\-]{1,15}$")]
+    private static partial System.Text.RegularExpressions.Regex AliasRegex();
 
     public async Task<Result<NoOutput>> DeleteUrlAsync(DeleteUrlInputDTO input, CancellationToken cancellationToken)
     {

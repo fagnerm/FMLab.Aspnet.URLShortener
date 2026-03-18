@@ -73,7 +73,7 @@ public static class UrlEndpoints
 
     private static async Task<IResult> Post([FromServices] IUrlService service, [FromBody] CreateShortenURLRequest body, CancellationToken cancellationToken)
     {
-        var input = new CreateUrlInputDTO(body.Target, body.TemporaryRedirection);
+        var input = new CreateUrlInputDTO(body.Target, body.TemporaryRedirection, body.Alias);
         var output = await service.RegisterUrlAsync(input, cancellationToken);
 
         if (!output.IsSuccess) return output.ToProblemResult();

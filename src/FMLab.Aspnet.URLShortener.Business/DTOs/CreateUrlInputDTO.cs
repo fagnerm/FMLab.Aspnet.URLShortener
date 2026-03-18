@@ -3,4 +3,4 @@
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
 namespace FMLab.Aspnet.URLShortener.Business.DTOs;
-public record CreateUrlInputDTO(string Target, bool TemporaryRedirection);
+public record CreateUrlInputDTO(string Target, bool TemporaryRedirection, string? Alias = null);
