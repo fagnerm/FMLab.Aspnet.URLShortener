@@ -4,6 +4,7 @@
 
 
 using FMLab.Aspnet.URLShortener.Business.Repositories;
+using FMLab.Aspnet.URLShortener.Business.Services.Cache;
 using FMLab.Aspnet.URLShortener.Business.Services.Identifier;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Context;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Redis;
@@ -51,6 +52,7 @@ public static class InfrastructureModule
 
         services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect($"{config["Redis:Host"]}:{config["Redis:Port"]}"));
         services.AddSingleton<IIdentifierService, RedisIdentifier>();
+        services.AddSingleton<IUrlCacheService, RedisUrlCache>();
 
         return services;
     }

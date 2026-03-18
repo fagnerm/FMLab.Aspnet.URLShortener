@@ -7,6 +7,7 @@ using FMLab.Aspnet.URLShortener.Business.Entities;
 using FMLab.Aspnet.URLShortener.Business.Exceptions;
 using FMLab.Aspnet.URLShortener.Business.Options;
 using FMLab.Aspnet.URLShortener.Business.Repositories;
+using FMLab.Aspnet.URLShortener.Business.Services.Cache;
 using FMLab.Aspnet.URLShortener.Business.Services.Identifier;
 using FMLab.Aspnet.URLShortener.Business.Shared.Result;
 using FMLab.Aspnet.URLShortener.Business.ValueObjects;
@@ -14,10 +15,11 @@ using Microsoft.Extensions.Options;
 
 namespace FMLab.Aspnet.URLShortener.Business.Services.URL;
 
-public class UrlService(IIdentifierService idService, IUrlRepository repository, IUrlClickRepository clickRepository, IOptions<AppOptions> options) : IUrlService
+public class UrlService(IIdentifierService idService, IUrlRepository repository, IUrlClickRepository clickRepository, IUrlCacheService cache, IOptions<AppOptions> options) : IUrlService
 {
     private readonly IUrlRepository _repository = repository;
     private readonly IUrlClickRepository _clickRepository = clickRepository;
+    private readonly IUrlCacheService _cache = cache;
     private readonly IIdentifierService _idService = idService;
     private readonly IOptions<AppOptions> _options = options;
 
@@ -47,20 +49,25 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository,
         if (existingUrl is null) return Result<NoOutput>.NotFound("Url not found");
 
         await _repository.Delete(existingUrl!);
+        await _cache.RemoveAsync(input.Hash);
 
         return Result<NoOutput>.NoContent();
     }
 
     public async Task<Result<UrlRedirectionOutputDTO>> LoadUrlRedirection(UrlRedirectionInputDTO input, CancellationToken cancellationToken)
     {
+        var cached = await _cache.GetAsync(input.Hash);
+        if (cached is not null)
+            return Result<UrlRedirectionOutputDTO>.Success(cached);
+
         var url = await _repository.GetByHashAsync(input.Hash, cancellationToken);
 
-        if (url == null)
-        {
+        if (url is null)
             return Result<UrlRedirectionOutputDTO>.NotFound("Url not found");
-        }
 
         var result = new UrlRedirectionOutputDTO(url.Target.Value, url.TemporaryRedirection);
+        await _cache.SetAsync(input.Hash, result);
+
         return Result<UrlRedirectionOutputDTO>.Success(result);
     }
 
@@ -103,6 +110,7 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository,
         url.Update(target, redirection);
 
         await _repository.Update(url);
+        await _cache.RemoveAsync(input.Hash);
 
         var result = new UpdateUrlOutputDTO(url.Hash, url.Target.Value, url.TemporaryRedirection);
         return Result<UpdateUrlOutputDTO>.Success(result);

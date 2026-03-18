@@ -18,10 +18,10 @@ public class RedisIdentifier : IIdentifierService
 
     public async Task<long> GetIdAsync()
     {
-        var db = _connectionMultiplexer.GetDatabase();
-        await db.StringSetAsync("url:id_seq", AppOptions.IDENTIFIER_SEED, when: When.NotExists);
+        var db = _connectionMultiplexer.GetDatabase(RedisConstants.Databases.Sequence);
+        await db.StringSetAsync(RedisConstants.Keys.IdSequence, AppOptions.IDENTIFIER_SEED, when: When.NotExists);
 
-        var id = await db.StringIncrementAsync("url:id_seq");
+        var id = await db.StringIncrementAsync(RedisConstants.Keys.IdSequence);
         return id;
     }
 }
