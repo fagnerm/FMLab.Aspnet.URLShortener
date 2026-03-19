@@ -45,7 +45,7 @@ public static class PageEndpoints
         var input = new UrlAnalyticsInputDTO(hash);
         var result = await urlService.GetAnalyticsAsync(input, cancellationToken);
 
-        if (!result.IsSuccess) return Results.NotFound();
+        if (result.IsFailure) return Results.NotFound();
 
         var json = JsonSerializer.Serialize(result.Data, _jsonOptions);
         var html = File.ReadAllText("wwwroot/analytics.html")

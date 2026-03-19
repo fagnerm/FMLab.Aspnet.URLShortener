@@ -10,8 +10,8 @@ internal static class ResultExtensions
 {
     public static IResult ToProblemResult<TResult>(this Result<TResult> result)
     where TResult : class
-    {
-        if (!result.IsSuccess)
+    {   
+        if (result.IsFailure)
         {
             return result.ErrorType switch
             {
@@ -26,7 +26,7 @@ internal static class ResultExtensions
 
     public static IResult ToProblemResult(this Result result)
     {
-        if (!result.IsSuccess)
+        if (result.IsFailure)
         {
             return result.ErrorType switch
             {

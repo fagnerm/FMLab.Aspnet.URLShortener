@@ -2,6 +2,7 @@
 // Copyright (c) 2026 Fagner Marinho 
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
+using FMLab.Aspnet.aliasShortener.Business.ValueObjects;
 using FMLab.Aspnet.URLShortener.Business.Shared.Encoders;
 using FMLab.Aspnet.URLShortener.Business.ValueObjects;
 
@@ -11,13 +12,13 @@ public class UrlRedirection
 {
     private UrlRedirection()
     {
-        Target = Url.Empty;
+        Target = Url.Blank;
         Hash = string.Empty;
     }
 
-    public UrlRedirection(long id, Url url, bool temporaryRedirection, string? alias = null, DateTime? expiresAt = null, int? maxClicks = null)
+    public UrlRedirection(long id, Url url, bool temporaryRedirection, Alias? alias = null, DateTime? expiresAt = null, int? maxClicks = null)
     {
-        Hash = string.IsNullOrWhiteSpace(alias) ? Base62.Encode(id) : alias;
+        Hash = alias is null ? Base62.Encode(id) : alias.Value!;
         Target = url;
         TemporaryRedirection = temporaryRedirection;
         CreatedAt = DateTime.UtcNow;

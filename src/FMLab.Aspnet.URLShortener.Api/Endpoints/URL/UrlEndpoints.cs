@@ -57,7 +57,7 @@ public static class UrlEndpoints
         var input = new UrlRedirectionInputDTO(hash);
         var output = await service.LoadUrlAsync(input, cancellationToken);
 
-        if (!output.IsSuccess) return output.ToProblemResult();
+        if (output.IsFailure) return output.ToProblemResult();
 
         var click = new RecordClickInputDTO(
             hash,
@@ -75,7 +75,7 @@ public static class UrlEndpoints
         var input = new CreateUrlInputDTO(body.Target, body.TemporaryRedirection, body.Alias);
         var output = await service.CreateAsync(input, cancellationToken);
 
-        if (!output.IsSuccess) return output.ToProblemResult();
+        if (output.IsFailure) return output.ToProblemResult();
 
         return Results.Created(output.Data!.UrlShortened, output.Data);
     }

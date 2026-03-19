@@ -7,6 +7,7 @@ namespace FMLab.Aspnet.URLShortener.Business.Shared.Result;
 public class Result
 {
     public bool IsSuccess { get; private set; }
+    public bool IsFailure { get { return !IsSuccess; } }
     public string? Message { get; private set; }
     public ResultErrorType? ErrorType { get; private set; }
     protected Result(bool success, string message)
@@ -28,6 +29,7 @@ public class Result<TData>
     where TData : class
 {
     public bool IsSuccess { get; private set; }
+    public bool IsFailure { get { return !IsSuccess; } }
     public string? Message { get; private set; }
     public TData? Data { get; private set; }
     public ResultErrorType? ErrorType { get; private set; }
