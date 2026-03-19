@@ -22,10 +22,10 @@ public partial class UrlService(IIdentifierService idService, IUrlRepository rep
     private readonly IIdentifierService _idService = idService;
     private readonly IOptions<AppOptions> _options = options;
 
-    public async Task<Result<CreateUrlOutputDTO>> RegisterUrlAsync(CreateUrlInputDTO input, CancellationToken cancellationToken)
+    public async Task<Result<CreateUrlOutputDTO>> CreateAsync(CreateUrlInputDTO input, CancellationToken cancellationToken)
     {
         if (!string.IsNullOrWhiteSpace(input.Alias) && !AliasRegex().IsMatch(input.Alias))
-            return Result<CreateUrlOutputDTO>.Validation("Alias must contain only letters, numbers and hyphens, up to 15 characters.");
+            return Result<CreateUrlOutputDTO>.Failure("Alias must contain only letters, numbers and hyphens, up to 15 characters.");
 
         var target = new Url(input.Target);
         var id = await _idService.GetIdAsync();
@@ -37,7 +37,7 @@ public partial class UrlService(IIdentifierService idService, IUrlRepository rep
         }
         catch (DomainException ex) when (ex.Message == "Url already exists")
         {
-            return Result<CreateUrlOutputDTO>.Conflict(ex.Message);
+            return Result<CreateUrlOutputDTO>.Failure(ex.Message, ResultErrorType.Confict);
         }
 
         var result = new CreateUrlOutputDTO($"{_options.Value.Domain}/{url.Hash}");
@@ -47,19 +47,19 @@ public partial class UrlService(IIdentifierService idService, IUrlRepository rep
     [System.Text.RegularExpressions.GeneratedRegex(@"^[a-zA-Z0-9\-]{1,15}$")]
     private static partial System.Text.RegularExpressions.Regex AliasRegex();
 
-    public async Task<Result<NoOutput>> DeleteUrlAsync(DeleteUrlInputDTO input, CancellationToken cancellationToken)
+    public async Task<Result> DeleteAsync(DeleteUrlInputDTO input, CancellationToken cancellationToken)
     {
         var existingUrl = await _repository.GetByHashAsync(input.Hash, cancellationToken);
 
-        if (existingUrl is null) return Result<NoOutput>.NotFound("Url not found");
+        if (existingUrl is null) return Result.Failure("Url not found", ResultErrorType.NotFound);
 
         await _repository.Delete(existingUrl!);
         await _cache.RemoveAsync(input.Hash);
 
-        return Result<NoOutput>.NoContent();
+        return Result.Success();
     }
 
-    public async Task<Result<UrlRedirectionOutputDTO>> LoadUrlRedirection(UrlRedirectionInputDTO input, CancellationToken cancellationToken)
+    public async Task<Result<UrlRedirectionOutputDTO>> LoadUrlAsync(UrlRedirectionInputDTO input, CancellationToken cancellationToken)
     {
         var cached = await _cache.GetAsync(input.Hash);
         if (cached is not null)
@@ -68,7 +68,7 @@ public partial class UrlService(IIdentifierService idService, IUrlRepository rep
         var url = await _repository.GetByHashAsync(input.Hash, cancellationToken);
 
         if (url is null)
-            return Result<UrlRedirectionOutputDTO>.NotFound("Url not found");
+            return Result<UrlRedirectionOutputDTO>.Failure("Url not found", ResultErrorType.NotFound);
 
         var result = new UrlRedirectionOutputDTO(url.Target.Value, url.TemporaryRedirection);
         await _cache.SetAsync(input.Hash, result);
@@ -86,7 +86,7 @@ public partial class UrlService(IIdentifierService idService, IUrlRepository rep
     {
         var url = await _repository.GetByHashAsync(input.Hash, cancellationToken);
 
-        if (url is null) return Result<UrlAnalyticsOutputDTO>.NotFound("Url not found");
+        if (url is null) return Result<UrlAnalyticsOutputDTO>.Failure("Url not found", ResultErrorType.NotFound);
 
         var totalClicks    = await _clickRepository.CountByHashAsync(input.Hash, cancellationToken);
         var clicksByDay    = await _clickRepository.GetDailyClicksAsync(input.Hash, AppOptions.ANALYTICS_PERIOD, cancellationToken);
@@ -108,7 +108,7 @@ public partial class UrlService(IIdentifierService idService, IUrlRepository rep
     {
         var url = await _repository.GetByHashAsync(input.Hash, cancellationToken);
 
-        if (url is null) return Result<UpdateUrlOutputDTO>.NotFound("Url not found");
+        if (url is null) return Result<UpdateUrlOutputDTO>.Failure("Url not found");
 
         var target = string.IsNullOrEmpty(input.Target) ? url.Target : new Url(input.Target!);
         var redirection = input.TemporaryRedirection ? input.TemporaryRedirection : url.TemporaryRedirection;

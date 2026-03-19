@@ -3,79 +3,55 @@
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
 namespace FMLab.Aspnet.URLShortener.Business.Shared.Result;
-public interface IResultBase
-{
-    bool IsSuccess { get; }
-    string? Error { get; }
-    ResultType Type { get; }
-}
 
-public interface IResultBase<TSelf> : IResultBase
-    where TSelf : class, IResultBase<TSelf>
+public class Result
 {
-    static abstract TSelf Validation(string? error);
-}
-
-public class Result<TResult> : IResultBase<Result<TResult>>
-    where TResult : class
-{
-    public TResult? Data { get; private set; }
-
     public bool IsSuccess { get; private set; }
-    public string? Error { get; private set; }
-    public ResultType Type { get; private set; }
-
-    private Result(ResultType type = ResultType.Success)
+    public string? Message { get; private set; }
+    public ResultErrorType? ErrorType { get; private set; }
+    protected Result(bool success, string message)
     {
-        IsSuccess = type is ResultType.Success or ResultType.NoContent;
-        Type = type;
+        IsSuccess = success;
+        Message = message;
     }
-
-    private Result(string? error, ResultType type)
+    public static Result Failure(string message, ResultErrorType errorType = ResultErrorType.None)
     {
-        Error = error;
-        Type = type;
+        return new Result(false, message);
     }
-
-    public static Result<TResult> Success(TResult? data = default)
+    public static Result Success(string message = default!)
     {
-        return new Result<TResult>(ResultType.Success) { Data = data };
-    }
-
-    public static Result<TResult> NoContent()
-    {
-        return new Result<TResult>(ResultType.NoContent);
-    }
-
-    public static Result<TResult> NotFound(string? error)
-    {
-        return new Result<TResult>(error, ResultType.NotFound);
-    }
-
-    public static Result<TResult> Validation(string? error)
-    {
-        return new Result<TResult>(error, ResultType.Validation);
-    }
-
-    public static Result<TResult> Domain(string? error)
-    {
-        return new Result<TResult>(error, ResultType.Domain);
-    }
-
-    public static Result<TResult> Conflict(string? error)
-    {
-        return new Result<TResult>(error, ResultType.Conflict);
+        return new Result(true, message);
     }
 }
 
-public class NoOutput { }
-
-public enum ResultType
+public class Result<TData>
+    where TData : class
 {
-    Success,
-    NoContent,
+    public bool IsSuccess { get; private set; }
+    public string? Message { get; private set; }
+    public TData? Data { get; private set; }
+    public ResultErrorType? ErrorType { get; private set; }
+
+    private Result(bool success, string message, TData data)
+    {
+        IsSuccess = success;
+        Message = message;
+        Data = data;
+    }
+    public static Result<TData> Failure (string message, ResultErrorType errorType = ResultErrorType.None, TData data = default!)
+    {
+        return new Result<TData>(false, message, data);
+    }
+    public static Result<TData> Success(TData data, string message = default!)
+    {
+        return new Result<TData>(true, message, data);
+    }
+}
+
+public enum ResultErrorType
+{
+    None,
     NotFound,
-    Validation,
-    Domain,
-    Conflict
+    Confict,
+    Other
 }

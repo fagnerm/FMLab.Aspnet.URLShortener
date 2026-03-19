@@ -8,20 +8,34 @@ namespace FMLab.Aspnet.URLShortener.Extensions;
 
 internal static class ResultExtensions
 {
-    public static IResult ToProblemResult<TResult>(this Result<TResult> result, ResultType? @default = null)
+    public static IResult ToProblemResult<TResult>(this Result<TResult> result)
     where TResult : class
     {
-        var type = result.IsSuccess && @default.HasValue ? @default : result.Type;
-
-        return type switch
+        if (!result.IsSuccess)
         {
-            ResultType.Success => Results.Ok(result.Data),
-            ResultType.NoContent => Results.NoContent(),
-            ResultType.NotFound => Results.Problem(result.Error, statusCode: StatusCodes.Status404NotFound, type: "about:blank"),
-            ResultType.Validation => Results.Problem(result.Error, statusCode: StatusCodes.Status422UnprocessableEntity, type: "about:blank"),
-            ResultType.Domain => Results.Problem(result.Error, statusCode: StatusCodes.Status422UnprocessableEntity, type: "about:blank"),
-            ResultType.Conflict => Results.Problem(result.Error, statusCode: StatusCodes.Status409Conflict, type: "about:blank"),
-            _ => Results.Problem(statusCode: 500, type: "about:blank")
+            return result.ErrorType switch
+            {
+                ResultErrorType.NotFound => Results.Problem(result.Message, statusCode: StatusCodes.Status404NotFound),
+                ResultErrorType.Confict => Results.Problem(result.Message, statusCode:StatusCodes.Status409Conflict),
+                _ => Results.Problem(statusCode: StatusCodes.Status400BadRequest),
+            };
         };
+
+        return Results.Ok(result.Data);
+    }
+
+    public static IResult ToProblemResult(this Result result)
+    {
+        if (!result.IsSuccess)
+        {
+            return result.ErrorType switch
+            {
+                ResultErrorType.NotFound => Results.Problem(result.Message, statusCode: StatusCodes.Status404NotFound),
+                ResultErrorType.Confict => Results.Problem(result.Message, statusCode: StatusCodes.Status409Conflict),
+                _ => Results.Problem(statusCode: StatusCodes.Status400BadRequest),
+            };
+        };
+
+        return Results.Ok();
     }
 }

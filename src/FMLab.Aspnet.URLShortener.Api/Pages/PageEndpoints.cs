@@ -66,7 +66,7 @@ public static class PageEndpoints
         var alias = form["alias"].ToString();
 
         var input = new CreateUrlInputDTO(originalUrl, false, string.IsNullOrWhiteSpace(alias) ? null : alias);
-        var result = await urlService.RegisterUrlAsync(input, cancellationToken);
+        var result = await urlService.CreateAsync(input, cancellationToken);
 
 
         var html = File.ReadAllText("wwwroot/result.html")

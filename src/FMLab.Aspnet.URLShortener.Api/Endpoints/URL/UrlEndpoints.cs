@@ -32,7 +32,6 @@ public static class UrlEndpoints
             .WithTags("Url")
             .Produces(StatusCodes.Status200OK)
             .ProducesValidationProblem(StatusCodes.Status404NotFound)
-            .ProducesValidationProblem(StatusCodes.Status422UnprocessableEntity)
             .RequireAuthorization()
             .MapToApiVersion(1, 0);
 
@@ -56,7 +55,7 @@ public static class UrlEndpoints
     private static async Task<IResult> Redirect([FromServices] IUrlService service, [FromRoute] string hash, HttpContext httpContext, CancellationToken cancellationToken)
     {
         var input = new UrlRedirectionInputDTO(hash);
-        var output = await service.LoadUrlRedirection(input, cancellationToken);
+        var output = await service.LoadUrlAsync(input, cancellationToken);
 
         if (!output.IsSuccess) return output.ToProblemResult();
 
@@ -74,12 +73,11 @@ public static class UrlEndpoints
     private static async Task<IResult> Post([FromServices] IUrlService service, [FromBody] CreateShortenURLRequest body, CancellationToken cancellationToken)
     {
         var input = new CreateUrlInputDTO(body.Target, body.TemporaryRedirection, body.Alias);
-        var output = await service.RegisterUrlAsync(input, cancellationToken);
+        var output = await service.CreateAsync(input, cancellationToken);
 
         if (!output.IsSuccess) return output.ToProblemResult();
 
-        var result = output.Data;
-        return Results.Created(result!.UrlShortened, result);
+        return Results.Created(output.Data!.UrlShortened, output.Data);
     }
 
     private static async Task<IResult> Patch([FromServices] IUrlService service, [FromRoute] string hash, [FromBody] UpdateShortenURLRequest body, CancellationToken cancellationToken)
@@ -93,7 +91,7 @@ public static class UrlEndpoints
     private static async Task<IResult> Delete([FromServices] IUrlService service, [FromRoute] string hash, CancellationToken cancellationToken)
     {
         var input = new DeleteUrlInputDTO(hash);
-        var output = await service.DeleteUrlAsync(input, cancellationToken);
+        var output = await service.DeleteAsync(input, cancellationToken);
 
         return output.ToProblemResult();
     }
@@ -103,8 +101,6 @@ public static class UrlEndpoints
         var input = new UrlAnalyticsInputDTO(hash);
         var output = await service.GetAnalyticsAsync(input, cancellationToken);
 
-        if (!output.IsSuccess) return output.ToProblemResult();
-
-        return Results.Ok(output.Data);
+        return output.ToProblemResult();
     }
 }
