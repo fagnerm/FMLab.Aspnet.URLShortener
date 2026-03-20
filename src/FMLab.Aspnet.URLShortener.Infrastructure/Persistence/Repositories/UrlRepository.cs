@@ -2,7 +2,6 @@
 // Copyright (c) 2026 Fagner Marinho 
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
-using FMLab.Aspnet.URLShortener.Business.ValueObjects;
 using FMLab.Aspnet.URLShortener.Business.Entities;
 using FMLab.Aspnet.URLShortener.Business.Exceptions;
 using FMLab.Aspnet.URLShortener.Business.Repositories;
@@ -37,15 +36,6 @@ public class UrlRepository : IUrlRepository
     {
         _context.Remove(user);
         await _context.SaveChangesAsync();
-    }
-
-    public async Task<bool> ExistAsync(Alias alias, CancellationToken cancellationToken)
-    {
-        var exists = await _context
-                                .Urls
-                                .Where(_ => _.Hash == alias.Value)
-                                .AnyAsync();
-        return exists;
     }
 
     public async Task<UrlRedirection?> GetByHashAsync(string hash, CancellationToken cancellationToken)
