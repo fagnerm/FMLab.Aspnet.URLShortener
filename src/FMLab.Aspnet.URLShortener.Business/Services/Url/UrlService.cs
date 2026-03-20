@@ -2,7 +2,6 @@
 // Copyright (c) 2026 Fagner Marinho 
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
-using FMLab.Aspnet.aliasShortener.Business.ValueObjects;
 using FMLab.Aspnet.URLShortener.Business.DTOs;
 using FMLab.Aspnet.URLShortener.Business.Entities;
 using FMLab.Aspnet.URLShortener.Business.Exceptions;
@@ -43,7 +42,7 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository,
         }
         catch (DomainException ex)
         {
-            return Result<CreateUrlOutputDTO>.Failure(ex.Message, ResultErrorType.Confict);
+            return Result<CreateUrlOutputDTO>.Failure(ex.Message, ResultErrorType.Conflict);
         }
 
         var result = new CreateUrlOutputDTO($"{_options.Value.Domain}/{url.Hash}");
@@ -87,6 +86,28 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository,
         await _clickRepository.AddAsync(click, cancellationToken);
     }
 
+    public async Task<Result<UpdateUrlOutputDTO>> UpdateUrlAsync(UpdateUrlInputDTO input, CancellationToken cancellationToken)
+    {
+        var url = await _repository.GetByHashAsync(input.Hash, cancellationToken);
+
+        if (url is null)
+            return Result<UpdateUrlOutputDTO>.Failure("Url not found");
+
+        var target = Url.Create(input.Target!);
+
+        if (target.IsFailure)
+            return Result<UpdateUrlOutputDTO>.Failure(target.Message!);
+
+        var redirection = input.TemporaryRedirection ? input.TemporaryRedirection : url.TemporaryRedirection;
+        url.Update(target.Data!, redirection);
+
+        await _repository.Update(url);
+        await _cache.RemoveAsync(input.Hash);
+
+        var result = new UpdateUrlOutputDTO(url.Hash, url.Target.Value, url.TemporaryRedirection);
+        return Result<UpdateUrlOutputDTO>.Success(result);
+    }
+
     public async Task<Result<UrlAnalyticsOutputDTO>> GetAnalyticsAsync(UrlAnalyticsInputDTO input, CancellationToken cancellationToken)
     {
         var url = await _repository.GetByHashAsync(input.Hash, cancellationToken);
@@ -110,25 +131,27 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository,
         return Result<UrlAnalyticsOutputDTO>.Success(result);
     }
 
-    public async Task<Result<UpdateUrlOutputDTO>> UpdateUrlAsync(UpdateUrlInputDTO input, CancellationToken cancellationToken)
+    public async Task<Result<bool>> AliasCheckerAsync(string alias, CancellationToken cancellationToken)
     {
-        var url = await _repository.GetByHashAsync(input.Hash, cancellationToken);
+        var result = Alias.Create(alias);
+        if (result.IsFailure)
+            return Result<bool>.Failure("Invalid alias");
 
-        if (url is null)
-            return Result<UpdateUrlOutputDTO>.Failure("Url not found");
+        var aliasValue = result.Data!.Value!;
 
-        var target = Url.Create(input.Target!);
+        if (await _cache.ExistAsync(aliasValue))
+            return Result<bool>.Success(true);
 
-        if (target.IsFailure)
-            return Result<UpdateUrlOutputDTO>.Failure(target.Message!);
+        var url = await _repository.GetByHashAsync(aliasValue, cancellationToken);
 
-        var redirection = input.TemporaryRedirection ? input.TemporaryRedirection : url.TemporaryRedirection;
-        url.Update(target.Data!, redirection);
+        if (url is not null)
+        {
+            var dto = new UrlRedirectionOutputDTO(url.Target.Value, url.TemporaryRedirection);
+            await _cache.SetAsync(aliasValue, dto);
+            return Result<bool>.Success(true);
+        }
 
-        await _repository.Update(url);
-        await _cache.RemoveAsync(input.Hash);
-
-        var result = new UpdateUrlOutputDTO(url.Hash, url.Target.Value, url.TemporaryRedirection);
-        return Result<UpdateUrlOutputDTO>.Success(result);
+        return Result<bool>.Success(false);
     }
+
 }

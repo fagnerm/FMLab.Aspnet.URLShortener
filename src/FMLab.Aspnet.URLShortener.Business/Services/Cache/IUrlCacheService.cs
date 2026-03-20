@@ -11,4 +11,5 @@ public interface IUrlCacheService
     Task<UrlRedirectionOutputDTO?> GetAsync(string hash);
     Task SetAsync(string hash, UrlRedirectionOutputDTO dto);
     Task RemoveAsync(string hash);
+    Task<bool> ExistAsync(string alias);
 }

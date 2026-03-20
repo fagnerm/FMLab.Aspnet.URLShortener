@@ -15,4 +15,5 @@ public interface IUrlService
     Task<Result> DeleteAsync(DeleteUrlInputDTO input, CancellationToken cancellationToken);
     Task RecordClickAsync(RecordClickInputDTO input, CancellationToken cancellationToken);
     Task<Result<UrlAnalyticsOutputDTO>> GetAnalyticsAsync(UrlAnalyticsInputDTO input, CancellationToken cancellationToken);
+    Task<Result<bool>> AliasCheckerAsync(string alias, CancellationToken cancellationToken);
 }
