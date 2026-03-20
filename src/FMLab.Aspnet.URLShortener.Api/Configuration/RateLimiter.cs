@@ -3,6 +3,7 @@
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using System.Threading.RateLimiting;
 
 namespace FMLab.Aspnet.URLShortener.Api.Configuration;
@@ -35,6 +36,12 @@ public static class RateLimiter
 
                 await context.HttpContext.Response.WriteAsJsonAsync(problemDetails, cancellationToken);
             };
+
+            options.AddFixedWindowLimiter("check-alias", opt =>
+            {
+                opt.PermitLimit = 10;
+                opt.Window = TimeSpan.FromSeconds(10);
+            });
 
             options.GlobalLimiter = PartitionedRateLimiter.Create<HttpContext, string>(httpContext =>
                 RateLimitPartition.GetFixedWindowLimiter(

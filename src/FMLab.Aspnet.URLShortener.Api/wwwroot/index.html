@@ -200,6 +200,15 @@
             margin-top: 5px;
         }
 
+        .alias-status {
+            position: absolute;
+            right: 12px;
+            font-size: 15px;
+            line-height: 1;
+            pointer-events: none;
+            transition: opacity 0.15s;
+        }
+
         .divider {
             display: flex;
             align-items: center;
@@ -318,9 +327,10 @@
                     <label class="field-label" for="alias">Alias <span style="color:#444">(opcional)</span></label>
                     <div class="input-wrap">
                         <span class="input-icon" style="font-size:11px;color:#555">~/</span>
-                        <input type="text" id="alias" name="alias" placeholder="meu-link" pattern="[a-zA-Z0-9\-]+" />
+                        <input type="text" id="alias" name="alias" placeholder="meu-link" pattern="[a-zA-Z0-9\-]+" autocomplete="off" />
+                        <span class="alias-status" id="alias-status"></span>
                     </div>
-                    <p class="hint">letras, números e hífens</p>
+                    <p class="hint" id="alias-hint">letras, números e hífens · máx. 15 caracteres</p>
                 </div>
 
                 <div class="divider">
@@ -357,6 +367,57 @@
     </div>
 
     <script>
+        (() => {
+            const aliasInput  = document.getElementById('alias');
+            const aliasStatus = document.getElementById('alias-status');
+            const aliasHint   = document.getElementById('alias-hint');
+            const ALIAS_RE    = /^[a-zA-Z0-9\-]{1,15}$/;
+
+            let debounceTimer = null;
+
+            function setStatus(state) {
+                // state: '' | 'checking' | 'available' | 'taken' | 'invalid'
+                aliasStatus.textContent = '';
+                aliasHint.style.color   = '#555';
+                aliasHint.textContent   = 'letras, números e hífens · máx. 15 caracteres';
+
+                if (state === 'checking') {
+                    aliasStatus.textContent = '...';
+                    aliasStatus.style.color = '#888';
+                } else if (state === 'available') {
+                    aliasHint.style.color   = '#7ed957';
+                    aliasHint.textContent   = 'disponível';
+                } else if (state === 'taken') {
+                    aliasHint.style.color   = '#e05555';
+                    aliasHint.textContent   = 'alias já está em uso';
+                } else if (state === 'invalid') {
+                    aliasHint.style.color   = '#e05555';
+                    aliasHint.textContent   = 'apenas letras, números e hífens · máx. 15 caracteres';
+                }
+            }
+
+            aliasInput.addEventListener('input', () => {
+                clearTimeout(debounceTimer);
+                const value = aliasInput.value.trim();
+
+                if (!value) { setStatus(''); return; }
+                if (!ALIAS_RE.test(value)) { setStatus('invalid'); return; }
+
+                setStatus('checking');
+
+                debounceTimer = setTimeout(async () => {
+                    try {
+                        const res = await fetch(`/api/v1/aliases/check?value=${encodeURIComponent(value)}`);
+                        if (!res.ok) { setStatus(''); return; }
+                        const taken = await res.json();
+                        setStatus(taken ? 'taken' : 'available');
+                    } catch {
+                        setStatus('');
+                    }
+                }, 450);
+            });
+        })();
+
         function extractHash(input) {
             try {
                 const url = new URL(input);

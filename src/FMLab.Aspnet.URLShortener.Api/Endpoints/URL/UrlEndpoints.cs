@@ -49,6 +49,13 @@ public static class UrlEndpoints
             .RequireAuthorization()
             .MapToApiVersion(1, 0);
 
+        group.MapGet("/aliases/check", AliasesCheck)
+            .WithTags("Url")
+            .Produces(StatusCodes.Status200OK)
+            .ProducesValidationProblem(StatusCodes.Status404NotFound)
+            .RequireRateLimiting("check-alias")
+            .MapToApiVersion(1, 0);
+
         return group;
     }
 
@@ -100,6 +107,13 @@ public static class UrlEndpoints
     {
         var input = new UrlAnalyticsInputDTO(hash);
         var output = await service.GetAnalyticsAsync(input, cancellationToken);
+
+        return output.ToProblemResult();
+    }
+
+    private static async Task<IResult> AliasesCheck([FromServices] IUrlService service, [FromQuery] string value, CancellationToken cancellationToken)
+    {
+        var output = await service.AliasCheckerAsync(value, cancellationToken);
 
         return output.ToProblemResult();
     }

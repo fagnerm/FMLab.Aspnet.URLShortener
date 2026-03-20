@@ -33,4 +33,11 @@ public class RedisUrlCache(IConnectionMultiplexer connectionMultiplexer) : IUrlC
     {
         await Db.KeyDeleteAsync(RedisConstants.Keys.UrlRedirect(hash));
     }
+
+    public async Task<bool> ExistAsync(string alias)
+    {
+        var found = await Db.StringGetAsync(RedisConstants.Keys.UrlRedirect(alias));
+
+        return found.HasValue;
+    }
 }
