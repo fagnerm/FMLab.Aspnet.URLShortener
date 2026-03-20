@@ -2,11 +2,11 @@
 // Copyright (c) 2026 Fagner Marinho 
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
-using System.Text.Json;
-using System.Text.Json.Serialization;
 using FMLab.Aspnet.URLShortener.Business.DTOs;
 using FMLab.Aspnet.URLShortener.Business.Services.URL;
 using Microsoft.AspNetCore.Antiforgery;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace FMLab.Aspnet.URLShortener.Api.Pages;
 
@@ -71,7 +71,7 @@ public static class PageEndpoints
 
         var html = File.ReadAllText("wwwroot/result.html")
                        .Replace("{ORIGINAL_URL}", originalUrl)
-                       .Replace("{SHORT_URL}", result.Data!.UrlShortened);
+                       .Replace("{SHORT_URL}", result.Data?.UrlShortened);
 
         return Results.Content(html, "text/html");
     }

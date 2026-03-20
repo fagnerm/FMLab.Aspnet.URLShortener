@@ -7,7 +7,6 @@ using FMLab.Aspnet.URLShortener.Business.Exceptions;
 using FMLab.Aspnet.URLShortener.Business.Repositories;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
-using Npgsql;
 
 namespace FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Repositories;
 public class UrlRepository : IUrlRepository
@@ -27,7 +26,6 @@ public class UrlRepository : IUrlRepository
             await _context.SaveChangesAsync(cancellationToken);
         }
         catch (DbUpdateException ex)
-            when (ex.InnerException is PostgresException { SqlState: "23505" })
         {
             _context.Entry(url).State = EntityState.Detached;
             throw new DomainException("Url already exists", ex);

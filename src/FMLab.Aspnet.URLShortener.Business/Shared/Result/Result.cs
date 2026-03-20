@@ -40,7 +40,7 @@ public class Result<TData>
         Message = message;
         Data = data;
     }
-    public static Result<TData> Failure (string message, ResultErrorType errorType = ResultErrorType.None, TData data = default!)
+    public static Result<TData> Failure(string message, ResultErrorType errorType = ResultErrorType.None, TData data = default!)
     {
         return new Result<TData>(false, message, data);
     }

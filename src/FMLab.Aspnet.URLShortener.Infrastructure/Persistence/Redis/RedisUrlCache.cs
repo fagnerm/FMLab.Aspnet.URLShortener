@@ -2,11 +2,11 @@
 // Copyright (c) 2026 Fagner Marinho
 // Licensed under the MIT License. See LICENSE file in the project root for details.
 
-using System.Text.Json;
 using FMLab.Aspnet.URLShortener.Business.DTOs;
 using FMLab.Aspnet.URLShortener.Business.Options;
 using FMLab.Aspnet.URLShortener.Business.Services.Cache;
 using StackExchange.Redis;
+using System.Text.Json;
 
 namespace FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Redis;
 

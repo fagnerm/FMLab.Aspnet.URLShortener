@@ -26,13 +26,13 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository,
     public async Task<Result<CreateUrlOutputDTO>> CreateAsync(CreateUrlInputDTO input, CancellationToken cancellationToken)
     {
         var target = Url.Create(input.Target);
-        if (target.IsFailure) 
+        if (target.IsFailure)
             return Result<CreateUrlOutputDTO>.Failure(target.Message!);
 
         var id = await _idService.GetIdAsync();
         var alias = Alias.Create(input.Alias);
 
-        if (alias.IsFailure) 
+        if (alias.IsFailure)
             return Result<CreateUrlOutputDTO>.Failure(alias.Message!);
 
         var url = new UrlRedirection(id, target.Data!, input.TemporaryRedirection, alias.Data);
@@ -54,7 +54,7 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository,
     {
         var existingUrl = await _repository.GetByHashAsync(input.Hash, cancellationToken);
 
-        if (existingUrl is null) 
+        if (existingUrl is null)
             return Result.Failure("Url not found", ResultErrorType.NotFound);
 
         await _repository.Delete(existingUrl!);
@@ -66,13 +66,13 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository,
     public async Task<Result<UrlRedirectionOutputDTO>> LoadUrlAsync(UrlRedirectionInputDTO input, CancellationToken cancellationToken)
     {
         var cached = await _cache.GetAsync(input.Hash);
-        
-        if (cached is not null) 
+
+        if (cached is not null)
             return Result<UrlRedirectionOutputDTO>.Success(cached);
 
         var url = await _repository.GetByHashAsync(input.Hash, cancellationToken);
 
-        if (url is null) 
+        if (url is null)
             return Result<UrlRedirectionOutputDTO>.Failure("Url not found", ResultErrorType.NotFound);
 
         var result = new UrlRedirectionOutputDTO(url.Target.Value, url.TemporaryRedirection);
@@ -91,12 +91,12 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository,
     {
         var url = await _repository.GetByHashAsync(input.Hash, cancellationToken);
 
-        if (url is null) 
+        if (url is null)
             return Result<UrlAnalyticsOutputDTO>.Failure("Url not found", ResultErrorType.NotFound);
 
-        var totalClicks    = await _clickRepository.CountByHashAsync(input.Hash, cancellationToken);
-        var clicksByDay    = await _clickRepository.GetDailyClicksAsync(input.Hash, AppOptions.ANALYTICS_PERIOD, cancellationToken);
-        var topReferrers   = await _clickRepository.GetTopReferrersAsync(input.Hash, AppOptions.TOP_REFERRERS, cancellationToken);
+        var totalClicks = await _clickRepository.CountByHashAsync(input.Hash, cancellationToken);
+        var clicksByDay = await _clickRepository.GetDailyClicksAsync(input.Hash, AppOptions.ANALYTICS_PERIOD, cancellationToken);
+        var topReferrers = await _clickRepository.GetTopReferrersAsync(input.Hash, AppOptions.TOP_REFERRERS, cancellationToken);
 
         var result = new UrlAnalyticsOutputDTO(
             url.Hash,
@@ -114,13 +114,13 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository,
     {
         var url = await _repository.GetByHashAsync(input.Hash, cancellationToken);
 
-        if (url is null) 
+        if (url is null)
             return Result<UpdateUrlOutputDTO>.Failure("Url not found");
 
-        var target =  Url.Create(input.Target!);
+        var target = Url.Create(input.Target!);
 
-        if (target.IsFailure) 
-            return Result<UpdateUrlOutputDTO>.Failure(target.Message!); 
+        if (target.IsFailure)
+            return Result<UpdateUrlOutputDTO>.Failure(target.Message!);
 
         var redirection = input.TemporaryRedirection ? input.TemporaryRedirection : url.TemporaryRedirection;
         url.Update(target.Data!, redirection);

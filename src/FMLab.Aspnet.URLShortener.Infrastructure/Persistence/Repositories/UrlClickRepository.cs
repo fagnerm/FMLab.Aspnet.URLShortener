@@ -8,7 +8,6 @@ using FMLab.Aspnet.URLShortener.Business.Repositories;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Context;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Views;
 using Microsoft.EntityFrameworkCore;
-using Npgsql;
 
 namespace FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Repositories;
 
@@ -33,7 +32,7 @@ public class UrlClickRepository(ApplicationDbContext context) : IUrlClickReposit
 
         var result = await context
                             .Database
-                            .SqlQueryRaw<DailyClicksView>("SELECT year, month, day, count FROM fn_daily_clicks({0}, {1})",hash, since)
+                            .SqlQueryRaw<DailyClicksView>("SELECT year, month, day, count FROM fn_daily_clicks({0}, {1})", hash, since)
                             .ToListAsync();
 
         return [.. result.Select(_ => new DailyClicksDTO(new DateOnly(_.Year, _.Month, _.Day), _.Count))];

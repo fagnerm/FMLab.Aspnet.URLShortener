@@ -23,10 +23,10 @@ public record Alias : IComparable<Alias>
         }
 
         if (!IsValid(alias!))
-        { 
+        {
             return Result<Alias>.Failure("Alias must contain only letters, numbers and hyphens, up to 15 characters.");
         }
-        
+
         Alias entity = new(alias!);
         return Result<Alias>.Success(entity);
     }

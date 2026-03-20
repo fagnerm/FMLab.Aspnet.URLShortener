@@ -1,4 +1,4 @@
-@FMLab.Aspnet.URLShortener.Api_HostAddress = http://localhost:9000
+@FMLab.Aspnet.URLShortener.Api_HostAddress = http://localhost:9000/api/v1
 @ApiKey = e6ae77d8-95b0-4627-b6b9-aa2a56b78474
 
 POST {{FMLab.Aspnet.URLShortener.Api_HostAddress}}/Url
@@ -17,11 +17,11 @@ X-Api-Key: {{ApiKey}}
 
 ###
 
-PATCH {{FMLab.Aspnet.URLShortener.Api_HostAddress}}/Users/1
+PATCH {{FMLab.Aspnet.URLShortener.Api_HostAddress}}/Url/RZWj
 Content-Type: application/json
 X-Api-Key: {{ApiKey}}
 {
-  "name": "John Doe"
+  "Target": "https://duckduckgo.com"
 }
 
 ###

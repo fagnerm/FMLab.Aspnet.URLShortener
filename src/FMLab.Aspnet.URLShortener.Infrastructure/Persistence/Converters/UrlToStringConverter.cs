@@ -10,7 +10,7 @@ public class UrlToStringConverter : ValueConverter<Url, string>
 {
     public UrlToStringConverter() :
         base(n => n.Value,
-             n => new Url(n))
+             n => Url.Create(n).Data!)
     {
     }
 }
