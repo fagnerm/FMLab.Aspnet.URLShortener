@@ -10,23 +10,23 @@ public class Result
     public bool IsFailure { get { return !IsSuccess; } }
     public string? Message { get; private set; }
     public ResultErrorType? ErrorType { get; private set; }
-    protected Result(bool success, string message)
+    private Result(bool success, string message, ResultErrorType resultError)
     {
         IsSuccess = success;
         Message = message;
+        ErrorType = resultError;
     }
     public static Result Failure(string message, ResultErrorType errorType = ResultErrorType.None)
     {
-        return new Result(false, message);
+        return new Result(false, message, errorType);
     }
     public static Result Success(string message = default!)
     {
-        return new Result(true, message);
+        return new Result(true, message, ResultErrorType.None);
     }
 }
 
 public class Result<TData>
-    where TData : class
 {
     public bool IsSuccess { get; private set; }
     public bool IsFailure { get { return !IsSuccess; } }
@@ -34,19 +34,20 @@ public class Result<TData>
     public TData? Data { get; private set; }
     public ResultErrorType? ErrorType { get; private set; }
 
-    private Result(bool success, string message, TData data)
+    private Result(bool success, string message, TData data, ResultErrorType errorType)
     {
         IsSuccess = success;
         Message = message;
         Data = data;
+        ErrorType = errorType;
     }
     public static Result<TData> Failure(string message, ResultErrorType errorType = ResultErrorType.None, TData data = default!)
     {
-        return new Result<TData>(false, message, data);
+        return new Result<TData>(false, message, data, errorType);
     }
     public static Result<TData> Success(TData data, string message = default!)
     {
-        return new Result<TData>(true, message, data);
+        return new Result<TData>(true, message, data, ResultErrorType.None);
     }
 }
 
@@ -54,6 +55,6 @@ public enum ResultErrorType
 {
     None,
     NotFound,
-    Confict,
+    Conflict,
     Other
 }

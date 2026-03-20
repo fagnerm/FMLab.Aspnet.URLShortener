@@ -5,7 +5,7 @@
 using FMLab.Aspnet.URLShortener.Business.Shared.Result;
 using System.Text.RegularExpressions;
 
-namespace FMLab.Aspnet.aliasShortener.Business.ValueObjects;
+namespace FMLab.Aspnet.URLShortener.Business.ValueObjects;
 public record Alias : IComparable<Alias>
 {
     public string? Value { get; init; }
@@ -19,7 +19,7 @@ public record Alias : IComparable<Alias>
     {
         if (string.IsNullOrEmpty(alias))
         {
-            Result<Alias>.Success(default!);
+            return Result<Alias>.Success(default!);
         }
 
         if (!IsValid(alias!))
