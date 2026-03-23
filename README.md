@@ -2,4 +2,4 @@
 ASP.NET Minimal API implementing URL Shortener.
 
 
-<a href="https://url.fagnermarinho.dev">Live</a>
+<a href="https://shortener.fagnermarinho.dev">Live Demo</a>
