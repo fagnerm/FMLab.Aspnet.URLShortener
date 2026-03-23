@@ -1,7 +1,7 @@
-@FMLab.Aspnet.URLShortener.Api_HostAddress = http://localhost:9000/api/v1
+@FMLab.Aspnet.URLShortener.Api_HostAddress = http://localhost:9000
 @ApiKey = e6ae77d8-95b0-4627-b6b9-aa2a56b78474
 
-POST {{FMLab.Aspnet.URLShortener.Api_HostAddress}}/Url
+POST {{FMLab.Aspnet.URLShortener.Api_HostAddress}}/api/v1/Url
 Content-Type: application/json
 X-Api-Key: {{ApiKey}}
 
@@ -12,12 +12,12 @@ X-Api-Key: {{ApiKey}}
 
 ###
 
-GET {{FMLab.Aspnet.URLShortener.Api_HostAddress}}/RZWj
+GET {{FMLab.Aspnet.URLShortener.Api_HostAddress}}/api/v1/RZWj
 X-Api-Key: {{ApiKey}}
 
 ###
 
-PATCH {{FMLab.Aspnet.URLShortener.Api_HostAddress}}/Url/RZWj
+PATCH {{FMLab.Aspnet.URLShortener.Api_HostAddress}}/api/v1/Url/RZWj
 Content-Type: application/json
 X-Api-Key: {{ApiKey}}
 {
@@ -26,5 +26,8 @@ X-Api-Key: {{ApiKey}}
 
 ###
 
-DELETE {{FMLab.Aspnet.URLShortener.Api_HostAddress}}/RZWj
+DELETE {{FMLab.Aspnet.URLShortener.Api_HostAddress}}/api/v1/RZWj
 X-Api-Key: {{ApiKey}}
+
+###
+GET {{FMLab.Aspnet.URLShortener.Api_HostAddress}}/api/health

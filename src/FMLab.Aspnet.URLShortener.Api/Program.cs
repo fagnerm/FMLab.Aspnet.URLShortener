@@ -36,6 +36,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseRateLimiting();
 app.UseCorsPolicy();
+app.UseAppHealthCheck();
 app.MapPageEndpoints();
 app.MapUrlRedirectionEndpoint();
 
