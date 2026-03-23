@@ -13,7 +13,7 @@ public interface IUrlService
     Task<Result<CreateUrlOutputDTO>> CreateAsync(CreateUrlInputDTO input, CancellationToken cancellationToken);
     Task<Result<UpdateUrlOutputDTO>> UpdateUrlAsync(UpdateUrlInputDTO input, CancellationToken cancellationToken);
     Task<Result> DeleteAsync(DeleteUrlInputDTO input, CancellationToken cancellationToken);
-    Task RecordClickAsync(RecordClickInputDTO input, CancellationToken cancellationToken);
     Task<Result<UrlAnalyticsOutputDTO>> GetAnalyticsAsync(UrlAnalyticsInputDTO input, CancellationToken cancellationToken);
     Task<Result<bool>> AliasCheckerAsync(string alias, CancellationToken cancellationToken);
+    void RecordClick(RecordClickInputDTO input);
 }

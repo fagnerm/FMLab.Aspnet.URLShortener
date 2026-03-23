@@ -108,6 +108,27 @@ services:
     networks:
       - app-network
 
+  click-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+    container_name: click-worker
+    environment:
+      DOTNET_ENVIRONMENT: Production
+      Database:Server: ${DB_SERVER}
+      Database:Port: ${DB_PORT}
+      Database:Name: ${DB_NAME}
+      Database:User: ${DB_USER}
+      Database:Password: ${DB_PASSWORD}
+      Redis:Host: ${REDIS_HOST}
+      Redis:Port: ${REDIS_PORT}
+    depends_on:
+      pgbouncer:
+        condition: service_healthy
+    networks:
+      - app-network
+    restart: unless-stopped
+
   redis-insight:
     image: redis/redisinsight:latest
     ports:

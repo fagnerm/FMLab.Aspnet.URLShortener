@@ -10,11 +10,19 @@ public static class RedisConstants
     {
         public const int Cache = 0;
         public const int Sequence = 1;
+        public const int Queue = 2;
     }
 
     public static class Keys
     {
         public const string IdSequence = "url:id_seq";
         public static string UrlRedirect(string hash) => $"url:redirect:{hash}";
+    }
+
+    public static class Stream
+    {
+        public const string ClickStream = "click:stream";
+        public const string ConsumerGroup = "click-workers";
+        public static string ConsumerName { get; } = Environment.MachineName;
     }
 }

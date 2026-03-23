@@ -5,7 +5,10 @@
 
 using FMLab.Aspnet.URLShortener.Business.Repositories;
 using FMLab.Aspnet.URLShortener.Business.Services.Cache;
+using FMLab.Aspnet.URLShortener.Business.Services.Click;
+
 using FMLab.Aspnet.URLShortener.Business.Services.Identifier;
+using FMLab.Aspnet.URLShortener.Infrastructure.BackgroundServices;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Context;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Redis;
 using FMLab.Aspnet.URLShortener.Infrastructure.Persistence.Repositories;
@@ -20,6 +23,22 @@ namespace FMLab.Aspnet.URLShortener.Infrastructure.DependencyInjection;
 public static class InfrastructureModule
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config, IHostEnvironment environment)
+    {
+        services.AddAppDbContext(config, environment);
+
+        services.AddScoped<IUrlRepository, UrlRepository>();
+        services.AddScoped<IUrlClickRepository, UrlClickRepository>();
+
+        services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect($"{config["Redis:Host"]}:{config["Redis:Port"]}"));
+        services.AddSingleton<IIdentifierService, RedisIdentifier>();
+        services.AddSingleton<IUrlCacheService, RedisUrlCache>();
+
+        services.AddSingleton<IClickQueue, RedisClickQueue>();
+
+        return services;
+    }
+
+    public static IServiceCollection AddAppDbContext(this IServiceCollection services, IConfiguration config, IHostEnvironment environment)
     {
         services.AddDbContext<ApplicationDbContext>(options =>
         {
@@ -46,13 +65,6 @@ public static class InfrastructureModule
                        .LogTo(Console.WriteLine);
             }
         });
-
-        services.AddScoped<IUrlRepository, UrlRepository>();
-        services.AddScoped<IUrlClickRepository, UrlClickRepository>();
-
-        services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect($"{config["Redis:Host"]}:{config["Redis:Port"]}"));
-        services.AddSingleton<IIdentifierService, RedisIdentifier>();
-        services.AddSingleton<IUrlCacheService, RedisUrlCache>();
 
         return services;
     }

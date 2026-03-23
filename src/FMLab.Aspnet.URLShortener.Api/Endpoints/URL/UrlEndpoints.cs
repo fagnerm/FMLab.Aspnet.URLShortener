@@ -72,7 +72,7 @@ public static class UrlEndpoints
             httpContext.Request.Headers.UserAgent.ToString(),
             httpContext.Request.Headers.Referer.ToString()
         );
-        await service.RecordClickAsync(click, cancellationToken);
+        service.RecordClick(click);
 
         return Results.Redirect(output.Data!.Target, output.Data.TemporaryRedirection);
     }

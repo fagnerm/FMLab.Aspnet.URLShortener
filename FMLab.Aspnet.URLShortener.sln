@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMLab.Aspnet.URLShortener.B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMLab.Aspnet.URLShortener.Tests", "tests\FMLab.Aspnet.URLShortener.Tests\FMLab.Aspnet.URLShortener.Tests.csproj", "{90F4D3B2-5C09-4281-88D6-BF4D35386825}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMLab.Aspnet.URLShortener.Worker", "src\FMLab.Aspnet.URLShortener.Worker\FMLab.Aspnet.URLShortener.Worker.csproj", "{5D06CBAF-60DB-4435-97E6-3D09B06C725A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{90F4D3B2-5C09-4281-88D6-BF4D35386825}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90F4D3B2-5C09-4281-88D6-BF4D35386825}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90F4D3B2-5C09-4281-88D6-BF4D35386825}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D06CBAF-60DB-4435-97E6-3D09B06C725A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D06CBAF-60DB-4435-97E6-3D09B06C725A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D06CBAF-60DB-4435-97E6-3D09B06C725A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D06CBAF-60DB-4435-97E6-3D09B06C725A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

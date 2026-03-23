@@ -8,19 +8,22 @@ using FMLab.Aspnet.URLShortener.Business.Exceptions;
 using FMLab.Aspnet.URLShortener.Business.Options;
 using FMLab.Aspnet.URLShortener.Business.Repositories;
 using FMLab.Aspnet.URLShortener.Business.Services.Cache;
+using FMLab.Aspnet.URLShortener.Business.Services.Click;
+
 using FMLab.Aspnet.URLShortener.Business.Services.Identifier;
 using FMLab.Aspnet.URLShortener.Business.Shared.Result;
 using FMLab.Aspnet.URLShortener.Business.ValueObjects;
 using Microsoft.Extensions.Options;
 
 namespace FMLab.Aspnet.URLShortener.Business.Services.URL;
-public class UrlService(IIdentifierService idService, IUrlRepository repository, IUrlClickRepository clickRepository, IUrlCacheService cache, IOptions<AppOptions> options) : IUrlService
+public class UrlService(IIdentifierService idService, IUrlRepository repository, IUrlClickRepository clickRepository, IUrlCacheService cache, IClickQueue clickQueue, IOptions<AppOptions> options) : IUrlService
 {
     private readonly IUrlRepository _repository = repository;
     private readonly IUrlClickRepository _clickRepository = clickRepository;
     private readonly IUrlCacheService _cache = cache;
     private readonly IIdentifierService _idService = idService;
     private readonly IOptions<AppOptions> _options = options;
+    private readonly IClickQueue _clickQueue = clickQueue;
 
     public async Task<Result<CreateUrlOutputDTO>> CreateAsync(CreateUrlInputDTO input, CancellationToken cancellationToken)
     {
@@ -78,12 +81,6 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository,
         await _cache.SetAsync(input.Hash, result);
 
         return Result<UrlRedirectionOutputDTO>.Success(result);
-    }
-
-    public async Task RecordClickAsync(RecordClickInputDTO input, CancellationToken cancellationToken)
-    {
-        var click = new UrlClick(input.Hash, input.IpAddress, input.UserAgent, input.Referer);
-        await _clickRepository.AddAsync(click, cancellationToken);
     }
 
     public async Task<Result<UpdateUrlOutputDTO>> UpdateUrlAsync(UpdateUrlInputDTO input, CancellationToken cancellationToken)
@@ -154,4 +151,8 @@ public class UrlService(IIdentifierService idService, IUrlRepository repository,
         return Result<bool>.Success(false);
     }
 
+    public void RecordClick(RecordClickInputDTO input)
+    {
+        _clickQueue.Enqueue(input);
+    }
 }
