@@ -74,7 +74,7 @@ public static class UrlEndpoints
         );
         await service.RecordClickAsync(click, cancellationToken);
 
-        return Results.Redirect(output.Data!.Target, output.Data.TemporaryRedirection);
+        return Results.Redirect(output.Data!.Target, permanent: !output.Data.TemporaryRedirection);
     }
 
     private static async Task<IResult> Post([FromServices] IUrlService service, [FromBody] CreateShortenURLRequest body, CancellationToken cancellationToken)
